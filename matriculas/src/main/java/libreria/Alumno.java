@@ -4,6 +4,7 @@
  */
 package libreria;
 
+
 /**
  *
  * @author estrosebas
@@ -154,25 +155,5 @@ public class Alumno {
     public void setDNI_Madre(String DNI_Madre) {
         this.DNI_Madre = DNI_Madre;
     }
-
-    @Override
-    public String toString() {
-        return
-                "\nID_Alumno=" + ID_Alumno
-                + "\nGrado_2023=" + Grado_2023
-                + "\nColegio_Origen=" + Colegio_Origen
-                + "\nDistrito=" + Distrito
-                + "\nApellido_Paterno=" + Apellido_Paterno
-                + "\nApellido_Materno=" + Apellido_Materno
-                + "\nNombres=" + Nombres
-                + "\nFecha_Nacimiento=" + Fecha_Nacimiento
-                + "\nLugar_Nacimiento=" + Lugar_Nacimiento
-                + "\nDireccion_Domicilio=" + Direccion_Domicilio
-                + "\nDNI=" + DNI
-                + "\nReligión=" + Religión
-                + "\nDNI_Padre=" + DNI_Padre
-                + "\nDNI_Madre=" + DNI_Madre
-                + "\n";
-    }
-
+    
 }
