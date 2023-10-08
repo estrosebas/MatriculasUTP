@@ -3,30 +3,42 @@
  */
 package com.develop.matriculas;
 
-import java.util.List;
 
 /**
  *
  * @author estrosebas
  */
-import libreria.*;
+//import libreria.*;
 //import java.util.Date;
 //import java.sql.Connection;
 //import java.sql.DriverManager;
 //import java.sql.SQLException;
 //import java.sql.PreparedStatement;
 //import java.sql.ResultSet;
-
+import javax.swing.JOptionPane;
 public class Matriculas {
     
 
     public static void main(String[] args) {
-        List<Alumno> listaAlumnos = Alumno.listarAlumnos();
-        for (Alumno alumno : listaAlumnos) {
-            //System.out.println("ID: " + alumno.getId());
-            System.out.println("Grado 2023: " + alumno.getGrado_2023());
-            System.out.println("Colegio de Origen: " + alumno.getColegio_Origen());
-            // Imprimir otros atributos o realizar otras operaciones
-        }
+       // JOptionPane.showMessageDialog(null, "Mostrar tabla", null, 0);
+       Object[] options = {"Listar", "Salir"};
+
+        int respuesta = JOptionPane.showOptionDialog(null,
+                "¿Qué acción deseas realizar?",
+                "Opciones",
+                JOptionPane.DEFAULT_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                options,
+                options[0]);
+                if (respuesta == 0) {
+                    JOptionPane.showMessageDialog(null, "Has seleccionado 'Listar'.");
+                     Login frame = new Login();
+                     frame.setVisible(true);
+                } else if (respuesta == 1) {
+                    // Aquí puedes colocar el código para salir del programa.
+                    JOptionPane.showMessageDialog(null, "Has seleccionado 'Salir'.");
+                }
+       
     }
 }
