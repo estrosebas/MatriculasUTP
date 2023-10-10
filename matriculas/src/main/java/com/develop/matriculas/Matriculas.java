@@ -42,7 +42,7 @@ public class Matriculas {
 
             StringBuilder mensaje = new StringBuilder("Lista de Alumnos:\n");
             for (Alumno alumno : alumnos) {
-                mensaje.append(alumno.getNom_Alu()).append("\n");
+                mensaje.append(alumno.getId_Alumno()).append("\n");
             }
 
             JOptionPane.showMessageDialog(null, mensaje.toString());
