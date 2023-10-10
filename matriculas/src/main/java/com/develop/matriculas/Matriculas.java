@@ -8,15 +8,13 @@ package com.develop.matriculas;
  *
  * @author estrosebas
  */
-//import libreria.*;
+import libreria.*;
 //import java.util.Date;
 //import java.sql.Connection;
 //import java.sql.DriverManager;
 //import java.sql.SQLException;
 //import java.sql.PreparedStatement;
 //import java.sql.ResultSet;
-import libreria.Alumno;
-import libreria.AlumnoDAO;
 import javax.swing.JOptionPane;
 import java.util.List;
 
@@ -42,12 +40,13 @@ public class Matriculas {
 
             StringBuilder mensaje = new StringBuilder("Lista de Alumnos:\n");
             for (Alumno alumno : alumnos) {
-                mensaje.append(alumno.getId_Alumno()).append("\n");
+                mensaje.append(alumno.getDni_Alumno()).append("\n");
             }
-
+            
             JOptionPane.showMessageDialog(null, mensaje.toString());
 
-            // Login frame = new Login();  // Comentado ya que mencionaste que Login no está presente por ahora
+            // Login frame = new Login();  
+            // Comentado ya que mencionaste que Login no está presente por ahora
             // frame.setVisible(true);
 
         } else if (respuesta == 1) {
