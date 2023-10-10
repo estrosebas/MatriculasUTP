@@ -13,147 +13,180 @@ import java.util.Date;
 
 public class Alumno {
 
-    private int ID_Alumno;
-    private String Grado_2023;
-    private String Colegio_Origen;
-    private String Distrito;
-    private String Apellido_Paterno;
-    private String Apellido_Materno;
-    private String Nombres;
-    private Date Fecha_Nacimiento;
-    private String Lugar_Nacimiento;
-    private String Direccion_Domicilio;
-    private String DNI;
-    private String Religión;
-    private String DNI_Padre;
-    private String DNI_Madre;
+   private int id_Alumno;
+    private int dni_Alumno;
+    private String nom_Alu;
+    private String ape_PAl;
+    private String ape_MAl;
+    private Date fec_Nac;
+    private String sexo;
+    private int id_distritoAlum;
+    private String domicilio;
+    private String nivel_ing;
+    private int grado_ing;
+    private String colegio_ant;
+    private int id_habilidad;
+    private int id_Repre;
+    private String relacion;
 
-    public Alumno(String Grado_2023, String Colegio_Origen, String Distrito, String Apellido_Paterno, String Apellido_Materno, String Nombres, Date Fecha_Nacimiento, String Lugar_Nacimiento, String Direccion_Domicilio, String DNI, String Religión, String DNI_Padre, String DNI_Madre) {
-        this.Grado_2023 = Grado_2023;
-        this.Colegio_Origen = Colegio_Origen;
-        this.Distrito = Distrito;
-        this.Apellido_Paterno = Apellido_Paterno;
-        this.Apellido_Materno = Apellido_Materno;
-        this.Nombres = Nombres;
-        this.Fecha_Nacimiento = Fecha_Nacimiento;
-        this.Lugar_Nacimiento = Lugar_Nacimiento;
-        this.Direccion_Domicilio = Direccion_Domicilio;
-        this.DNI = DNI;
-        this.Religión = Religión;
-        this.DNI_Padre = DNI_Padre;
-        this.DNI_Madre = DNI_Madre;
+    public Alumno(int id_Alumno, int dni_Alumno, String nom_Alu, String ape_PAl, String ape_MAl, Date fec_Nac, String sexo, int id_distritoAlum, String domicilio, String nivel_ing, int grado_ing, String colegio_ant, int id_habilidad, int id_Repre, String relacion) {
+        this.id_Alumno = id_Alumno;
+        this.dni_Alumno = dni_Alumno;
+        this.nom_Alu = nom_Alu;
+        this.ape_PAl = ape_PAl;
+        this.ape_MAl = ape_MAl;
+        this.fec_Nac = fec_Nac;
+        this.sexo = sexo;
+        this.id_distritoAlum = id_distritoAlum;
+        this.domicilio = domicilio;
+        this.nivel_ing = nivel_ing;
+        this.grado_ing = grado_ing;
+        this.colegio_ant = colegio_ant;
+        this.id_habilidad = id_habilidad;
+        this.id_Repre = id_Repre;
+        this.relacion = relacion;
     }
 
-    public int getID_Alumno() {
-        return ID_Alumno;
+    public Alumno(int dni_Alumno, String nom_Alu, String ape_PAl, String ape_MAl, Date fec_Nac, String sexo, int id_distritoAlum, String domicilio, String nivel_ing, int grado_ing, String colegio_ant, int id_habilidad, int id_Repre, String relacion) {
+        this.dni_Alumno = dni_Alumno;
+        this.nom_Alu = nom_Alu;
+        this.ape_PAl = ape_PAl;
+        this.ape_MAl = ape_MAl;
+        this.fec_Nac = fec_Nac;
+        this.sexo = sexo;
+        this.id_distritoAlum = id_distritoAlum;
+        this.domicilio = domicilio;
+        this.nivel_ing = nivel_ing;
+        this.grado_ing = grado_ing;
+        this.colegio_ant = colegio_ant;
+        this.id_habilidad = id_habilidad;
+        this.id_Repre = id_Repre;
+        this.relacion = relacion;
     }
 
-    public void setID_Alumno(int ID_Alumno) {
-        this.ID_Alumno = ID_Alumno;
+    public Alumno() {
     }
 
-    public String getGrado_2023() {
-        return Grado_2023;
+    public int getId_Alumno() {
+        return id_Alumno;
     }
 
-    public void setGrado_2023(String Grado_2023) {
-        this.Grado_2023 = Grado_2023;
+    public void setId_Alumno(int id_Alumno) {
+        this.id_Alumno = id_Alumno;
     }
 
-    public String getColegio_Origen() {
-        return Colegio_Origen;
+    public int getDni_Alumno() {
+        return dni_Alumno;
     }
 
-    public void setColegio_Origen(String Colegio_Origen) {
-        this.Colegio_Origen = Colegio_Origen;
+    public void setDni_Alumno(int dni_Alumno) {
+        this.dni_Alumno = dni_Alumno;
     }
 
-    public String getDistrito() {
-        return Distrito;
+    public String getNom_Alu() {
+        return nom_Alu;
     }
 
-    public void setDistrito(String Distrito) {
-        this.Distrito = Distrito;
+    public void setNom_Alu(String nom_Alu) {
+        this.nom_Alu = nom_Alu;
     }
 
-    public String getApellido_Paterno() {
-        return Apellido_Paterno;
+    public String getApe_PAl() {
+        return ape_PAl;
     }
 
-    public void setApellido_Paterno(String Apellido_Paterno) {
-        this.Apellido_Paterno = Apellido_Paterno;
+    public void setApe_PAl(String ape_PAl) {
+        this.ape_PAl = ape_PAl;
     }
 
-    public String getApellido_Materno() {
-        return Apellido_Materno;
+    public String getApe_MAl() {
+        return ape_MAl;
     }
 
-    public void setApellido_Materno(String Apellido_Materno) {
-        this.Apellido_Materno = Apellido_Materno;
+    public void setApe_MAl(String ape_MAl) {
+        this.ape_MAl = ape_MAl;
     }
 
-    public String getNombres() {
-        return Nombres;
+    public Date getFec_Nac() {
+        return fec_Nac;
     }
 
-    public void setNombres(String Nombres) {
-        this.Nombres = Nombres;
+    public void setFec_Nac(Date fec_Nac) {
+        this.fec_Nac = fec_Nac;
     }
 
-    public Date getFecha_Nacimiento() {
-        return Fecha_Nacimiento;
+    public String getSexo() {
+        return sexo;
     }
 
-    public void setFecha_Nacimiento(Date Fecha_Nacimiento) {
-        this.Fecha_Nacimiento = Fecha_Nacimiento;
+    public void setSexo(String sexo) {
+        this.sexo = sexo;
     }
 
-    public String getLugar_Nacimiento() {
-        return Lugar_Nacimiento;
+    public int getId_distritoAlum() {
+        return id_distritoAlum;
     }
 
-    public void setLugar_Nacimiento(String Lugar_Nacimiento) {
-        this.Lugar_Nacimiento = Lugar_Nacimiento;
+    public void setId_distritoAlum(int id_distritoAlum) {
+        this.id_distritoAlum = id_distritoAlum;
     }
 
-    public String getDireccion_Domicilio() {
-        return Direccion_Domicilio;
+    public String getDomicilio() {
+        return domicilio;
     }
 
-    public void setDireccion_Domicilio(String Direccion_Domicilio) {
-        this.Direccion_Domicilio = Direccion_Domicilio;
+    public void setDomicilio(String domicilio) {
+        this.domicilio = domicilio;
     }
 
-    public String getDNI() {
-        return DNI;
+    public String getNivel_ing() {
+        return nivel_ing;
     }
 
-    public void setDNI(String DNI) {
-        this.DNI = DNI;
+    public void setNivel_ing(String nivel_ing) {
+        this.nivel_ing = nivel_ing;
     }
 
-    public String getReligión() {
-        return Religión;
+    public int getGrado_ing() {
+        return grado_ing;
     }
 
-    public void setReligión(String Religión) {
-        this.Religión = Religión;
+    public void setGrado_ing(int grado_ing) {
+        this.grado_ing = grado_ing;
     }
 
-    public String getDNI_Padre() {
-        return DNI_Padre;
+    public String getColegio_ant() {
+        return colegio_ant;
     }
 
-    public void setDNI_Padre(String DNI_Padre) {
-        this.DNI_Padre = DNI_Padre;
+    public void setColegio_ant(String colegio_ant) {
+        this.colegio_ant = colegio_ant;
     }
 
-    public String getDNI_Madre() {
-        return DNI_Madre;
+    public int getId_habilidad() {
+        return id_habilidad;
     }
 
-    public void setDNI_Madre(String DNI_Madre) {
-        this.DNI_Madre = DNI_Madre;
+    public void setId_habilidad(int id_habilidad) {
+        this.id_habilidad = id_habilidad;
     }
+
+    public int getId_Repre() {
+        return id_Repre;
+    }
+
+    public void setId_Repre(int id_Repre) {
+        this.id_Repre = id_Repre;
+    }
+
+    public String getRelacion() {
+        return relacion;
+    }
+
+    public void setRelacion(String relacion) {
+        this.relacion = relacion;
+    }
+
     
+ 
 }
