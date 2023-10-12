@@ -9,12 +9,12 @@ package com.develop.matriculas;
  * @author estrosebas
  */
 import libreria.*;
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
-public class Login extends javax.swing.JFrame {
+public class Alumnos extends javax.swing.JFrame {
 
     conexiones con1 = new conexiones();  // Esto debería funcionar ahora
     DefaultTableModel modelo;
@@ -23,7 +23,7 @@ public class Login extends javax.swing.JFrame {
     String Correo;
     String Contraseña;
 
-    public Login() {
+    public Alumnos() {
         initComponents();
         setLocationRelativeTo(null);
         consultar();
@@ -41,6 +41,7 @@ public class Login extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabla = new javax.swing.JTable();
+        Regresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,17 +68,30 @@ public class Login extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(Tabla);
 
+        Regresar.setText("Regresar");
+        Regresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegresarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(253, 253, 253)
+                .addComponent(Regresar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(Regresar)
+                .addGap(0, 12, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -93,6 +107,11 @@ public class Login extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void RegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegresarActionPerformed
+        this.setVisible(false); // Oculta el JFrame actual
+        
+    }//GEN-LAST:event_RegresarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -111,70 +130,57 @@ public class Login extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Alumnos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Alumnos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Alumnos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Alumnos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login().setVisible(true);
+                new Alumnos().setVisible(true);
             }
         });
     }
 
     void consultar() {
-        String sql = "select * from alumno";
-        
-        Connection conet = null;
-        try {
-            conet = con1.getConnection();
-            st = conet.createStatement();
-            rs = st.executeQuery(sql);
-            Object[] estudiante = new Object[10];
-            modelo = (DefaultTableModel) Tabla.getModel();
-            // Limpia las filas existentes en la tabla
+        // Crear una instancia de AlumnoDAO
+        AlumnoDAO alumnoDAO = new AlumnoDAO();
+
+        // Obtener la lista de todos los alumnos
+        List<Alumno> listaAlumnos = alumnoDAO.obtenerTodosLosAlumnos();
+
+        // Limpia las filas existentes en la tabla
         DefaultTableModel modelo = (DefaultTableModel) Tabla.getModel();
         while (modelo.getRowCount() > 0) {
             modelo.removeRow(0);
         }
-            while (rs.next()) {
-                estudiante[0] = rs.getInt("id_Alumno");
-                estudiante[1] = rs.getString("nom_Alu");
-                estudiante[2] = rs.getString("ape_MAl");
-                estudiante[3] = rs.getString("ape_PAl");
-                estudiante[4] = rs.getInt("dni_Alumno");
-                modelo.addRow(estudiante);
-            }
-            Tabla.setModel(modelo);
-        } catch (Exception e) {
-            e.printStackTrace();  // Manejo básico de la excepción.
-        } finally {
-            try {
-                if (rs != null) {
-                    rs.close();
-                }
-                if (st != null) {
-                    st.close();
-                }
-                if (conet != null) {
-                    conet.close();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+
+        // Iterar sobre la lista de alumnos y agregarlos a la tabla
+        for (Alumno alumno : listaAlumnos) {
+            Object[] estudiante = new Object[]{
+                alumno.getId_Alumno(),
+                alumno.getNom_Alu(),
+                alumno.getApe_MAl(),
+                alumno.getApe_PAl(),
+                alumno.getDni_Alumno()
+            };
+            modelo.addRow(estudiante);
         }
+
+        Tabla.setModel(modelo);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Regresar;
     private javax.swing.JTable Tabla;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
-}
+}   
