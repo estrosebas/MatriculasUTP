@@ -13,8 +13,6 @@ package com.develop.matriculas;
 //import java.sql.SQLException;
 //import java.sql.PreparedStatement;
 //import java.sql.ResultSet;
-import javax.swing.JOptionPane;
-
 public class Matriculas {
 
     public static void main(String[] args) {
