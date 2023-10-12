@@ -1,35 +1,37 @@
-# Sistema de Matrículas
+# Sistema de Matriculación de Estudiantes
 
-Este proyecto implementa un sistema simple de matriculación de estudiantes, aprovechando Java y la base de datos MySQL.
-
-## Características
-
-- Gestión de alumnos (añadir, editar, eliminar, listar).
-- Conexión a base de datos MySQL.
-- Modelo DAO para interacción con la base de datos.
+Este proyecto proporciona un sistema para gestionar la matriculación de estudiantes. Ha sido desarrollado en Java y utiliza una base de datos para almacenar y recuperar información.
 
 ## Estructura del Proyecto
 
-El proyecto está estructurado en varios paquetes y clases:
+- `Matriculas.java`: Este es el punto de entrada principal del programa. 
+- `MenuPrincipal.java`: Proporciona la interfaz principal del programa.
+- `Alumnos.java`: JFrame que gestiona la información de los alumnos.
 
-- `com.develop.matriculas.Matriculas`: Clase principal del proyecto, encargada de la interacción con el usuario.
-- `libreria`: Paquete que contiene todas las clases de soporte, incluyendo:
-  - `Alumno`: Modelo de datos para los alumnos.
-  - `AlumnoDAO`: Clase DAO para gestionar la persistencia de los alumnos.
-  - `conexiones`: Clase para gestionar la conexión a la base de datos.
-  - ... (y otras clases relacionadas con habilidades, matriculación, representantes, salud).
+### Paquete `libreria`
 
-## Requisitos
+- `Alumno.java`: Define la estructura y métodos relacionados con un alumno.
+- `AlumnoDAO.java`: Clase para interactuar con la base de datos específicamente para operaciones relacionadas con alumnos.
+- `conexiones.java`: Encargado de las conexiones a la base de datos.
+- `Habilidad.java`: Define las habilidades que puede tener un alumno.
+- `Matricula.java`: Representa la matrícula de un estudiante.
+- `Representante.java`: Información sobre el representante de un estudiante.
+- `Salud.java`: Información relacionada con la salud de un estudiante.
 
-- Java JDK 20 (según tu archivo POM)
-- MySQL (y el conector JDBC correspondiente, versión 8.0.26 según tu POM)
+## Cómo usar
 
-## Instrucciones de Uso
-
-1. Clonar este repositorio.
-2. Asegurarse de tener MySQL ejecutándose y configurar las credenciales según lo definido en la clase `conexiones`.
-3. Ejecutar la clase `Matriculas` para iniciar el programa.
+1. Asegúrate de tener configurada la base de datos y las credenciales correctas en `conexiones.java`.
+2. Ejecuta `Matriculas.java` para iniciar el programa.
+3. Utiliza el menú principal para navegar a través de las diferentes funcionalidades.
 
 ## Contribuciones
 
-Si deseas contribuir al proyecto, ¡por favor, haz un fork y envía una pull request!
+Si deseas contribuir al proyecto, por favor haz un fork y envía un pull request.
+
+## Licencia
+
+Por favor, consulta el archivo de licencia adjunto para más detalles.
+
+---
+
+Espero que este proyecto sea de utilidad. Si tienes preguntas o comentarios, no dudes en abrir un issue.
