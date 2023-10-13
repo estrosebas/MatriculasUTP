@@ -13,6 +13,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.JOptionPane;
 
 public class Alumnos extends javax.swing.JFrame {
 
@@ -42,6 +43,7 @@ public class Alumnos extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabla = new javax.swing.JTable();
         Regresar = new javax.swing.JButton();
+        Registrar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -75,23 +77,34 @@ public class Alumnos extends javax.swing.JFrame {
             }
         });
 
+        Registrar.setText("Registrar");
+        Registrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegistrarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(253, 253, 253)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(Registrar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(Regresar)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(15, 15, 15))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(Regresar)
-                .addGap(0, 12, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Regresar)
+                    .addComponent(Registrar))
+                .addGap(0, 11, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -110,12 +123,56 @@ public class Alumnos extends javax.swing.JFrame {
 
     private void RegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegresarActionPerformed
         this.setVisible(false); // Oculta el JFrame actual
-        
+
     }//GEN-LAST:event_RegresarActionPerformed
 
+    private void RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarActionPerformed
+        
+            String dniStr = JOptionPane.showInputDialog(this, "Ingrese DNI del Alumno:");
+            int dni = Integer.parseInt(dniStr);  // Convertir la entrada a int. Podría lanzar NumberFormatException.
+            String nombre = JOptionPane.showInputDialog(this, "Ingrese Nombre del Alumno:");
+            String apellidoPaterno = JOptionPane.showInputDialog(this, "Ingrese Apellido Paterno del Alumno:");
+            String apellidoMAterno = JOptionPane.showInputDialog(this, "Ingrese Apellido Materno del Alumno:");
+            String fechaNacStr = JOptionPane.showInputDialog(this, "Ingrese Fecha de Nacimiento del Alumno (AAAA-MM-DD):");
+            java.util.Date fechaNac = java.sql.Date.valueOf(fechaNacStr);  // Convertir la entrada a Date. Podría lanzar IllegalArgumentException.
+            String sexo = JOptionPane.showInputDialog(this, "Ingrese el sexo del estudiante");
+            String Id_distritoAlumStr = JOptionPane.showInputDialog(this, "Seleccione el distrito del estudiante");
+            int Id_distriroAlum = Integer.parseInt(Id_distritoAlumStr);
+            String Domicilio = JOptionPane.showInputDialog(this, "Ingrese la direccion de residencia del estudiante");
+            String Nivel_ing = JOptionPane.showInputDialog(this, "Ingrese el nivvel de ingreso(inicial,primaria,secudnaria)");
+            String[] options = {"Inicial", "Primaria", "Secundaria"};
+            int selection = JOptionPane.showOptionDialog(
+                    null,
+                    "Seleccione el nivel de ingreso",
+                    "Nivel de Ingreso",
+                    JOptionPane.DEFAULT_OPTION,
+                    JOptionPane.INFORMATION_MESSAGE,
+                    null,
+                    options,
+                    options[0]
+            );
+
+            if (selection == JOptionPane.CLOSED_OPTION) {
+                return; // Salir del bloque si el usuario cerró el diálogo
+            }
+
+            Nivel_ing = options[selection];
+            String Grado_ingStr = JOptionPane.showInputDialog(this, "Ingrese grado de ingreso del alumno:");
+            int Grado_ing = Integer.parseInt(Grado_ingStr);
+            String Colegio_ant = JOptionPane.showInputDialog(this, "Ingrese colegio de procedencia");
+            String Id_habilidadStr = JOptionPane.showInputDialog(this, "Seleccione la habildiad");
+            int Id_habilidad = Integer.parseInt(Id_habilidadStr);
+            String Id_RepreStr = JOptionPane.showInputDialog(this,"Ingrese Id del representante");
+            int Id_Repre = Integer.parseInt(Id_RepreStr);
+            String Relacion = JOptionPane.showInputDialog(this, "Ingrese la relacion del representatne");
+            Alumno alumno = new Alumno(dni, nombre,apellidoPaterno,apellidoMAterno,fechaNac,sexo,Id_distriroAlum,Domicilio,Nivel_ing,Grado_ing,Colegio_ant,Id_habilidad,Id_Repre,Relacion);
+            AlumnoDAO alumnosDAO = new AlumnoDAO();
+            
+    }//GEN-LAST:event_RegistrarActionPerformed
+
     /**
-     * @param args the command line arguments
-     */
+         * @param args the command line arguments
+         */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -178,9 +235,10 @@ public class Alumnos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Registrar;
     private javax.swing.JButton Regresar;
     private javax.swing.JTable Tabla;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
-}   
+}

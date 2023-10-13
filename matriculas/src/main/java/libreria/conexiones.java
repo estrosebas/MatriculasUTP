@@ -10,7 +10,7 @@ package libreria;
  */
 import java.sql.Connection;
 import java.sql.DriverManager;
-
+import javax.swing.JOptionPane;
 public class conexiones {
     // Datos de conexión
     private static final String JDBC_URL = "jdbc:mysql://localhost:3306/matriculas";
@@ -24,7 +24,7 @@ public class conexiones {
             conexion = DriverManager.getConnection(JDBC_URL, USUARIO, CONTRASEÑA);
             System.out.println("Conexión exitosa a la base de datos.");
         } catch (Exception e) {
-            System.err.println("Error al conectar con la base de datos");
+            JOptionPane.showMessageDialog(null, "Error al conectar con la base de datos", "Error de Conexión", JOptionPane.ERROR_MESSAGE);
         }
     }
 
