@@ -4,7 +4,6 @@
  */
 package libreria;
 
-
 /**
  *
  * @author estrosebas
@@ -13,7 +12,7 @@ import java.util.Date;
 
 public class Alumno {
 
-   private int id_Alumno;
+    private int id_Alumno;
     private int dni_Alumno;
     private String nom_Alu;
     private String ape_PAl;
@@ -187,6 +186,4 @@ public class Alumno {
         this.relacion = relacion;
     }
 
-    
- 
 }

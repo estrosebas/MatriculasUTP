@@ -127,52 +127,58 @@ public class Alumnos extends javax.swing.JFrame {
     }//GEN-LAST:event_RegresarActionPerformed
 
     private void RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarActionPerformed
+
+        String dniStr = JOptionPane.showInputDialog(this, "Ingrese DNI del Alumno:");
+        int dni = Integer.parseInt(dniStr);  // Convertir la entrada a int. Podría lanzar NumberFormatException.
+        String nombre = JOptionPane.showInputDialog(this, "Ingrese Nombre del Alumno:");
+        String apellidoPaterno = JOptionPane.showInputDialog(this, "Ingrese Apellido Paterno del Alumno:");
+        String apellidoMAterno = JOptionPane.showInputDialog(this, "Ingrese Apellido Materno del Alumno:");
+        String fechaNacStr = JOptionPane.showInputDialog(this, "Ingrese Fecha de Nacimiento del Alumno (AAAA-MM-DD):");
+        java.util.Date fechaNac = java.sql.Date.valueOf(fechaNacStr);  // Convertir la entrada a Date. Podría lanzar IllegalArgumentException.
+        String sexo = JOptionPane.showInputDialog(this, "Ingrese el sexo del estudiante");
+        String Id_distritoAlumStr = JOptionPane.showInputDialog(this, "Seleccione el distrito del estudiante");
+        int Id_distriroAlum = Integer.parseInt(Id_distritoAlumStr);
+        String Domicilio = JOptionPane.showInputDialog(this, "Ingrese la direccion de residencia del estudiante");
+        String Nivel_ing = JOptionPane.showInputDialog(this, "Ingrese el nivvel de ingreso(inicial,primaria,secudnaria)");
+        String[] options = {"Inicial", "Primaria", "Secundaria"};
+        int selection = JOptionPane.showOptionDialog(
+                null,
+                "Seleccione el nivel de ingreso",
+                "Nivel de Ingreso",
+                JOptionPane.DEFAULT_OPTION,
+                JOptionPane.INFORMATION_MESSAGE,
+                null,
+                options,
+                options[0]
+        );
+
+        if (selection == JOptionPane.CLOSED_OPTION) {
+            return; // Salir del bloque si el usuario cerró el diálogo
+        }
+
+        Nivel_ing = options[selection];
+        String Grado_ingStr = JOptionPane.showInputDialog(this, "Ingrese grado de ingreso del alumno:");
+        int Grado_ing = Integer.parseInt(Grado_ingStr);
+        String Colegio_ant = JOptionPane.showInputDialog(this, "Ingrese colegio de procedencia");
+        String Id_habilidadStr = JOptionPane.showInputDialog(this, "Seleccione la habildiad");
+        int Id_habilidad = Integer.parseInt(Id_habilidadStr);
+        String Id_RepreStr = JOptionPane.showInputDialog(this, "Ingrese Id del representante");
+        int Id_Repre = Integer.parseInt(Id_RepreStr);
+        String Relacion = JOptionPane.showInputDialog(this, "Ingrese la relacion del representatne");
+        Alumno alumno = new Alumno(dni, nombre, apellidoPaterno, apellidoMAterno, fechaNac, sexo, Id_distriroAlum, Domicilio, Nivel_ing, Grado_ing, Colegio_ant, Id_habilidad, Id_Repre, Relacion);
+        AlumnoDAO alumnosDAO = new AlumnoDAO();
+        boolean registroExitoso = alumnosDAO.insertar(alumno);
         
-            String dniStr = JOptionPane.showInputDialog(this, "Ingrese DNI del Alumno:");
-            int dni = Integer.parseInt(dniStr);  // Convertir la entrada a int. Podría lanzar NumberFormatException.
-            String nombre = JOptionPane.showInputDialog(this, "Ingrese Nombre del Alumno:");
-            String apellidoPaterno = JOptionPane.showInputDialog(this, "Ingrese Apellido Paterno del Alumno:");
-            String apellidoMAterno = JOptionPane.showInputDialog(this, "Ingrese Apellido Materno del Alumno:");
-            String fechaNacStr = JOptionPane.showInputDialog(this, "Ingrese Fecha de Nacimiento del Alumno (AAAA-MM-DD):");
-            java.util.Date fechaNac = java.sql.Date.valueOf(fechaNacStr);  // Convertir la entrada a Date. Podría lanzar IllegalArgumentException.
-            String sexo = JOptionPane.showInputDialog(this, "Ingrese el sexo del estudiante");
-            String Id_distritoAlumStr = JOptionPane.showInputDialog(this, "Seleccione el distrito del estudiante");
-            int Id_distriroAlum = Integer.parseInt(Id_distritoAlumStr);
-            String Domicilio = JOptionPane.showInputDialog(this, "Ingrese la direccion de residencia del estudiante");
-            String Nivel_ing = JOptionPane.showInputDialog(this, "Ingrese el nivvel de ingreso(inicial,primaria,secudnaria)");
-            String[] options = {"Inicial", "Primaria", "Secundaria"};
-            int selection = JOptionPane.showOptionDialog(
-                    null,
-                    "Seleccione el nivel de ingreso",
-                    "Nivel de Ingreso",
-                    JOptionPane.DEFAULT_OPTION,
-                    JOptionPane.INFORMATION_MESSAGE,
-                    null,
-                    options,
-                    options[0]
-            );
-
-            if (selection == JOptionPane.CLOSED_OPTION) {
-                return; // Salir del bloque si el usuario cerró el diálogo
-            }
-
-            Nivel_ing = options[selection];
-            String Grado_ingStr = JOptionPane.showInputDialog(this, "Ingrese grado de ingreso del alumno:");
-            int Grado_ing = Integer.parseInt(Grado_ingStr);
-            String Colegio_ant = JOptionPane.showInputDialog(this, "Ingrese colegio de procedencia");
-            String Id_habilidadStr = JOptionPane.showInputDialog(this, "Seleccione la habildiad");
-            int Id_habilidad = Integer.parseInt(Id_habilidadStr);
-            String Id_RepreStr = JOptionPane.showInputDialog(this,"Ingrese Id del representante");
-            int Id_Repre = Integer.parseInt(Id_RepreStr);
-            String Relacion = JOptionPane.showInputDialog(this, "Ingrese la relacion del representatne");
-            Alumno alumno = new Alumno(dni, nombre,apellidoPaterno,apellidoMAterno,fechaNac,sexo,Id_distriroAlum,Domicilio,Nivel_ing,Grado_ing,Colegio_ant,Id_habilidad,Id_Repre,Relacion);
-            AlumnoDAO alumnosDAO = new AlumnoDAO();
-            
+        if (registroExitoso) {
+            JOptionPane.showMessageDialog(this, "Registro exitoso");
+        } else {
+            JOptionPane.showMessageDialog(this, "Error en el registro");
+        }
     }//GEN-LAST:event_RegistrarActionPerformed
 
     /**
-         * @param args the command line arguments
-         */
+     * @param args the command line arguments
+     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
