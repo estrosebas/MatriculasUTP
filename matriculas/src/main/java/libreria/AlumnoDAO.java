@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
+
 public class AlumnoDAO {
 
     private final conexiones conexionDB;
@@ -135,5 +136,48 @@ public class AlumnoDAO {
             e.printStackTrace();
             return false;
         }
+    }
+
+    public Alumno buscarAlumnoPorDni(int dni) {
+        Alumno alumno = null;
+
+        try {
+            Connection conexion = conexionDB.getConnection();
+            String query = "SELECT * FROM alumno WHERE dni_Alumno = ?";
+            PreparedStatement ps = conexion.prepareStatement(query);
+
+            ps.setInt(1, dni);
+
+            ResultSet rs = ps.executeQuery();
+
+            if (rs.next()) {
+                // Obteniendo los valores en variables locales
+                int id_Alumno = rs.getInt("id_Alumno");
+                int dni_Alumno = rs.getInt("dni_Alumno");
+                String nom_Alu = rs.getString("nom_Alu");
+                String ape_PAl = rs.getString("ape_PAl");
+                String ape_MAl = rs.getString("ape_MAl");
+                Date fec_Nac = rs.getDate("fec_Nac");
+                String sexo = rs.getString("sexo");
+                int id_distritoAlum = rs.getInt("id_distritoAlum");
+                String domicilio = rs.getString("domicilio");
+                String nivel_ing = rs.getString("nivel_ing");
+                int grado_ing = rs.getInt("grado_ing");
+                String colegio_ant = rs.getString("colegio_ant");
+                int id_habilidad = rs.getInt("id_habilidad");
+                int id_Repre = rs.getInt("id_Repre");
+                String relacion = rs.getString("relacion");
+
+                // Creando una nueva instancia de Alumno usando las variables locales
+                alumno = new Alumno(id_Alumno, dni_Alumno, nom_Alu, ape_PAl, ape_MAl, fec_Nac, sexo, id_distritoAlum, domicilio, nivel_ing, grado_ing, colegio_ant, id_habilidad, id_Repre, relacion);
+            }
+
+            conexion.close();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return alumno;
     }
 }

@@ -185,4 +185,9 @@ public class Alumno extends Persona {
         this.relacion = relacion;
     }
 
+    @Override
+    public String toString() {
+        return "Alumno{" + "id_Alumno=" + id_Alumno + ", dni_Alumno=" + dni_Alumno + ", nom_Alu=" + nom_Alu + ", ape_PAl=" + ape_PAl + ", ape_MAl=" + ape_MAl + ", fec_Nac=" + fec_Nac + ", id_distritoAlum=" + id_distritoAlum + ", nivel_ing=" + nivel_ing + ", grado_ing=" + grado_ing + ", colegio_ant=" + colegio_ant + ", id_habilidad=" + id_habilidad + ", id_Repre=" + id_Repre + ", relacion=" + relacion + '}';
+    }
+
 }
