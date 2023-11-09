@@ -115,7 +115,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
         getContentPane().add(Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(182, 228, 99, 32));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/backe.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backe.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 440, 310));
 
         pack();

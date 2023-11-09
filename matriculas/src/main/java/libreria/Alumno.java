@@ -10,7 +10,7 @@ package libreria;
  */
 import java.util.Date;
 
-public class Alumno {
+public class Alumno extends Persona {
 
     private int id_Alumno;
     private int dni_Alumno;
@@ -18,9 +18,7 @@ public class Alumno {
     private String ape_PAl;
     private String ape_MAl;
     private Date fec_Nac;
-    private String sexo;
     private int id_distritoAlum;
-    private String domicilio;
     private String nivel_ing;
     private int grado_ing;
     private String colegio_ant;
@@ -29,6 +27,7 @@ public class Alumno {
     private String relacion;
 
     public Alumno(int id_Alumno, int dni_Alumno, String nom_Alu, String ape_PAl, String ape_MAl, Date fec_Nac, String sexo, int id_distritoAlum, String domicilio, String nivel_ing, int grado_ing, String colegio_ant, int id_habilidad, int id_Repre, String relacion) {
+        super(sexo, domicilio);
         this.id_Alumno = id_Alumno;
         this.dni_Alumno = dni_Alumno;
         this.nom_Alu = nom_Alu;
