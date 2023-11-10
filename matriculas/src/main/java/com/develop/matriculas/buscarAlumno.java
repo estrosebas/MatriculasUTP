@@ -12,7 +12,6 @@ import libreria.*;
 import java.util.Date;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
-import java.text.ParseException;
 
 public class buscarAlumno extends javax.swing.JFrame {
 
@@ -316,7 +315,7 @@ public class buscarAlumno extends javax.swing.JFrame {
     }//GEN-LAST:event_backActionPerformed
     // Método que maneja la búsqueda de un alumno
 
-    private void buscarAlumno() {
+    private void buscar() {
         try {
             int dni = Integer.parseInt(buscarDni.getText()); // Asegúrate de manejar NumberFormatException
             AlumnoDAO aluDAO = new AlumnoDAO();
@@ -353,67 +352,20 @@ public class buscarAlumno extends javax.swing.JFrame {
         }
     }
 
-    private void guardarCambios() {
-        try {
-            // Crear una nueva instancia de Alumno con los valores actualizados
-
-            int id = Integer.parseInt(id_Alumno.getText());
-            int dni = Integer.parseInt(buscarDni.getText()); // Asegúrate de manejar NumberFormatException
-            String nom_AluUP = nom_Alu.getText();
-            String ape_PAlUP = ape_PAl.getText();
-            String ape_MAlUP = ape_MAl.getText();
-            //parseo de string a date
-            String fec_cadena = fec_Nac.getText();
-            SimpleDateFormat formateador = new SimpleDateFormat("yyyy-MM-dd");
-            java.sql.Date sqlFecha = null;
-            try {
-                Date fecha = formateador.parse(fec_cadena);
-                sqlFecha = new java.sql.Date(fecha.getTime());
-                System.out.println(sqlFecha);
-            } catch (ParseException e) {
-                JOptionPane.showMessageDialog(this, "El formato de la fecha debe ser yyyy-MM-dd.", "Error de Formato de Fecha", JOptionPane.ERROR_MESSAGE);
-                return; // Salimos del método porque no podemos continuar sin una fecha válida.
-            }
-
-            int id_distritoAlumUP = Integer.parseInt(id_distritoAlum.getText());
-            String sexoUP = sexo.getText();
-            String domicilioUP = domicilio.getText();
-            String nivel_ingUP = nivel_ing.getText();
-            int grado_ingUP = Integer.parseInt(grado_ing.getText());
-            String colegio_antUP = colegio_ant.getText();
-            int id_habilidadUP = Integer.parseInt(id_habilidad.getText());
-            int id_RepreUP = Integer.parseInt(id_Repre.getText());
-            String relacionUP = relacion.getText();
-            
-            Alumno alumnoActualizado = new Alumno(id, dni, nom_AluUP, ape_PAlUP, ape_MAlUP, sqlFecha, sexoUP, id_distritoAlumUP, domicilioUP, nivel_ingUP, grado_ingUP, colegio_antUP, id_habilidadUP, id_RepreUP, relacionUP);
-            
-            
-            // Llamar al método modificar de tu AlumnoDAO
-            AlumnoDAO alumnoDAO = new AlumnoDAO();
-            boolean exito = alumnoDAO.modificar(alumnoActualizado);
-            if (exito) {
-                JOptionPane.showMessageDialog(this, "Alumno actualizado correctamente", "Actualización Exitosa", JOptionPane.INFORMATION_MESSAGE);
-            } else {
-                JOptionPane.showMessageDialog(this, "No se pudo actualizar la información del alumno", "Error de Actualización", JOptionPane.ERROR_MESSAGE);
-            }
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Por favor, ingrese datos válidos.", "Error de formato", JOptionPane.ERROR_MESSAGE);
-        }
-    }
     private void buscarDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarDniActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_buscarDniActionPerformed
 
     private void nom_AluActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nom_AluActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_nom_AluActionPerformed
 
     private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
-        buscarAlumno();
+        buscar();
     }//GEN-LAST:event_buscarActionPerformed
 
     private void id_AlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_id_AlumnoActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_id_AlumnoActionPerformed
 
     /**

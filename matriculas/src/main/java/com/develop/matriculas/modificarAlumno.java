@@ -410,11 +410,11 @@ public class modificarAlumno extends javax.swing.JFrame {
         }
     }
     private void buscarDniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarDniActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_buscarDniActionPerformed
 
     private void nom_AluActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nom_AluActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_nom_AluActionPerformed
 
     private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
@@ -422,7 +422,7 @@ public class modificarAlumno extends javax.swing.JFrame {
     }//GEN-LAST:event_buscarActionPerformed
 
     private void id_AlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_id_AlumnoActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_id_AlumnoActionPerformed
 
     private void saveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveActionPerformed
