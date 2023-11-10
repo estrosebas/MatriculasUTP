@@ -39,18 +39,88 @@ public class Alumnos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel2 = new javax.swing.JPanel();
+        Registrar = new javax.swing.JButton();
+        Buscar = new javax.swing.JButton();
+        modificar1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        Regresar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabla = new javax.swing.JTable();
-        Regresar = new javax.swing.JButton();
-        Registrar = new javax.swing.JButton();
-        modificar = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel2.setBackground(new java.awt.Color(0, 0, 0, 100));
+
+        Registrar.setText("Registrar");
+        Registrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegistrarActionPerformed(evt);
+            }
+        });
+
+        Buscar.setText("Buscar");
+        Buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarActionPerformed(evt);
+            }
+        });
+
+        modificar1.setText("Modificar");
+        modificar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modificar1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Eliminar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        Regresar.setText("Regresar");
+        Regresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RegresarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Registrar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(Buscar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(modificar1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 203, Short.MAX_VALUE)
+                .addComponent(Regresar)
+                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(Buscar)
+                    .addComponent(Registrar)
+                    .addComponent(modificar1)
+                    .addComponent(jButton2)
+                    .addComponent(Regresar)))
+        );
+
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 280, 610, 40));
 
         jPanel1.setBackground(new java.awt.Color(51, 255, 255));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -78,35 +148,8 @@ public class Alumnos extends javax.swing.JFrame {
 
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 6, 615, 265));
 
-        Regresar.setText("Regresar");
-        Regresar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RegresarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(Regresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 283, -1, -1));
-
-        Registrar.setText("Registrar");
-        Registrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RegistrarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(Registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 283, -1, -1));
-
-        modificar.setText("Modificar");
-        modificar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                modificarActionPerformed(evt);
-            }
-        });
-        jPanel1.add(modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(114, 283, -1, -1));
-
-        jButton2.setText("Eliminar");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(207, 283, -1, -1));
-
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backe.jpg"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -4, 640, 320));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -4, 640, 330));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -170,11 +213,21 @@ public class Alumnos extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_RegistrarActionPerformed
 
-    private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
-        modificarAlumno frame = new modificarAlumno();
+    private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
+        buscarAlumno frame = new buscarAlumno();
         frame.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_modificarActionPerformed
+    }//GEN-LAST:event_BuscarActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        eliminarAlumno frame = new eliminarAlumno();
+        frame.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void modificar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_modificar1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -241,13 +294,15 @@ public class Alumnos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Buscar;
     private javax.swing.JButton Registrar;
     private javax.swing.JButton Regresar;
     private javax.swing.JTable Tabla;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton modificar;
+    private javax.swing.JButton modificar1;
     // End of variables declaration//GEN-END:variables
 }

@@ -3,10 +3,11 @@ package libreria;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Date;
-
+import javax.swing.JOptionPane;
 public class AlumnoDAO {
 
     private final conexiones conexionDB;
@@ -120,7 +121,7 @@ public class AlumnoDAO {
         }
     }
 
-    public boolean eliminar(int id_Alumno) {
+    /*public boolean eliminar(int id_Alumno) {
         try {
             Connection conexion = conexionDB.getConnection();
             String query = "DELETE FROM alumno WHERE id_Alumno=?";
@@ -134,6 +135,30 @@ public class AlumnoDAO {
 
         } catch (Exception e) {
             e.printStackTrace();
+            return false;
+        }
+    }*/
+    public boolean eliminar(int dni) {
+        try {
+            Connection conexion = conexionDB.getConnection();
+            String query = "DELETE FROM alumno WHERE dni_Alumno=?";
+            PreparedStatement ps = conexion.prepareStatement(query);
+
+            ps.setInt(1, dni);  // Asumiendo que DNI es un string, si es numérico, usa setInt
+
+            int res = ps.executeUpdate();
+            conexion.close();
+            return res > 0;
+
+        } catch (SQLException e) {
+            if (e.getErrorCode() == 1451) {  // Código de error para violación de llave foránea
+                // Manejar específicamente la violación de la llave foránea
+                System.out.println("No se puede eliminar el alumno porque está matriculado.");
+                JOptionPane.showMessageDialog(null, "Error al eliminar, el alumno esta matriculado");
+            } else {
+                // Otros errores SQL
+                e.printStackTrace();
+            }
             return false;
         }
     }
