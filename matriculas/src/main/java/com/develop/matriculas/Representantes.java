@@ -149,51 +149,35 @@ public class Representantes extends javax.swing.JFrame {
 
     private void RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarActionPerformed
 
-        String dniStr = JOptionPane.showInputDialog(this, "Ingrese DNI del Alumno:");
-        int dni = Integer.parseInt(dniStr);  // Convertir la entrada a int. Podría lanzar NumberFormatException.
-        String nombre = JOptionPane.showInputDialog(this, "Ingrese Nombre del Alumno:");
-        String apellidoPaterno = JOptionPane.showInputDialog(this, "Ingrese Apellido Paterno del Alumno:");
-        String apellidoMAterno = JOptionPane.showInputDialog(this, "Ingrese Apellido Materno del Alumno:");
-        String fechaNacStr = JOptionPane.showInputDialog(this, "Ingrese Fecha de Nacimiento del Alumno (AAAA-MM-DD):");
-        java.util.Date fechaNac = java.sql.Date.valueOf(fechaNacStr);  // Convertir la entrada a Date. Podría lanzar IllegalArgumentException.
-        String sexo = JOptionPane.showInputDialog(this, "Ingrese el sexo del estudiante");
-        String Id_distritoAlumStr = JOptionPane.showInputDialog(this, "Seleccione el distrito del estudiante");
-        int Id_distriroAlum = Integer.parseInt(Id_distritoAlumStr);
-        String Domicilio = JOptionPane.showInputDialog(this, "Ingrese la direccion de residencia del estudiante");
-        String Nivel_ing = JOptionPane.showInputDialog(this, "Ingrese el nivvel de ingreso(inicial,primaria,secudnaria)");
-        String[] options = {"Inicial", "Primaria", "Secundaria"};
-        int selection = JOptionPane.showOptionDialog(
-                null,
-                "Seleccione el nivel de ingreso",
-                "Nivel de Ingreso",
-                JOptionPane.DEFAULT_OPTION,
-                JOptionPane.INFORMATION_MESSAGE,
-                null,
-                options,
-                options[0]
-        );
+        String dniRepreStr = JOptionPane.showInputDialog(this, "Ingrese DNI del Representante:");
+        int dniRepre = Integer.parseInt(dniRepreStr);  // Convertir a int
+        String nomRepre = JOptionPane.showInputDialog(this, "Ingrese Nombre del Representante:");
+        String apePRe = JOptionPane.showInputDialog(this, "Ingrese Apellido Paterno del Representante:");
+        String apeMRe = JOptionPane.showInputDialog(this, "Ingrese Apellido Materno del Representante:");
+        String sexo = JOptionPane.showInputDialog(this, "Ingrese el sexo del Representante");
+        String idDistritoRStr = JOptionPane.showInputDialog(this, "Ingrese ID del Distrito del Representante:");
+        int idDistritoR = Integer.parseInt(idDistritoRStr);  // Convertir a int
+        String domicilio = JOptionPane.showInputDialog(this, "Ingrese Domicilio del Representante:");
+        String ocupacion = JOptionPane.showInputDialog(this, "Ingrese Ocupación del Representante:");
+        String lugarTrabajo = JOptionPane.showInputDialog(this, "Ingrese Lugar de Trabajo del Representante:");
+        String correo = JOptionPane.showInputDialog(this, "Ingrese Correo Electrónico del Representante:");
+        String idTelefonoStr = JOptionPane.showInputDialog(this, "Ingrese ID de Teléfono del Representante:");
+        int idTelefono = Integer.parseInt(idTelefonoStr);  // Convertir a int
 
-        if (selection == JOptionPane.CLOSED_OPTION) {
-            return; // Salir del bloque si el usuario cerró el diálogo
-        }
+        // Crea el objeto Representante
+        Representante representante = new Representante(dniRepre, nomRepre, apePRe, apeMRe, sexo, idDistritoR, domicilio, ocupacion, lugarTrabajo, correo, idTelefono);
 
-        Nivel_ing = options[selection];
-        String Grado_ingStr = JOptionPane.showInputDialog(this, "Ingrese grado de ingreso del alumno:");
-        int Grado_ing = Integer.parseInt(Grado_ingStr);
-        String Colegio_ant = JOptionPane.showInputDialog(this, "Ingrese colegio de procedencia");
-        String Id_habilidadStr = JOptionPane.showInputDialog(this, "Seleccione la habildiad");
-        int Id_habilidad = Integer.parseInt(Id_habilidadStr);
-        String Id_RepreStr = JOptionPane.showInputDialog(this, "Ingrese Id del representante");
-        int Id_Repre = Integer.parseInt(Id_RepreStr);
-        String Relacion = JOptionPane.showInputDialog(this, "Ingrese la relacion del representatne");
-        Alumno alumno = new Alumno(dni, nombre, apellidoPaterno, apellidoMAterno, fechaNac, sexo, Id_distriroAlum, Domicilio, Nivel_ing, Grado_ing, Colegio_ant, Id_habilidad, Id_Repre, Relacion);
-        AlumnoDAO alumnosDAO = new AlumnoDAO();
-        boolean registroExitoso = alumnosDAO.insertar(alumno);
+        // Instancia de la clase DAO para Representantes
+        RepresentanteDAO representantesDAO = new RepresentanteDAO();
 
+        // Intenta insertar el representante en la base de datos
+        boolean registroExitoso = representantesDAO.insertar(representante);
+
+        // Muestra un mensaje de éxito o error
         if (registroExitoso) {
-            JOptionPane.showMessageDialog(this, "Registro exitoso");
+            JOptionPane.showMessageDialog(this, "Registro de Representante exitoso");
         } else {
-            JOptionPane.showMessageDialog(this, "Error en el registro");
+            JOptionPane.showMessageDialog(this, "Error en el registro del Representante");
         }
     }//GEN-LAST:event_RegistrarActionPerformed
 

@@ -28,7 +28,7 @@ public class RepresentanteDAO {
     public boolean insertar(Representante representante) {
         try {
             Connection conexion = conexionDB.getConnection();
-            String query = "INSERT INTO representante(dni_Alumno, nom_Alu, ape_PAl, ape_MAl, fec_Nac, sexo, id_distritoAlum, domicilio, nivel_ing, grado_ing, colegio_ant, id_habilidad, id_Repre, relacion) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String query = "INSERT INTO representante(dni_Repre, nom_Repre, ape_PRe, ape_MRe, sexo, id_distritoR,domicilio, ocupacion, lugar_traba, correo, id_telefono) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement ps = conexion.prepareStatement(query);
 
             ps.setInt(1, representante.getDni_Repre());
