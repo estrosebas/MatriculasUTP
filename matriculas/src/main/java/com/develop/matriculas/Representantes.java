@@ -15,7 +15,7 @@ import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JOptionPane;
 
-public class Alumnos extends javax.swing.JFrame {
+public class Representantes extends javax.swing.JFrame {
 
     conexiones con1 = new conexiones();  // Esto debería funcionar ahora
     DefaultTableModel modelo;
@@ -24,7 +24,7 @@ public class Alumnos extends javax.swing.JFrame {
     String Correo;
     String Contraseña;
 
-    public Alumnos() {
+    public Representantes() {
         initComponents();
         setLocationRelativeTo(null);
         consultar();
@@ -42,16 +42,17 @@ public class Alumnos extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabla = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         Registrar = new javax.swing.JButton();
         Buscar = new javax.swing.JButton();
         modificar1 = new javax.swing.JButton();
-        Eliminar = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         Regresar = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(630, 356));
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -79,7 +80,12 @@ public class Alumnos extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(Tabla);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 615, 265));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 615, 265));
+
+        jLabel2.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel2.setText("Representantes");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0, 100));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -108,13 +114,13 @@ public class Alumnos extends javax.swing.JFrame {
         });
         jPanel2.add(modificar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(166, 5, -1, -1));
 
-        Eliminar.setText("Eliminar");
-        Eliminar.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setText("Eliminar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EliminarActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
-        jPanel2.add(Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(253, 5, -1, -1));
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(253, 5, -1, -1));
 
         Regresar.setText("Regresar");
         Regresar.addActionListener(new java.awt.event.ActionListener() {
@@ -124,12 +130,7 @@ public class Alumnos extends javax.swing.JFrame {
         });
         jPanel2.add(Regresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(529, 5, -1, -1));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, 40));
-
-        jLabel2.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel2.setText("Alumnos");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 610, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backe.jpg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -4, 640, 360));
@@ -143,7 +144,7 @@ public class Alumnos extends javax.swing.JFrame {
         MenuPrincipal Menu = new MenuPrincipal();
         Menu.setVisible(true);
         this.setVisible(false); // Oculta el JFrame actual
-        
+
     }//GEN-LAST:event_RegresarActionPerformed
 
     private void RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarActionPerformed
@@ -188,7 +189,7 @@ public class Alumnos extends javax.swing.JFrame {
         Alumno alumno = new Alumno(dni, nombre, apellidoPaterno, apellidoMAterno, fechaNac, sexo, Id_distriroAlum, Domicilio, Nivel_ing, Grado_ing, Colegio_ant, Id_habilidad, Id_Repre, Relacion);
         AlumnoDAO alumnosDAO = new AlumnoDAO();
         boolean registroExitoso = alumnosDAO.insertar(alumno);
-        
+
         if (registroExitoso) {
             JOptionPane.showMessageDialog(this, "Registro exitoso");
         } else {
@@ -197,16 +198,16 @@ public class Alumnos extends javax.swing.JFrame {
     }//GEN-LAST:event_RegistrarActionPerformed
 
     private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
-        buscarAlumno frame = new buscarAlumno();
+        buscarRepresentante frame = new buscarRepresentante();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_BuscarActionPerformed
 
-    private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         eliminarAlumno frame = new eliminarAlumno();
         frame.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_EliminarActionPerformed
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void modificar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificar1ActionPerformed
         modificarAlumno frame = new modificarAlumno();
@@ -231,31 +232,34 @@ public class Alumnos extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Alumnos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Representantes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Alumnos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Representantes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Alumnos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Representantes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Alumnos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Representantes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Alumnos().setVisible(true);
+                new Representantes().setVisible(true);
             }
         });
     }
 
     void consultar() {
-        // Crear una instancia de AlumnoDAO
-        AlumnoDAO alumnoDAO = new AlumnoDAO();
+        // Crear una instancia para obtener los representantes
+        // Asumo que tienes una clase similar para representantes como la que tenías para alumnos
+        RepresentanteDAO representanteDAO = new RepresentanteDAO();
 
-        // Obtener la lista de todos los alumnos
-        List<Alumno> listaAlumnos = alumnoDAO.obtenerTodosLosAlumnos();
+        // Obtener la lista de todos los representantes
+        List<Representante> listaRepresentantes = representanteDAO.obtenerTodosLosRepresentantes();
 
         // Limpia las filas existentes en la tabla
         DefaultTableModel modelo = (DefaultTableModel) Tabla.getModel();
@@ -263,27 +267,29 @@ public class Alumnos extends javax.swing.JFrame {
             modelo.removeRow(0);
         }
 
-        // Iterar sobre la lista de alumnos y agregarlos a la tabla
-        for (Alumno alumno : listaAlumnos) {
-            Object[] estudiante = new Object[]{
-                alumno.getId_Alumno(),
-                alumno.getNom_Alu(),
-                alumno.getApe_MAl(),
-                alumno.getApe_PAl(),
-                alumno.getDni_Alumno()
+        // Iterar sobre la lista de representantes y agregarlos a la tabla
+        for (Representante representante : listaRepresentantes) {
+            Object[] datosRepresentante = new Object[]{
+                representante.getId_Repre(),
+                representante.getNom_Repre(),
+                representante.getApe_PRe(),
+                representante.getApe_MRe(),
+                representante.getDni_Repre(), // Aquí puedes agregar más campos según lo que quieras mostrar en la tabla
+            // Por ejemplo: representante.getSexo(), representante.getOcupacion(), etc.
             };
-            modelo.addRow(estudiante);
+            modelo.addRow(datosRepresentante);
         }
 
         Tabla.setModel(modelo);
     }
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Buscar;
-    private javax.swing.JButton Eliminar;
     private javax.swing.JButton Registrar;
     private javax.swing.JButton Regresar;
     private javax.swing.JTable Tabla;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

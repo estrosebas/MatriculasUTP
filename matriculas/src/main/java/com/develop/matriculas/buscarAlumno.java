@@ -99,6 +99,7 @@ public class buscarAlumno extends javax.swing.JFrame {
 
         jLabel4.setText("Nombre :");
 
+        nom_Alu.setEditable(false);
         nom_Alu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nom_AluActionPerformed(evt);
@@ -107,28 +108,53 @@ public class buscarAlumno extends javax.swing.JFrame {
 
         jLabel5.setText("Apellido Paterno :");
 
+        ape_PAl.setEditable(false);
+
         jLabel6.setText("Apelllido Materno :");
+
+        ape_MAl.setEditable(false);
 
         jLabel7.setText("Fecha de nacimiento :");
 
+        fec_Nac.setEditable(false);
+
         jLabel8.setText("ID Distrito :");
 
+        id_distritoAlum.setEditable(false);
+
         jLabel9.setText("Sexo :");
+
+        sexo.setEditable(false);
 
         jLabel10.setText("Domicilio :");
 
         jLabel11.setText("Nivel ingreso :");
 
+        domicilio.setEditable(false);
+
         jLabel12.setText("Grado ingreso :");
+
+        grado_ing.setEditable(false);
 
         jLabel13.setText("Colegio Anterior :");
 
+        colegio_ant.setEditable(false);
+
         jLabel14.setText("Id_habilidad :");
+
+        id_habilidad.setEditable(false);
 
         jLabel16.setText("ID Representante :");
 
         jLabel17.setText("Realcion :");
 
+        id_Repre.setEditable(false);
+
+        relacion.setEditable(false);
+
+        nivel_ing.setEditable(false);
+
+        id_Alumno.setEditable(false);
         id_Alumno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 id_AlumnoActionPerformed(evt);

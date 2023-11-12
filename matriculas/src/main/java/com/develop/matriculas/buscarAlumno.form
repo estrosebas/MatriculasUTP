@@ -286,6 +286,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="nom_Alu">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nom_AluActionPerformed"/>
               </Events>
@@ -296,6 +299,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="ape_PAl">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel6">
               <Properties>
@@ -303,6 +309,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="ape_MAl">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel7">
               <Properties>
@@ -310,6 +319,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="fec_Nac">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel8">
               <Properties>
@@ -317,6 +329,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="id_distritoAlum">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel9">
               <Properties>
@@ -324,6 +339,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="sexo">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel10">
               <Properties>
@@ -336,6 +354,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="domicilio">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel12">
               <Properties>
@@ -343,6 +364,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="grado_ing">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel13">
               <Properties>
@@ -350,6 +374,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="colegio_ant">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel14">
               <Properties>
@@ -357,6 +384,9 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="id_habilidad">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel16">
               <Properties>
@@ -369,12 +399,24 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="id_Repre">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="relacion">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="nivel_ing">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="id_Alumno">
+              <Properties>
+                <Property name="editable" type="boolean" value="false"/>
+              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="id_AlumnoActionPerformed"/>
               </Events>

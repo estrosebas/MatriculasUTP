@@ -8,52 +8,51 @@ package libreria;
  *
  * @author estrosebas
  */
-public class Representante {
-    private int id_Usuario;
+public class Representante extends Persona{
+    private int id_Repre;
     private int dni_Repre;
     private String nom_Repre;
     private String ape_PRe;
     private String ape_MRe;
-    private String sexo;
     private int id_distritoR;
-    private String domicilio;
+    private String ocupacion;
     private String lugar_traba;
     private String correo;
     private int id_telefono;
 
-    public Representante(int id_Usuario, int dni_Repre, String nom_Repre, String ape_PRe, String ape_MRe, String sexo, int id_distritoR, String domicilio, String lugar_traba, String correo, int id_telefono) {
-        this.id_Usuario = id_Usuario;
+    public Representante(int id_Repre, int dni_Repre, String nom_Repre, String ape_PRe, String ape_MRe, String sexo, int id_distritoR,String domicilio,String ocupacion ,String lugar_traba, String correo, int id_telefono) {
+        super(sexo, domicilio);
+        this.id_Repre = id_Repre;
         this.dni_Repre = dni_Repre;
         this.nom_Repre = nom_Repre;
         this.ape_PRe = ape_PRe;
         this.ape_MRe = ape_MRe;
-        this.sexo = sexo;
         this.id_distritoR = id_distritoR;
-        this.domicilio = domicilio;
+        this.ocupacion = ocupacion;
         this.lugar_traba = lugar_traba;
         this.correo = correo;
         this.id_telefono = id_telefono;
     }
 
-    public Representante(int dni_Repre, String nom_Repre, String ape_PRe, String ape_MRe, String sexo, int id_distritoR, String domicilio, String lugar_traba, String correo, int id_telefono) {
+    public Representante(int dni_Repre, String nom_Repre, String ape_PRe, String ape_MRe, String sexo, int id_distritoR, String domicilio,String ocupacion, String lugar_traba, String correo, int id_telefono) {
+        super(sexo, domicilio);
         this.dni_Repre = dni_Repre;
         this.nom_Repre = nom_Repre;
         this.ape_PRe = ape_PRe;
         this.ape_MRe = ape_MRe;
-        this.sexo = sexo;
         this.id_distritoR = id_distritoR;
-        this.domicilio = domicilio;
+        this.ocupacion = ocupacion;
         this.lugar_traba = lugar_traba;
         this.correo = correo;
         this.id_telefono = id_telefono;
     }
 
-    public int getId_Usuario() {
-        return id_Usuario;
+    public int getId_Repre() {
+        return id_Repre;
     }
 
-    public void setId_Usuario(int id_Usuario) {
-        this.id_Usuario = id_Usuario;
+    public void setId_Repre(int id_Repre) {
+        this.id_Repre = id_Repre;
     }
 
     public int getDni_Repre() {
@@ -134,6 +133,14 @@ public class Representante {
 
     public void setId_telefono(int id_telefono) {
         this.id_telefono = id_telefono;
+    }
+
+    public String getOcupacion() {
+        return ocupacion;
+    }
+
+    public void setOcupacion(String ocupacion) {
+        this.ocupacion = ocupacion;
     }
     
 }

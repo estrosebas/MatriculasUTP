@@ -121,23 +121,6 @@ public class AlumnoDAO {
         }
     }
 
-    /*public boolean eliminar(int id_Alumno) {
-        try {
-            Connection conexion = conexionDB.getConnection();
-            String query = "DELETE FROM alumno WHERE id_Alumno=?";
-            PreparedStatement ps = conexion.prepareStatement(query);
-
-            ps.setInt(1, id_Alumno);
-
-            int res = ps.executeUpdate();
-            conexion.close();
-            return res > 0;
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
-        }
-    }*/
     public boolean eliminar(int dni) {
         try {
             Connection conexion = conexionDB.getConnection();

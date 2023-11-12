@@ -55,6 +55,11 @@ public class MenuPrincipal extends javax.swing.JFrame {
         });
 
         Representante.setText("Representantes");
+        Representante.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RepresentanteActionPerformed(evt);
+            }
+        });
 
         Matriculas.setText("Matriculas");
 
@@ -203,6 +208,12 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
         System.exit(0);
     }//GEN-LAST:event_jPanel1MouseClicked
+
+    private void RepresentanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RepresentanteActionPerformed
+        Representantes frame = new Representantes();
+        frame.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_RepresentanteActionPerformed
 
     /**
      * @param args the command line arguments
