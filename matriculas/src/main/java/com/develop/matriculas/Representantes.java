@@ -188,13 +188,13 @@ public class Representantes extends javax.swing.JFrame {
     }//GEN-LAST:event_BuscarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        eliminarAlumno frame = new eliminarAlumno();
+        eliminarRepresentante frame = new eliminarRepresentante();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void modificar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificar1ActionPerformed
-        modificarAlumno frame = new modificarAlumno();
+        modificarRepresentante frame = new modificarRepresentante();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_modificar1ActionPerformed
