@@ -268,7 +268,7 @@ public class modificarRepresentante extends javax.swing.JFrame {
     }//GEN-LAST:event_id_RepreActionPerformed
 
     private void domicilio_RepreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_domicilio_RepreActionPerformed
-        // TODO add your handling code here:
+        // 
     }//GEN-LAST:event_domicilio_RepreActionPerformed
 
     private void guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarActionPerformed
