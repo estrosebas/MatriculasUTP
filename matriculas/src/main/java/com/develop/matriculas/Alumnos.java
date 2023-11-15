@@ -42,16 +42,17 @@ public class Alumnos extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabla = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         Registrar = new javax.swing.JButton();
-        Buscar = new javax.swing.JButton();
-        modificar1 = new javax.swing.JButton();
-        Eliminar = new javax.swing.JButton();
+        modificar = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         Regresar = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        Buscar1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setMinimumSize(new java.awt.Dimension(630, 356));
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -79,10 +80,14 @@ public class Alumnos extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(Tabla);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, 615, 265));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 615, 265));
+
+        jLabel2.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel2.setText("Alumnos");
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0, 100));
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Registrar.setText("Registrar");
         Registrar.addActionListener(new java.awt.event.ActionListener() {
@@ -90,31 +95,20 @@ public class Alumnos extends javax.swing.JFrame {
                 RegistrarActionPerformed(evt);
             }
         });
-        jPanel2.add(Registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 5, -1, -1));
 
-        Buscar.setText("Buscar");
-        Buscar.addActionListener(new java.awt.event.ActionListener() {
+        modificar.setText("Modificar");
+        modificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BuscarActionPerformed(evt);
+                modificarActionPerformed(evt);
             }
         });
-        jPanel2.add(Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 5, -1, -1));
 
-        modificar1.setText("Modificar");
-        modificar1.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setText("Eliminar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                modificar1ActionPerformed(evt);
+                jButton2ActionPerformed(evt);
             }
         });
-        jPanel2.add(modificar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(166, 5, -1, -1));
-
-        Eliminar.setText("Eliminar");
-        Eliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EliminarActionPerformed(evt);
-            }
-        });
-        jPanel2.add(Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(253, 5, -1, -1));
 
         Regresar.setText("Regresar");
         Regresar.addActionListener(new java.awt.event.ActionListener() {
@@ -122,14 +116,45 @@ public class Alumnos extends javax.swing.JFrame {
                 RegresarActionPerformed(evt);
             }
         });
-        jPanel2.add(Regresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(529, 5, -1, -1));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 300, -1, 40));
+        Buscar1.setText("Buscar");
+        Buscar1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Buscar1ActionPerformed(evt);
+            }
+        });
 
-        jLabel2.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel2.setText("Alumnos");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(Registrar)
+                .addGap(6, 6, 6)
+                .addComponent(Buscar1)
+                .addGap(9, 9, 9)
+                .addComponent(modificar)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton2)
+                .addGap(209, 209, 209)
+                .addComponent(Regresar))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(5, 5, 5)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Registrar)
+                    .addComponent(Buscar1)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jButton2)
+                        .addComponent(modificar))
+                    .addComponent(Regresar))
+                .addGap(12, 12, 12))
+        );
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 610, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backe.jpg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -4, 640, 360));
@@ -143,7 +168,7 @@ public class Alumnos extends javax.swing.JFrame {
         MenuPrincipal Menu = new MenuPrincipal();
         Menu.setVisible(true);
         this.setVisible(false); // Oculta el JFrame actual
-        
+
     }//GEN-LAST:event_RegresarActionPerformed
 
     private void RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarActionPerformed
@@ -196,23 +221,24 @@ public class Alumnos extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_RegistrarActionPerformed
 
-    private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
-        buscarAlumno frame = new buscarAlumno();
+    private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
+        modificarAlumno frame = new modificarAlumno();
+        System.out.println("objeto creado");
         frame.setVisible(true);
+        System.out.println("frame visible");
         this.setVisible(false);
-    }//GEN-LAST:event_BuscarActionPerformed
+        System.out.println("ocultar");
+    }//GEN-LAST:event_modificarActionPerformed
 
-    private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         eliminarAlumno frame = new eliminarAlumno();
         frame.setVisible(true);
         this.setVisible(false);
-    }//GEN-LAST:event_EliminarActionPerformed
+    }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void modificar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificar1ActionPerformed
-        modificarAlumno frame = new modificarAlumno();
-        frame.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_modificar1ActionPerformed
+    private void Buscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Buscar1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_Buscar1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -241,6 +267,12 @@ public class Alumnos extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -251,11 +283,12 @@ public class Alumnos extends javax.swing.JFrame {
     }
 
     void consultar() {
-        // Crear una instancia de AlumnoDAO
-        AlumnoDAO alumnoDAO = new AlumnoDAO();
+        // Crear una instancia para obtener los representantes
+        // Asumo que tienes una clase similar para representantes como la que tenías para alumnos
+        RepresentanteDAO representanteDAO = new RepresentanteDAO();
 
-        // Obtener la lista de todos los alumnos
-        List<Alumno> listaAlumnos = alumnoDAO.obtenerTodosLosAlumnos();
+        // Obtener la lista de todos los representantes
+        List<Representante> listaRepresentantes = representanteDAO.obtenerTodosLosRepresentantes();
 
         // Limpia las filas existentes en la tabla
         DefaultTableModel modelo = (DefaultTableModel) Tabla.getModel();
@@ -263,32 +296,34 @@ public class Alumnos extends javax.swing.JFrame {
             modelo.removeRow(0);
         }
 
-        // Iterar sobre la lista de alumnos y agregarlos a la tabla
-        for (Alumno alumno : listaAlumnos) {
-            Object[] estudiante = new Object[]{
-                alumno.getId_Alumno(),
-                alumno.getNom_Alu(),
-                alumno.getApe_MAl(),
-                alumno.getApe_PAl(),
-                alumno.getDni_Alumno()
+        // Iterar sobre la lista de representantes y agregarlos a la tabla
+        for (Representante representante : listaRepresentantes) {
+            Object[] datosRepresentante = new Object[]{
+                representante.getId_Repre(),
+                representante.getNom_Repre(),
+                representante.getApe_PRe(),
+                representante.getApe_MRe(),
+                representante.getDni_Repre(), // Aquí puedes agregar más campos según lo que quieras mostrar en la tabla
+            // Por ejemplo: representante.getSexo(), representante.getOcupacion(), etc.
             };
-            modelo.addRow(estudiante);
+            modelo.addRow(datosRepresentante);
         }
 
         Tabla.setModel(modelo);
     }
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Buscar;
-    private javax.swing.JButton Eliminar;
+    private javax.swing.JButton Buscar1;
     private javax.swing.JButton Registrar;
     private javax.swing.JButton Regresar;
     private javax.swing.JTable Tabla;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JButton modificar1;
+    private javax.swing.JButton modificar;
     // End of variables declaration//GEN-END:variables
 }
