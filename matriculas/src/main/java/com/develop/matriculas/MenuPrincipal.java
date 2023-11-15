@@ -181,7 +181,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void DistritosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DistritosActionPerformed
-
+        gestorDistritos frame = new gestorDistritos();
+        frame.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_DistritosActionPerformed
 
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed

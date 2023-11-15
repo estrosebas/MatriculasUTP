@@ -15,6 +15,7 @@ public class gestorDistritos extends javax.swing.JFrame {
      */
     public gestorDistritos() {
         initComponents();
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -26,21 +27,79 @@ public class gestorDistritos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        Alumnos = new javax.swing.JButton();
+        Representantes = new javax.swing.JButton();
+        Salir = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel2.setBackground(new java.awt.Color(0, 0, 0, 100));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        Alumnos.setText("Alumnos");
+        Alumnos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AlumnosActionPerformed(evt);
+            }
+        });
+        jPanel2.add(Alumnos, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 110, -1));
+
+        Representantes.setText("Representantes");
+        Representantes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RepresentantesActionPerformed(evt);
+            }
+        });
+        jPanel2.add(Representantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(124, 6, 130, -1));
+
+        Salir.setText("Regresar");
+        Salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SalirActionPerformed(evt);
+            }
+        });
+        jPanel2.add(Salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 41, -1, -1));
+
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 260, 80));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backe.jpg"))); // NOI18N
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 290, 100));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void RepresentantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RepresentantesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RepresentantesActionPerformed
+
+    private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
+        MenuPrincipal Menu = new MenuPrincipal();
+        Menu.setVisible(true);
+        this.setVisible(false); // Oculta el JFrame actual
+    }//GEN-LAST:event_SalirActionPerformed
+
+    private void AlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AlumnosActionPerformed
+        distritoAlum frame = new distritoAlum();
+        frame.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_AlumnosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +137,11 @@ public class gestorDistritos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Alumnos;
+    private javax.swing.JButton Representantes;
+    private javax.swing.JButton Salir;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }

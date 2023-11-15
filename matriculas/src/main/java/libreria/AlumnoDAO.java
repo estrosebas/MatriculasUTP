@@ -189,37 +189,5 @@ public class AlumnoDAO {
         return alumno;
     }
 
-    public List<DistritoAlum> obtenerDistritos() {
-        List<DistritoAlum> distritos = new ArrayList<>();
-        Connection conexion = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
 
-        try {
-            conexion = conexionDB.getConnection(); // Asumiendo que tienes una clase que gestiona la conexión
-            String query = "SELECT * FROM distriitoalum"; // Asegúrate de que el nombre de la tabla y las columnas sean correctos
-            ps = conexion.prepareStatement(query);
-            rs = ps.executeQuery();
-
-            while (rs.next()) {
-                int id = rs.getInt("id_distritoAlum"); // Asegúrate de que el nombre de la columna es correcto
-                String nombre = rs.getString("distritoA"); // Asegúrate de que el nombre de la columna es correcto
-                distritos.add(new DistritoAlum(id, nombre));
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            // Cierra los recursos para evitar fugas de memoria
-            try {
-                if (rs != null) rs.close();
-                if (ps != null) ps.close();
-                if (conexion != null) conexion.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-
-        return distritos;
-    }
 }

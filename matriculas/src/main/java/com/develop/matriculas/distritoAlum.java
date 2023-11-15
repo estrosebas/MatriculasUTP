@@ -11,11 +11,12 @@ package com.develop.matriculas;
 import libreria.*;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.HashSet;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JOptionPane;
 
-public class Alumnos extends javax.swing.JFrame {
+public class distritoAlum extends javax.swing.JFrame {
 
     conexiones con1 = new conexiones();  // Esto debería funcionar ahora
     DefaultTableModel modelo;
@@ -24,10 +25,10 @@ public class Alumnos extends javax.swing.JFrame {
     String Correo;
     String Contraseña;
 
-    public Alumnos() {
+    public distritoAlum() {
         initComponents();
         setLocationRelativeTo(null);
-        consultar();
+        consultarDistritos();
     }
 
     /**
@@ -53,7 +54,6 @@ public class Alumnos extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(630, 356));
-        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel1.setBackground(new java.awt.Color(51, 255, 255));
@@ -61,17 +61,17 @@ public class Alumnos extends javax.swing.JFrame {
 
         Tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null},
+                {null, null},
+                {null, null},
+                {null, null}
             },
             new String [] {
-                "Id", "Nombre", "Apellido materno", "Apellido paterno", "Dni"
+                "Id", "Nombre"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -84,7 +84,7 @@ public class Alumnos extends javax.swing.JFrame {
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel2.setText("Alumnos");
+        jLabel2.setText("Distrito - Alumnos");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0, 100));
@@ -120,7 +120,7 @@ public class Alumnos extends javax.swing.JFrame {
                 RegresarActionPerformed(evt);
             }
         });
-        jPanel2.add(Regresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, -1, -1));
+        jPanel2.add(Regresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(529, 5, -1, -1));
 
         Buscar1.setText("Buscar");
         Buscar1.addActionListener(new java.awt.event.ActionListener() {
@@ -148,62 +148,37 @@ public class Alumnos extends javax.swing.JFrame {
     }//GEN-LAST:event_RegresarActionPerformed
 
     private void RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarActionPerformed
+        try {
+            String distritoA = JOptionPane.showInputDialog(this, "Ingrese el nombre del distrito:");
 
-        String dniStr = JOptionPane.showInputDialog(this, "Ingrese DNI del Alumno:");
-        int dni = Integer.parseInt(dniStr);  // Convertir la entrada a int. Podría lanzar NumberFormatException.
-        String nombre = JOptionPane.showInputDialog(this, "Ingrese Nombre del Alumno:");
-        String apellidoPaterno = JOptionPane.showInputDialog(this, "Ingrese Apellido Paterno del Alumno:");
-        String apellidoMAterno = JOptionPane.showInputDialog(this, "Ingrese Apellido Materno del Alumno:");
-        String fechaNacStr = JOptionPane.showInputDialog(this, "Ingrese Fecha de Nacimiento del Alumno (AAAA-MM-DD):");
-        java.util.Date fechaNac = java.sql.Date.valueOf(fechaNacStr);  // Convertir la entrada a Date. Podría lanzar IllegalArgumentException.
-        String sexo = JOptionPane.showInputDialog(this, "Ingrese el sexo del estudiante");
-        String Id_distritoAlumStr = JOptionPane.showInputDialog(this, "Seleccione el distrito del estudiante");
-        int Id_distriroAlum = Integer.parseInt(Id_distritoAlumStr);
-        String Domicilio = JOptionPane.showInputDialog(this, "Ingrese la direccion de residencia del estudiante");
-        String Nivel_ing = JOptionPane.showInputDialog(this, "Ingrese el nivvel de ingreso(inicial,primaria,secudnaria)");
-        String[] options = {"Inicial", "Primaria", "Secundaria"};
-        int selection = JOptionPane.showOptionDialog(
-                null,
-                "Seleccione el nivel de ingreso",
-                "Nivel de Ingreso",
-                JOptionPane.DEFAULT_OPTION,
-                JOptionPane.INFORMATION_MESSAGE,
-                null,
-                options,
-                options[0]
-        );
+            if (distritoA == null || distritoA.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Debe ingresar un nombre de distrito válido.");
+                return;
+            }
 
-        if (selection == JOptionPane.CLOSED_OPTION) {
-            return; // Salir del bloque si el usuario cerró el diálogo
-        }
+            DistritoAlum distritoAlum = new DistritoAlum(distritoA);
+            DistritoAlumDAO distritoAlumDAO = new DistritoAlumDAO();
+            boolean registroExitoso = distritoAlumDAO.insertar(distritoAlum);
 
-        Nivel_ing = options[selection];
-        String Grado_ingStr = JOptionPane.showInputDialog(this, "Ingrese grado de ingreso del alumno:");
-        int Grado_ing = Integer.parseInt(Grado_ingStr);
-        String Colegio_ant = JOptionPane.showInputDialog(this, "Ingrese colegio de procedencia");
-        String Id_habilidadStr = JOptionPane.showInputDialog(this, "Seleccione la habildiad");
-        int Id_habilidad = Integer.parseInt(Id_habilidadStr);
-        String Id_RepreStr = JOptionPane.showInputDialog(this, "Ingrese Id del representante");
-        int Id_Repre = Integer.parseInt(Id_RepreStr);
-        String Relacion = JOptionPane.showInputDialog(this, "Ingrese la relacion del representatne");
-        Alumno alumno = new Alumno(dni, nombre, apellidoPaterno, apellidoMAterno, fechaNac, sexo, Id_distriroAlum, Domicilio, Nivel_ing, Grado_ing, Colegio_ant, Id_habilidad, Id_Repre, Relacion);
-        AlumnoDAO alumnosDAO = new AlumnoDAO();
-        boolean registroExitoso = alumnosDAO.insertar(alumno);
-        
-        if (registroExitoso) {
-            JOptionPane.showMessageDialog(this, "Registro exitoso");
-        } else {
-            JOptionPane.showMessageDialog(this, "Error en el registro");
+            if (registroExitoso) {
+                JOptionPane.showMessageDialog(this, "Registro de distrito exitoso");
+            } else {
+                JOptionPane.showMessageDialog(this, "Error en el registro de distrito");
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Error al ingresar datos numéricos.");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Error en el registro: " + e.getMessage());
         }
     }//GEN-LAST:event_RegistrarActionPerformed
 
     private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
-        modificarAlumno frame = new modificarAlumno();
-        System.out.println("objeto creado");
+        modificarDistritoAlum frame = new modificarDistritoAlum();
+        
         frame.setVisible(true);
-        System.out.println("frame visible");
+        
         this.setVisible(false);
-        System.out.println("ocultar");
+        
     }//GEN-LAST:event_modificarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -213,9 +188,10 @@ public class Alumnos extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void Buscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Buscar1ActionPerformed
-        buscarAlumno frame = new buscarAlumno();
+        buscarDistritoAlum frame = new buscarDistritoAlum();
         frame.setVisible(true);
         this.setVisible(false);
+        
     }//GEN-LAST:event_Buscar1ActionPerformed
 
     /**
@@ -235,14 +211,22 @@ public class Alumnos extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Alumnos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(distritoAlum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Alumnos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(distritoAlum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Alumnos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(distritoAlum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Alumnos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(distritoAlum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -255,17 +239,16 @@ public class Alumnos extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Alumnos().setVisible(true);
+                new distritoAlum().setVisible(true);
             }
         });
     }
 
-    void consultar() {
-        // Crear una instancia de AlumnoDAO
-        AlumnoDAO alumnoDAO = new AlumnoDAO();
+    void consultarDistritos() {
+        DistritoAlumDAO distritoDAO = new DistritoAlumDAO();
 
-        // Obtener la lista de todos los alumnos
-        List<Alumno> listaAlumnos = alumnoDAO.obtenerTodosLosAlumnos();
+        // Obtener la lista de todos los distritos
+        List<DistritoAlum> listaDistritos = distritoDAO.obtenerDistritos();
 
         // Limpia las filas existentes en la tabla
         DefaultTableModel modelo = (DefaultTableModel) Tabla.getModel();
@@ -273,16 +256,13 @@ public class Alumnos extends javax.swing.JFrame {
             modelo.removeRow(0);
         }
 
-        // Iterar sobre la lista de alumnos y agregarlos a la tabla
-        for (Alumno alumno : listaAlumnos) {
-            Object[] estudiante = new Object[]{
-                alumno.getId_Alumno(),
-                alumno.getNom_Alu(),
-                alumno.getApe_MAl(),
-                alumno.getApe_PAl(),
-                alumno.getDni_Alumno()
+        // Iterar sobre la lista de distritos y agregarlos a la tabla
+        for (DistritoAlum distrito : listaDistritos) {
+            Object[] filaDistrito = new Object[]{
+                distrito.getId_distritoAlum(), // Aquí debes usar el método adecuado para obtener el ID del distrito
+                distrito.getDistritoA() // Aquí debes usar el método adecuado para obtener el nombre del distrito
             };
-            modelo.addRow(estudiante);
+            modelo.addRow(filaDistrito);
         }
 
         Tabla.setModel(modelo);
