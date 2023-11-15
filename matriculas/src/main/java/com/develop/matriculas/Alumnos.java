@@ -283,12 +283,11 @@ public class Alumnos extends javax.swing.JFrame {
     }
 
     void consultar() {
-        // Crear una instancia para obtener los representantes
-        // Asumo que tienes una clase similar para representantes como la que tenías para alumnos
-        RepresentanteDAO representanteDAO = new RepresentanteDAO();
+        // Crear una instancia de AlumnoDAO
+        AlumnoDAO alumnoDAO = new AlumnoDAO();
 
-        // Obtener la lista de todos los representantes
-        List<Representante> listaRepresentantes = representanteDAO.obtenerTodosLosRepresentantes();
+        // Obtener la lista de todos los alumnos
+        List<Alumno> listaAlumnos = alumnoDAO.obtenerTodosLosAlumnos();
 
         // Limpia las filas existentes en la tabla
         DefaultTableModel modelo = (DefaultTableModel) Tabla.getModel();
@@ -296,17 +295,16 @@ public class Alumnos extends javax.swing.JFrame {
             modelo.removeRow(0);
         }
 
-        // Iterar sobre la lista de representantes y agregarlos a la tabla
-        for (Representante representante : listaRepresentantes) {
-            Object[] datosRepresentante = new Object[]{
-                representante.getId_Repre(),
-                representante.getNom_Repre(),
-                representante.getApe_PRe(),
-                representante.getApe_MRe(),
-                representante.getDni_Repre(), // Aquí puedes agregar más campos según lo que quieras mostrar en la tabla
-            // Por ejemplo: representante.getSexo(), representante.getOcupacion(), etc.
+        // Iterar sobre la lista de alumnos y agregarlos a la tabla
+        for (Alumno alumno : listaAlumnos) {
+            Object[] estudiante = new Object[]{
+                alumno.getId_Alumno(),
+                alumno.getNom_Alu(),
+                alumno.getApe_MAl(),
+                alumno.getApe_PAl(),
+                alumno.getDni_Alumno()
             };
-            modelo.addRow(datosRepresentante);
+            modelo.addRow(estudiante);
         }
 
         Tabla.setModel(modelo);
