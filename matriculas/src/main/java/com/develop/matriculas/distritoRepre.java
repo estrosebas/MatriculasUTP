@@ -15,7 +15,7 @@ import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JOptionPane;
 
-public class distritoAlum extends javax.swing.JFrame {
+public class distritoRepre extends javax.swing.JFrame {
 
     conexiones con1 = new conexiones();  // Esto debería funcionar ahora
     DefaultTableModel modelo;
@@ -24,7 +24,7 @@ public class distritoAlum extends javax.swing.JFrame {
     String Correo;
     String Contraseña;
 
-    public distritoAlum() {
+    public distritoRepre() {
         initComponents();
         setLocationRelativeTo(null);
         consultarDistritos();
@@ -84,7 +84,7 @@ public class distritoAlum extends javax.swing.JFrame {
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel2.setText("Distrito - Alumnos");
+        jLabel2.setText("Distrito - Representantes");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0, 100));
@@ -149,16 +149,16 @@ public class distritoAlum extends javax.swing.JFrame {
 
     private void RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarActionPerformed
         try {
-            String distritoA = JOptionPane.showInputDialog(this, "Ingrese el nombre del distrito:");
+            String distritoR = JOptionPane.showInputDialog(this, "Ingrese el nombre del distrito:");
 
-            if (distritoA == null || distritoA.isEmpty()) {
+            if (distritoR == null || distritoR.isEmpty()) {
                 JOptionPane.showMessageDialog(this, "Debe ingresar un nombre de distrito válido.");
                 return;
             }
 
-            DistritoAlum distritoAlum = new DistritoAlum(distritoA);
-            DistritoAlumDAO distritoAlumDAO = new DistritoAlumDAO();
-            boolean registroExitoso = distritoAlumDAO.insertar(distritoAlum);
+            DistritoRepre distritoRepre = new DistritoRepre(distritoR);
+            DistritoRepreDAO distritoRepreDAO = new DistritoRepreDAO();
+            boolean registroExitoso = distritoRepreDAO.insertar(distritoRepre);
 
             if (registroExitoso) {
                 JOptionPane.showMessageDialog(this, "Registro de distrito exitoso");
@@ -188,7 +188,7 @@ public class distritoAlum extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void Buscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Buscar1ActionPerformed
-        buscarDistritoAlum frame = new buscarDistritoAlum();
+        buscarDistritoRepre frame = new buscarDistritoRepre();
         frame.setVisible(true);
         this.setVisible(false);
         
@@ -211,14 +211,30 @@ public class distritoAlum extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(distritoAlum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(distritoRepre.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(distritoAlum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(distritoRepre.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(distritoAlum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(distritoRepre.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(distritoAlum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(distritoRepre.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -239,16 +255,16 @@ public class distritoAlum extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new distritoAlum().setVisible(true);
+                new distritoRepre().setVisible(true);
             }
         });
     }
 
     void consultarDistritos() {
-        DistritoAlumDAO distritoDAO = new DistritoAlumDAO();
+        DistritoRepreDAO distritoDAO = new DistritoRepreDAO();
 
         // Obtener la lista de todos los distritos
-        List<DistritoAlum> listaDistritos = distritoDAO.obtenerDistritos();
+        List<DistritoRepre> listaDistritos = distritoDAO.obtenerDistritos();
 
         // Limpia las filas existentes en la tabla
         DefaultTableModel modelo = (DefaultTableModel) Tabla.getModel();
@@ -257,10 +273,10 @@ public class distritoAlum extends javax.swing.JFrame {
         }
 
         // Iterar sobre la lista de distritos y agregarlos a la tabla
-        for (DistritoAlum distrito : listaDistritos) {
+        for (DistritoRepre distrito : listaDistritos) {
             Object[] filaDistrito = new Object[]{
-                distrito.getId_distritoAlum(), // Aquí debes usar el método adecuado para obtener el ID del distrito
-                distrito.getDistritoA() // Aquí debes usar el método adecuado para obtener el nombre del distrito
+                distrito.getId_distritoRepre(), // Aquí debes usar el método adecuado para obtener el ID del distrito
+                distrito.getDistritoR() // Aquí debes usar el método adecuado para obtener el nombre del distrito
             };
             modelo.addRow(filaDistrito);
         }

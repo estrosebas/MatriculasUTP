@@ -13,12 +13,12 @@ import java.util.Date;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 
-public class modificarDistritoAlum extends javax.swing.JFrame {
+public class eliminarDistritoRepre extends javax.swing.JFrame {
 
     /**
      * Creates new form modificarAlumno
      */
-    public modificarDistritoAlum() {
+    public eliminarDistritoRepre() {
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -43,7 +43,7 @@ public class modificarDistritoAlum extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         nombre = new javax.swing.JTextField();
         back = new javax.swing.JButton();
-        Guardar = new javax.swing.JButton();
+        Eliminar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -58,7 +58,7 @@ public class modificarDistritoAlum extends javax.swing.JFrame {
         jLabel2.setText("Ingrese id :");
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel3.setText("Modificar distroto - alumno");
+        jLabel3.setText("Modificar distrito - representante");
 
         iddistrito.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,6 +75,7 @@ public class modificarDistritoAlum extends javax.swing.JFrame {
 
         jLabel4.setText("Nombre :");
 
+        nombre.setEditable(false);
         nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nombreActionPerformed(evt);
@@ -102,13 +103,12 @@ public class modificarDistritoAlum extends javax.swing.JFrame {
                             .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(40, 40, 40))
                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGap(62, 62, 62)
-                            .addComponent(jLabel3))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                            .addGap(2, 2, 2)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(jLabel3)))
                 .addGap(856, 856, 856))
         );
         jPanel2Layout.setVerticalGroup(
@@ -144,13 +144,13 @@ public class modificarDistritoAlum extends javax.swing.JFrame {
         });
         jPanel1.add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, -1, -1));
 
-        Guardar.setText("Guardar");
-        Guardar.addActionListener(new java.awt.event.ActionListener() {
+        Eliminar.setText("Eliminar");
+        Eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GuardarActionPerformed(evt);
+                EliminarActionPerformed(evt);
             }
         });
-        jPanel1.add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, -1, -1));
+        jPanel1.add(Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backe.jpg"))); // NOI18N
         jLabel1.setText("r");
@@ -171,13 +171,13 @@ public class modificarDistritoAlum extends javax.swing.JFrame {
     private void buscar() {
         try {
             int id = Integer.parseInt(iddistrito.getText());
-            DistritoAlumDAO distritodao = new DistritoAlumDAO();
-            DistritoAlum distrito = new DistritoAlum();
+            DistritoRepreDAO distritodao = new DistritoRepreDAO();
+            DistritoRepre distrito = new DistritoRepre();
             distrito = distritodao.buscarDistritoPorId(id);
             if (distrito != null) {
                 // Rellenar los campos con la información del alumno
-                nombre.setText(distrito.getDistritoA());
-
+                nombre.setText(distrito.getDistritoR());
+ 
             } else {
                 JOptionPane.showMessageDialog(this, "Distrito no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
             }
@@ -185,45 +185,46 @@ public class modificarDistritoAlum extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Por favor, ingrese un ID válido.", "Error de formato", JOptionPane.ERROR_MESSAGE);
         }
     }
-    
-    private void guardar() {
-        try {
-            // Recopilar la información del formulario
-            int idDistrito = Integer.parseInt(iddistrito.getText()); // Asegúrate de manejar NumberFormatException
-            String nombreStr = nombre.getText();
-            
-            // Crear una nueva instancia de Representante con los valores actualizados
-//            Representante representanteActualizado = new Representante(idRepre, dniRepre, nomRepre, apePRe, apeMRe, sexoRepre, idDistritoR, domicilio, ocupacion, lugarTrabajo, correo, idTelefono);
-            DistritoAlum DistritoAlumActualizado = new DistritoAlum(idDistrito, nombreStr);
-            // Llamar al método modificar de tu RepresentanteDAO
-            DistritoAlumDAO distritoDAO = new DistritoAlumDAO();
-            boolean exito = distritoDAO.modificar(DistritoAlumActualizado);
+    private void eliminar() {
+        String idStr = iddistrito.getText();
+        if (idStr.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese el ID del distrito a eliminar.");
+        } else {
+            // Crear una instancia de AlumnoDAO y llamar al método eliminarPorDNI
+            DistritoRepreDAO dao = new DistritoRepreDAO();
+            int idpareseado = Integer.parseInt(idStr);
+            boolean result = dao.eliminar(idpareseado);
 
-            if (exito) {
-                JOptionPane.showMessageDialog(this, "Distrito actualizado correctamente", "Actualización Exitosa", JOptionPane.INFORMATION_MESSAGE);
+            if (result) {
+                JOptionPane.showMessageDialog(null, "Distrito eliminado con éxito.");
+                // Actualizar la lista o tabla aquí
             } else {
-                JOptionPane.showMessageDialog(this, "No se pudo actualizar la información del distrito", "Error de Actualización", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "No se encontró el distrito");
             }
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Por favor, ingrese datos válidos.", "Error de Formato", JOptionPane.ERROR_MESSAGE);
         }
-    }
-    
-    private void iddistritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iddistritoActionPerformed
 
+        // Limpiar el campo de texto independientemente del resultado
+        
+        iddistrito.setText("");
+        nombre.setText("");
+        
+    }
+
+    private void iddistritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iddistritoActionPerformed
+        
     }//GEN-LAST:event_iddistritoActionPerformed
 
     private void nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreActionPerformed
-
+        
     }//GEN-LAST:event_nombreActionPerformed
 
     private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
         buscar();
     }//GEN-LAST:event_buscarActionPerformed
 
-    private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
-        guardar();
-    }//GEN-LAST:event_GuardarActionPerformed
+    private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
+        eliminar();
+    }//GEN-LAST:event_EliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -242,14 +243,38 @@ public class modificarDistritoAlum extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(modificarDistritoAlum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(eliminarDistritoRepre.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(modificarDistritoAlum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(eliminarDistritoRepre.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(modificarDistritoAlum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(eliminarDistritoRepre.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(modificarDistritoAlum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(eliminarDistritoRepre.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -262,13 +287,13 @@ public class modificarDistritoAlum extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new modificarDistritoAlum().setVisible(true);
+                new eliminarDistritoRepre().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Guardar;
+    private javax.swing.JButton Eliminar;
     private javax.swing.JButton back;
     private javax.swing.JButton buscar;
     private javax.swing.JTextField iddistrito;

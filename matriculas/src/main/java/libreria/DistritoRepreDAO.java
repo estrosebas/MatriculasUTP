@@ -17,21 +17,21 @@ import javax.swing.JOptionPane;
  *
  * @author estrosebas
  */
-public class DistritoAlumDAO {
+public class DistritoRepreDAO {
 
     private final conexiones conexionDB;
 
-    public DistritoAlumDAO() {
+    public DistritoRepreDAO() {
         conexionDB = new conexiones();
     }
 
-    public boolean insertar(DistritoAlum distritoAlum) {
+    public boolean insertar(DistritoRepre distritoRepre) {
         try {
             Connection conexion = conexionDB.getConnection();
-            String query = "INSERT INTO distriitoalum (distritoA) VALUES (?)";
+            String query = "INSERT INTO distritorepre (distritoR) VALUES (?)";
             PreparedStatement ps = conexion.prepareStatement(query);
 
-            ps.setString(1, distritoAlum.getDistritoA());
+            ps.setString(1, distritoRepre.getDistritoR());
 
             int res = ps.executeUpdate();
             conexion.close();
@@ -43,22 +43,22 @@ public class DistritoAlumDAO {
         }
     }
 
-    public List<DistritoAlum> obtenerDistritos() {
-        List<DistritoAlum> distritos = new ArrayList<>();
+    public List<DistritoRepre> obtenerDistritos() {
+        List<DistritoRepre> distritos = new ArrayList<>();
         Connection conexion = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
 
         try {
             conexion = conexionDB.getConnection(); // Asumiendo que tienes una clase que gestiona la conexión
-            String query = "SELECT * FROM distriitoalum"; // Asegúrate de que el nombre de la tabla y las columnas sean correctos
+            String query = "SELECT * FROM distritorepre"; // Asegúrate de que el nombre de la tabla y las columnas sean correctos
             ps = conexion.prepareStatement(query);
             rs = ps.executeQuery();
 
             while (rs.next()) {
-                int id = rs.getInt("id_distritoAlum"); // Asegúrate de que el nombre de la columna es correcto
-                String nombre = rs.getString("distritoA"); // Asegúrate de que el nombre de la columna es correcto
-                distritos.add(new DistritoAlum(id, nombre));
+                int id = rs.getInt("id_distritoR"); // Asegúrate de que el nombre de la columna es correcto
+                String nombre = rs.getString("distritoR"); // Asegúrate de que el nombre de la columna es correcto
+                distritos.add(new DistritoRepre(id, nombre));
             }
 
         } catch (Exception e) {
@@ -83,12 +83,12 @@ public class DistritoAlumDAO {
         return distritos;
     }
 
-    public DistritoAlum buscarDistritoPorId(int idDistrito) {
-        DistritoAlum distritoAlum = null;
+    public DistritoRepre buscarDistritoPorId(int idDistrito) {
+        DistritoRepre distritoRepre = null;
 
         try {
             Connection conexion = conexionDB.getConnection();
-            String query = "SELECT * FROM distriitoalum WHERE id_distritoAlum = ?";
+            String query = "SELECT * FROM distritorepre WHERE id_distritoR = ?";
             PreparedStatement ps = conexion.prepareStatement(query);
 
             ps.setInt(1, idDistrito);
@@ -96,11 +96,11 @@ public class DistritoAlumDAO {
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
-                // Obteniendo el valor de la columna 'distritoA'
-                String distritoA = rs.getString("distritoA");
+                
+                String distritoA = rs.getString("distritoR");
 
-                // Creando una nueva instancia de DistritoAlum usando el valor obtenido
-                distritoAlum = new DistritoAlum(idDistrito, distritoA);
+                
+                distritoRepre = new DistritoRepre(idDistrito, distritoA);
             }
 
             conexion.close();
@@ -109,17 +109,17 @@ public class DistritoAlumDAO {
             e.printStackTrace();
         }
 
-        return distritoAlum;
+        return distritoRepre;
     }
 
-    public boolean modificar(DistritoAlum distritoAlum) {
+    public boolean modificar(DistritoRepre distritoRepre) {
         try {
             Connection conexion = conexionDB.getConnection();
-            String query = "UPDATE distriitoalum SET distritoA = ? WHERE id_distritoAlum = ?";
+            String query = "UPDATE distritorepre SET distritoR = ? WHERE id_distritoR = ?";
             PreparedStatement ps = conexion.prepareStatement(query);
 
-            ps.setString(1, distritoAlum.getDistritoA());
-            ps.setInt(2, distritoAlum.getId_distritoAlum());
+            ps.setString(1, distritoRepre.getDistritoR());
+            ps.setInt(2, distritoRepre.getId_distritoRepre());
 
             int res = ps.executeUpdate();
             conexion.close();
@@ -133,7 +133,7 @@ public class DistritoAlumDAO {
     public boolean eliminar(int iddistrito) {
         try {
             Connection conexion = conexionDB.getConnection();
-            String query = "DELETE FROM distriitoalum WHERE id_distritoAlum=?";
+            String query = "DELETE FROM distritorepre WHERE id_distritoAlum=?";
             PreparedStatement ps = conexion.prepareStatement(query);
 
             ps.setInt(1, iddistrito);  // Asumiendo que DNI es un string, si es numérico, usa setInt

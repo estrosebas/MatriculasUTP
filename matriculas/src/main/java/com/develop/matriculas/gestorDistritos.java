@@ -86,7 +86,9 @@ public class gestorDistritos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void RepresentantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RepresentantesActionPerformed
-        // TODO add your handling code here:
+        distritoRepre frame = new distritoRepre();
+        frame.setVisible(true);
+        this.setVisible(false);
     }//GEN-LAST:event_RepresentantesActionPerformed
 
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
