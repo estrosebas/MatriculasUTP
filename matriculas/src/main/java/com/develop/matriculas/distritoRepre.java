@@ -182,7 +182,7 @@ public class distritoRepre extends javax.swing.JFrame {
     }//GEN-LAST:event_modificarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        eliminarDistritoAlum frame = new eliminarDistritoAlum();
+        eliminarDistritoRepre frame = new eliminarDistritoRepre();
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
