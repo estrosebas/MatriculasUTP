@@ -335,7 +335,7 @@ public class buscarAlumno extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
-        Alumnos back = new Alumnos();
+        alumnos back = new alumnos();
         back.setVisible(true);
         this.setVisible(false); // Oculta el JFrame actual
     }//GEN-LAST:event_backActionPerformed

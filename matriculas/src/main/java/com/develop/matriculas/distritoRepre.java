@@ -141,7 +141,7 @@ public class distritoRepre extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void RegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegresarActionPerformed
-        MenuPrincipal Menu = new MenuPrincipal();
+        menuPrincipal Menu = new menuPrincipal();
         Menu.setVisible(true);
         this.setVisible(false); // Oculta el JFrame actual
 

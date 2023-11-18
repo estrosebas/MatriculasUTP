@@ -92,7 +92,7 @@ public class gestorDistritos extends javax.swing.JFrame {
     }//GEN-LAST:event_RepresentantesActionPerformed
 
     private void SalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SalirActionPerformed
-        MenuPrincipal Menu = new MenuPrincipal();
+        menuPrincipal Menu = new menuPrincipal();
         Menu.setVisible(true);
         this.setVisible(false); // Oculta el JFrame actual
     }//GEN-LAST:event_SalirActionPerformed
