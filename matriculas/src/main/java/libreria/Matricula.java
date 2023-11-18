@@ -42,6 +42,9 @@ public class Matricula {
         this.id_Usuario = id_Usuario;
     }
 
+    public Matricula() {
+    }
+
     public int getId_Matricula() {
         return id_Matricula;
     }

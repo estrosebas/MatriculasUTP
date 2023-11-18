@@ -8,11 +8,13 @@ package com.develop.matriculas;
  *
  * @author estrosebas
  */
+import libreria.*;
 public class Main {
-    
+
     public static void main(String[] args) {
         
         menuPrincipal menu = new menuPrincipal();
         menu.setVisible(true);
+         
     }
 }

@@ -65,6 +65,11 @@ public class menuPrincipal extends javax.swing.JFrame {
         jPanel2.add(Representante, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 75, 160, -1));
 
         Matriculas.setText("Matriculas");
+        Matriculas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MatriculasActionPerformed(evt);
+            }
+        });
         jPanel2.add(Matriculas, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 115, 160, -1));
 
         Distritos.setText("Distritos");
@@ -157,6 +162,12 @@ public class menuPrincipal extends javax.swing.JFrame {
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_RepresentanteActionPerformed
+
+    private void MatriculasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MatriculasActionPerformed
+        matriculas frame = new matriculas();
+        frame.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_MatriculasActionPerformed
 
     /**
      * @param args the command line arguments
