@@ -13,12 +13,12 @@ import java.util.Date;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 
-public class modificarDistritoAlum extends javax.swing.JFrame {
+public class eliminarTelefono extends javax.swing.JFrame {
 
     /**
      * Creates new form modificarAlumno
      */
-    public modificarDistritoAlum() {
+    public eliminarTelefono() {
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -37,13 +37,13 @@ public class modificarDistritoAlum extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
-        iddistrito = new javax.swing.JTextField();
+        idTelefono = new javax.swing.JTextField();
         buscar = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
         jLabel4 = new javax.swing.JLabel();
-        nombre = new javax.swing.JTextField();
+        telefonobase = new javax.swing.JTextField();
         back = new javax.swing.JButton();
-        Guardar = new javax.swing.JButton();
+        Eliminar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -58,11 +58,11 @@ public class modificarDistritoAlum extends javax.swing.JFrame {
         jLabel2.setText("Ingrese id :");
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel3.setText("Modificar distrito - alumno");
+        jLabel3.setText("Eliminar telefono");
 
-        iddistrito.addActionListener(new java.awt.event.ActionListener() {
+        idTelefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                iddistritoActionPerformed(evt);
+                idTelefonoActionPerformed(evt);
             }
         });
 
@@ -73,11 +73,11 @@ public class modificarDistritoAlum extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setText("Nombre :");
+        jLabel4.setText("Telefono :");
 
-        nombre.addActionListener(new java.awt.event.ActionListener() {
+        telefonobase.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nombreActionPerformed(evt);
+                telefonobaseActionPerformed(evt);
             }
         });
 
@@ -91,7 +91,7 @@ public class modificarDistritoAlum extends javax.swing.JFrame {
                         .addGap(6, 6, 6)
                         .addComponent(jLabel2)
                         .addGap(12, 12, 12)
-                        .addComponent(iddistrito, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(idTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(buscar))
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -99,16 +99,15 @@ public class modificarDistritoAlum extends javax.swing.JFrame {
                             .addContainerGap()
                             .addComponent(jLabel4)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(telefonobase, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(40, 40, 40))
                         .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                            .addGap(62, 62, 62)
-                            .addComponent(jLabel3))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                            .addGap(2, 2, 2)
-                            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(88, 88, 88)
+                        .addComponent(jLabel3)))
                 .addGap(856, 856, 856))
         );
         jPanel2Layout.setVerticalGroup(
@@ -123,14 +122,14 @@ public class modificarDistritoAlum extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(3, 3, 3)
                         .addComponent(jLabel2))
-                    .addComponent(iddistrito, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(idTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buscar))
                 .addGap(12, 12, 12)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(6, 6, 6)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(telefonobase, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(11, Short.MAX_VALUE))
         );
 
@@ -144,13 +143,13 @@ public class modificarDistritoAlum extends javax.swing.JFrame {
         });
         jPanel1.add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 160, -1, -1));
 
-        Guardar.setText("Guardar");
-        Guardar.addActionListener(new java.awt.event.ActionListener() {
+        Eliminar.setText("Eliminar");
+        Eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GuardarActionPerformed(evt);
+                EliminarActionPerformed(evt);
             }
         });
-        jPanel1.add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, -1, -1));
+        jPanel1.add(Eliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 160, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backe.jpg"))); // NOI18N
         jLabel1.setText("r");
@@ -162,7 +161,7 @@ public class modificarDistritoAlum extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
-        distritoAlum back = new distritoAlum();
+        telefono back = new telefono();
         back.setVisible(true);
         this.setVisible(false); // Oculta el JFrame actual
     }//GEN-LAST:event_backActionPerformed
@@ -170,60 +169,65 @@ public class modificarDistritoAlum extends javax.swing.JFrame {
 
     private void buscar() {
         try {
-            int id = Integer.parseInt(iddistrito.getText());
-            DistritoAlumDAO distritodao = new DistritoAlumDAO();
-            DistritoAlum distrito = new DistritoAlum();
-            distrito = distritodao.buscarDistritoPorId(id);
-            if (distrito != null) {
-                // Rellenar los campos con la información del alumno
-                nombre.setText(distrito.getDistritoA());
+            int id = Integer.parseInt(idTelefono.getText()); // asumiendo que idTelefono es el JTextField o similar donde ingresas el ID del teléfono
+            TelefonoDAO telefonoDAO = new TelefonoDAO();
+            Telefono telefono = telefonoDAO.buscarTelefonoPorId(id);
 
+            if (telefono != null) {
+                // Rellenar los campos con la información del teléfono
+                // Aquí deberías tener componentes gráficos para mostrar la información,
+                // por ejemplo, JTextFields donde puedas mostrar el ID y el número de teléfono.
+                // Supongamos que tienes JTextFields llamados idTextField y numeroTextField.
+
+                telefonobase.setText(Integer.toString(telefono.getTelefono()));
+                
             } else {
-                JOptionPane.showMessageDialog(this, "Distrito no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Teléfono no encontrado", "Error", JOptionPane.ERROR_MESSAGE);
             }
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Por favor, ingrese un ID válido.", "Error de formato", JOptionPane.ERROR_MESSAGE);
         }
     }
     
-    private void guardar() {
-        try {
-            // Recopilar la información del formulario
-            int idDistrito = Integer.parseInt(iddistrito.getText()); // Asegúrate de manejar NumberFormatException
-            String nombreStr = nombre.getText();
-            
-            // Crear una nueva instancia de Representante con los valores actualizados
-//            Representante representanteActualizado = new Representante(idRepre, dniRepre, nomRepre, apePRe, apeMRe, sexoRepre, idDistritoR, domicilio, ocupacion, lugarTrabajo, correo, idTelefono);
-            DistritoAlum DistritoAlumActualizado = new DistritoAlum(idDistrito, nombreStr);
-            // Llamar al método modificar de tu RepresentanteDAO
-            DistritoAlumDAO distritoDAO = new DistritoAlumDAO();
-            boolean exito = distritoDAO.modificar(DistritoAlumActualizado);
+    private void eliminar() {
+        String idTelefonoStr = idTelefono.getText();
+        if (idTelefonoStr.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Por favor, ingrese el ID del telefono a eliminar.");
+        } else {
+            TelefonoDAO dao = new TelefonoDAO();
+            int idpareseado = Integer.parseInt(idTelefonoStr);
+            boolean result = dao.eliminar(idpareseado);
 
-            if (exito) {
-                JOptionPane.showMessageDialog(this, "Distrito actualizado correctamente", "Actualización Exitosa", JOptionPane.INFORMATION_MESSAGE);
+            if (result) {
+                JOptionPane.showMessageDialog(null, "Telefono eliminado con éxito.");
+                // Actualizar la lista o tabla aquí
             } else {
-                JOptionPane.showMessageDialog(this, "No se pudo actualizar la información del distrito", "Error de Actualización", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "No se encontró el telefono");
             }
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Por favor, ingrese datos válidos.", "Error de Formato", JOptionPane.ERROR_MESSAGE);
         }
+
+        // Limpiar el campo de texto independientemente del resultado
+        
+        idTelefono.setText("");
+        telefonobase.setText("");
+        
     }
     
-    private void iddistritoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iddistritoActionPerformed
+    private void idTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idTelefonoActionPerformed
 
-    }//GEN-LAST:event_iddistritoActionPerformed
+    }//GEN-LAST:event_idTelefonoActionPerformed
 
-    private void nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreActionPerformed
+    private void telefonobaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telefonobaseActionPerformed
 
-    }//GEN-LAST:event_nombreActionPerformed
+    }//GEN-LAST:event_telefonobaseActionPerformed
 
     private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
         buscar();
     }//GEN-LAST:event_buscarActionPerformed
 
-    private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
-        guardar();
-    }//GEN-LAST:event_GuardarActionPerformed
+    private void EliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarActionPerformed
+        eliminar();
+    }//GEN-LAST:event_EliminarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -242,14 +246,38 @@ public class modificarDistritoAlum extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(modificarDistritoAlum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(eliminarTelefono.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(modificarDistritoAlum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(eliminarTelefono.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(modificarDistritoAlum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(eliminarTelefono.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(modificarDistritoAlum.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(eliminarTelefono.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -262,16 +290,16 @@ public class modificarDistritoAlum extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new modificarDistritoAlum().setVisible(true);
+                new eliminarTelefono().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton Guardar;
+    private javax.swing.JButton Eliminar;
     private javax.swing.JButton back;
     private javax.swing.JButton buscar;
-    private javax.swing.JTextField iddistrito;
+    private javax.swing.JTextField idTelefono;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -280,6 +308,6 @@ public class modificarDistritoAlum extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextField nombre;
+    private javax.swing.JTextField telefonobase;
     // End of variables declaration//GEN-END:variables
 }

@@ -184,6 +184,7 @@ public class eliminarMatricula extends javax.swing.JFrame {
                 // Rellenar los campos con la información del representante
                 id_Alumno.setText(Integer.toString(matricula.getId_Alumno()));
                 metodo_Pago.setText(matricula.getMetodo_Pago());
+                monto_Pago.setText(Double.toString(matricula.getMonto_Pago()));
                 observaciones.setText(matricula.getObservaciones());
                 id_Usuario.setText(matricula.getId_Usuario());
             } else {

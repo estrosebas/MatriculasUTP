@@ -15,7 +15,7 @@ import java.util.List;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JOptionPane;
 
-public class distritoRepre extends javax.swing.JFrame {
+public class telefono extends javax.swing.JFrame {
 
     conexiones con1 = new conexiones();  // Esto debería funcionar ahora
     DefaultTableModel modelo;
@@ -24,10 +24,10 @@ public class distritoRepre extends javax.swing.JFrame {
     String Correo;
     String Contraseña;
 
-    public distritoRepre() {
+    public telefono() {
         initComponents();
         setLocationRelativeTo(null);
-        consultarDistritos();
+        consultar();
     }
 
     /**
@@ -46,9 +46,9 @@ public class distritoRepre extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         Registrar = new javax.swing.JButton();
         modificar = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         Regresar = new javax.swing.JButton();
         Buscar1 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -84,7 +84,7 @@ public class distritoRepre extends javax.swing.JFrame {
 
         jLabel2.setBackground(new java.awt.Color(0, 0, 0));
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel2.setText("Distrito - Representantes");
+        jLabel2.setText("Telefonos");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0, 100));
@@ -106,21 +106,13 @@ public class distritoRepre extends javax.swing.JFrame {
         });
         jPanel2.add(modificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, -1));
 
-        jButton2.setText("Eliminar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, -1, -1));
-
         Regresar.setText("Regresar");
         Regresar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 RegresarActionPerformed(evt);
             }
         });
-        jPanel2.add(Regresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(529, 5, -1, -1));
+        jPanel2.add(Regresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, -1, -1));
 
         Buscar1.setText("Buscar");
         Buscar1.addActionListener(new java.awt.event.ActionListener() {
@@ -129,6 +121,14 @@ public class distritoRepre extends javax.swing.JFrame {
             }
         });
         jPanel2.add(Buscar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, -1, -1));
+
+        jButton1.setText("Eliminar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 610, 40));
 
@@ -141,58 +141,71 @@ public class distritoRepre extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void RegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegresarActionPerformed
-        menuPrincipal Menu = new menuPrincipal();
-        Menu.setVisible(true);
+        representantes frame = new representantes();
+        frame.setVisible(true);
         this.setVisible(false); // Oculta el JFrame actual
 
     }//GEN-LAST:event_RegresarActionPerformed
 
     private void RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarActionPerformed
         try {
-            String distritoR = JOptionPane.showInputDialog(this, "Ingrese el nombre del distrito:");
+            // Solicitar al usuario que ingrese el número de teléfono
+            String inputTelefono = JOptionPane.showInputDialog(this, "Ingrese el número de teléfono:");
 
-            if (distritoR == null || distritoR.isEmpty()) {
-                JOptionPane.showMessageDialog(this, "Debe ingresar un nombre de distrito válido.");
+            // Verificar si el número de teléfono es válido
+            if (inputTelefono == null || inputTelefono.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Debe ingresar un número de teléfono válido.");
                 return;
             }
 
-            DistritoRepre distritoRepre = new DistritoRepre(distritoR);
-            DistritoRepreDAO distritoRepreDAO = new DistritoRepreDAO();
-            boolean registroExitoso = distritoRepreDAO.insertar(distritoRepre);
+            // Convertir el input en un entero
+            int telefono = Integer.parseInt(inputTelefono);
 
+            // Crear una instancia de Telefono
+            Telefono nuevoTelefono = new Telefono(telefono);
+
+            // Crear una instancia de TelefonoDAO para realizar operaciones en la base de datos
+            TelefonoDAO telefonoDAO = new TelefonoDAO();
+
+            // Insertar el teléfono en la base de datos
+            boolean registroExitoso = telefonoDAO.insertar(nuevoTelefono);
+
+            // Mostrar un mensaje de éxito o error
             if (registroExitoso) {
-                JOptionPane.showMessageDialog(this, "Registro de distrito exitoso");
+                JOptionPane.showMessageDialog(this, "Registro de teléfono exitoso");
             } else {
-                JOptionPane.showMessageDialog(this, "Error en el registro de distrito");
+                JOptionPane.showMessageDialog(this, "Error en el registro de teléfono");
             }
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Error al ingresar datos numéricos.");
+            // Manejar el error si el usuario no ingresa un número válido
+            JOptionPane.showMessageDialog(this, "Error al ingresar el número de teléfono. Por favor, ingrese un número válido.");
         } catch (Exception e) {
+            // Manejar otros posibles errores
             JOptionPane.showMessageDialog(this, "Error en el registro: " + e.getMessage());
         }
     }//GEN-LAST:event_RegistrarActionPerformed
 
     private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
-        modificarDistritoRepre frame = new modificarDistritoRepre();
-        
+        modificarTelefono frame = new modificarTelefono();
+
         frame.setVisible(true);
-        
+
         this.setVisible(false);
-        
+
     }//GEN-LAST:event_modificarActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        eliminarDistritoRepre frame = new eliminarDistritoRepre();
-        frame.setVisible(true);
-        this.setVisible(false);
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     private void Buscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Buscar1ActionPerformed
-        buscarDistritoRepre frame = new buscarDistritoRepre();
+        buscarTelefono frame = new buscarTelefono();
         frame.setVisible(true);
         this.setVisible(false);
-        
+
     }//GEN-LAST:event_Buscar1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        eliminarTelefono frame = new eliminarTelefono();
+        frame.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -211,13 +224,13 @@ public class distritoRepre extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(distritoRepre.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(telefono.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(distritoRepre.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(telefono.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(distritoRepre.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(telefono.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(distritoRepre.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(telefono.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -255,16 +268,16 @@ public class distritoRepre extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new distritoRepre().setVisible(true);
+                new telefono().setVisible(true);
             }
         });
     }
 
-    void consultarDistritos() {
-        DistritoRepreDAO distritoDAO = new DistritoRepreDAO();
+    void consultar() {
+        TelefonoDAO telefonoDAO = new TelefonoDAO();
 
         // Obtener la lista de todos los distritos
-        List<DistritoRepre> listaDistritos = distritoDAO.obtenerDistritos();
+        List<Telefono> listaTelefonos = telefonoDAO.obtenerTelefonos();
 
         // Limpia las filas existentes en la tabla
         DefaultTableModel modelo = (DefaultTableModel) Tabla.getModel();
@@ -273,10 +286,10 @@ public class distritoRepre extends javax.swing.JFrame {
         }
 
         // Iterar sobre la lista de distritos y agregarlos a la tabla
-        for (DistritoRepre distrito : listaDistritos) {
+        for (Telefono telefono : listaTelefonos) {
             Object[] filaDistrito = new Object[]{
-                distrito.getId_distritoRepre(), // Aquí debes usar el método adecuado para obtener el ID del distrito
-                distrito.getDistritoR() // Aquí debes usar el método adecuado para obtener el nombre del distrito
+                telefono.getId_telefono(), // Aquí debes usar el método adecuado para obtener el ID del distrito
+                telefono.getTelefono() // Aquí debes usar el método adecuado para obtener el nombre del distrito
             };
             modelo.addRow(filaDistrito);
         }
@@ -290,7 +303,7 @@ public class distritoRepre extends javax.swing.JFrame {
     private javax.swing.JButton Registrar;
     private javax.swing.JButton Regresar;
     private javax.swing.JTable Tabla;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;

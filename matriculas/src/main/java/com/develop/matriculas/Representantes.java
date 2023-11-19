@@ -49,6 +49,7 @@ public class representantes extends javax.swing.JFrame {
         modificar1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         Regresar = new javax.swing.JButton();
+        Telefonos = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -96,7 +97,7 @@ public class representantes extends javax.swing.JFrame {
                 RegistrarActionPerformed(evt);
             }
         });
-        jPanel2.add(Registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 5, -1, -1));
+        jPanel2.add(Registrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
         Buscar.setText("Buscar");
         Buscar.addActionListener(new java.awt.event.ActionListener() {
@@ -104,7 +105,7 @@ public class representantes extends javax.swing.JFrame {
                 BuscarActionPerformed(evt);
             }
         });
-        jPanel2.add(Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 5, -1, -1));
+        jPanel2.add(Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 10, -1, -1));
 
         modificar1.setText("Modificar");
         modificar1.addActionListener(new java.awt.event.ActionListener() {
@@ -112,7 +113,7 @@ public class representantes extends javax.swing.JFrame {
                 modificar1ActionPerformed(evt);
             }
         });
-        jPanel2.add(modificar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(166, 5, -1, -1));
+        jPanel2.add(modificar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 10, -1, -1));
 
         jButton2.setText("Eliminar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -120,7 +121,7 @@ public class representantes extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(253, 5, -1, -1));
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, -1, -1));
 
         Regresar.setText("Regresar");
         Regresar.addActionListener(new java.awt.event.ActionListener() {
@@ -128,7 +129,15 @@ public class representantes extends javax.swing.JFrame {
                 RegresarActionPerformed(evt);
             }
         });
-        jPanel2.add(Regresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(529, 5, -1, -1));
+        jPanel2.add(Regresar, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, -1, -1));
+
+        Telefonos.setText("Telefonos");
+        Telefonos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TelefonosActionPerformed(evt);
+            }
+        });
+        jPanel2.add(Telefonos, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 10, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 310, 610, 40));
 
@@ -198,6 +207,12 @@ public class representantes extends javax.swing.JFrame {
         frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_modificar1ActionPerformed
+
+    private void TelefonosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TelefonosActionPerformed
+        telefono frame = new telefono();
+        frame.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_TelefonosActionPerformed
 
     /**
      * @param args the command line arguments
@@ -277,6 +292,7 @@ public class representantes extends javax.swing.JFrame {
     private javax.swing.JButton Registrar;
     private javax.swing.JButton Regresar;
     private javax.swing.JTable Tabla;
+    private javax.swing.JButton Telefonos;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
