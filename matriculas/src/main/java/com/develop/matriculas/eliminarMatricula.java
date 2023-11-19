@@ -66,7 +66,7 @@ public class eliminarMatricula extends javax.swing.JFrame {
         jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 59, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel3.setText("Modificar matricula");
+        jLabel3.setText("Eliminar matricula");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(77, 12, -1, 22));
         jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 40, 300, 10));
 
