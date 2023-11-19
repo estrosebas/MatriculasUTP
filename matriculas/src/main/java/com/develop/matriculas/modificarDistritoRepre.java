@@ -9,8 +9,6 @@ package com.develop.matriculas;
  * @author estrosebas
  */
 import libreria.*;
-import java.util.Date;
-import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
 
 public class modificarDistritoRepre extends javax.swing.JFrame {
