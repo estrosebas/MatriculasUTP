@@ -17,11 +17,14 @@ public class conexiones {
     private static final String JDBC_URL = "jdbc:mysql://bxzafa0u3qliscp3gxtn-mysql.services.clever-cloud.com:3306/bxzafa0u3qliscp3gxtn";
     private static final String USUARIO = "uxmrkfdlbcdtt2la";
     private static final String CONTRASEÑA = "kUNzLZadxm8gAy3ZRm5c";
+    
+
     /*
-    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/matriculas";
+    //private static final String JDBC_URL = "jdbc:mysql://localhost:3306/matriculas";
+    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/matriculastest";
     private static final String USUARIO = "root";
     private static final String CONTRASEÑA = "";
-    */
+     */
     Connection conexion;
 
     // Esto ahora es un constructor
