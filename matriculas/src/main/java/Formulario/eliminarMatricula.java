@@ -141,7 +141,7 @@ public class eliminarMatricula extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
-        matriculas back = new matriculas();
+        menuunitario back = new menuunitario();
         back.setVisible(true);
         this.setVisible(false); // Oculta el JFrame actual
     }//GEN-LAST:event_backActionPerformed

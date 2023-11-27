@@ -143,7 +143,7 @@ public class habilidad extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void RegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegresarActionPerformed
-        alumnos frame = new alumnos();
+        menuunitario frame = new menuunitario();
         frame.setVisible(true);
         this.setVisible(false); // Oculta el JFrame actual
 
