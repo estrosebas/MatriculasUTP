@@ -64,6 +64,12 @@ public class menuunitario extends javax.swing.JFrame {
         jPanel17 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
+        Distritosboton2 = new javax.swing.JPanel();
+        jPanel29 = new javax.swing.JPanel();
+        jLabel32 = new javax.swing.JLabel();
+        jPanel30 = new javax.swing.JPanel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         salida = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -155,7 +161,7 @@ public class menuunitario extends javax.swing.JFrame {
         jSeparator1.setToolTipText("");
         jSeparator1.setAlignmentX(1.0F);
         jSeparator1.setAlignmentY(1.0F);
-        jPanel3.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 173, 140, 10));
+        jPanel3.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 140, 10));
 
         panelbotonMatriculas.setBackground(new java.awt.Color(0, 128, 128));
         panelbotonMatriculas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -298,6 +304,67 @@ public class menuunitario extends javax.swing.JFrame {
         Distritosboton.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 50, 60));
 
         jPanel3.add(Distritosboton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 140, 80));
+
+        Distritosboton2.setBackground(new java.awt.Color(0, 128, 128));
+        Distritosboton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Distritosboton2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel29.setBackground(new java.awt.Color(0, 128, 128));
+        jPanel29.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel29.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jPanel29MouseMoved(evt);
+            }
+        });
+        jPanel29.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel29MouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanel29MouseExited(evt);
+            }
+        });
+        jPanel29.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentMoved(java.awt.event.ComponentEvent evt) {
+                jPanel29ComponentMoved(evt);
+            }
+        });
+        jPanel29.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel32.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jLabel32.setText("BD Local");
+        jPanel29.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
+
+        Distritosboton2.add(jPanel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 2, 87, 40));
+
+        jPanel30.setBackground(new java.awt.Color(0, 128, 128));
+        jPanel30.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel30.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jPanel30MouseMoved(evt);
+            }
+        });
+        jPanel30.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel30MouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanel30MouseExited(evt);
+            }
+        });
+        jPanel30.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel33.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jLabel33.setText("BD Servidor");
+        jPanel30.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
+
+        Distritosboton2.add(jPanel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 48, 87, 30));
+
+        jLabel34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/database.png"))); // NOI18N
+        jLabel34.setText("jLabel18");
+        Distritosboton2.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 50, 60));
+
+        jPanel3.add(Distritosboton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 140, 80));
 
         jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 550));
 
@@ -1890,6 +1957,48 @@ public class menuunitario extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jPanel2MouseDragged
 
+    private void jPanel29ComponentMoved(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanel29ComponentMoved
+        jPanel29.setBackground(new Color(255, 255, 255));
+    }//GEN-LAST:event_jPanel29ComponentMoved
+
+    private void jPanel29MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel29MouseMoved
+        jPanel29.setBackground(new Color(255, 255, 255));
+    }//GEN-LAST:event_jPanel29MouseMoved
+
+    private void jPanel30MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel30MouseMoved
+        jPanel30.setBackground(new Color(255, 255, 255));
+    }//GEN-LAST:event_jPanel30MouseMoved
+
+    private void jPanel29MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel29MouseExited
+        jPanel29.setBackground(new Color(0,128,128));
+    }//GEN-LAST:event_jPanel29MouseExited
+
+    private void jPanel30MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel30MouseExited
+        jPanel30.setBackground(new Color(0, 128, 128));
+    }//GEN-LAST:event_jPanel30MouseExited
+
+    private void jPanel29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel29MouseClicked
+        JOptionPane.showMessageDialog(null, "Cambiando a version local!");
+        conexiones conec = new conexiones();
+        conec.cambiarLocal();
+        consultaralumnos();
+        consultarRepresentantes();
+        consultarMatriculas();
+        consultarDistritosalum();
+        consultarDistritosrepres();
+    }//GEN-LAST:event_jPanel29MouseClicked
+
+    private void jPanel30MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel30MouseClicked
+        JOptionPane.showMessageDialog(null, "Cambiando a version servidor!");
+        conexiones conec = new conexiones();
+        conec.cambiarServidor();
+        consultaralumnos();
+        consultarRepresentantes();
+        consultarMatriculas();
+        consultarDistritosalum();
+        consultarDistritosrepres();
+    }//GEN-LAST:event_jPanel30MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -2063,6 +2172,7 @@ public class menuunitario extends javax.swing.JFrame {
     private javax.swing.JButton BuscarAlumno;
     private javax.swing.JButton BuscarRepresentante;
     private javax.swing.JPanel Distritosboton;
+    private javax.swing.JPanel Distritosboton2;
     private javax.swing.JButton EliminarAlumno;
     private javax.swing.JButton HabilidadesAlumno;
     private javax.swing.JButton Registrar;
@@ -2103,6 +2213,9 @@ public class menuunitario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -2125,7 +2238,9 @@ public class menuunitario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel22;
     private javax.swing.JPanel jPanel23;
+    private javax.swing.JPanel jPanel29;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel30;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;

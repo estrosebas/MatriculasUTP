@@ -11,32 +11,97 @@ package Datos;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import javax.swing.JOptionPane;
-public class conexiones {
-    // Datos de conexión servidor
-    
-    private static final String JDBC_URL = "jdbc:mysql://bxzafa0u3qliscp3gxtn-mysql.services.clever-cloud.com:3306/bxzafa0u3qliscp3gxtn";
-    private static final String USUARIO = "uxmrkfdlbcdtt2la";
-    private static final String CONTRASEÑA = "kUNzLZadxm8gAy3ZRm5c";
-    
+import java.io.*;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.sql.SQLException;
 
-    /* datos de conexion local
-    private static final String JDBC_URL = "jdbc:mysql://localhost:3306/matriculas";
-    private static final String USUARIO = "root";
-    private static final String CONTRASEÑA = "";
-     */
+public class conexiones {
+   private static final String DIRECTORIO_MATRICULAS = "C:\\matriculas";
+    private static final String ARCHIVO_CONFIG = DIRECTORIO_MATRICULAS + "\\config.txt"; // Ruta al archivo de configuración
+
     Connection conexion;
 
-    // Esto ahora es un constructor
     public conexiones() {
         try {
-            conexion = DriverManager.getConnection(JDBC_URL, USUARIO, CONTRASEÑA);
+            // Verificar y crear el directorio si no existe
+            verificarCrearDirectorio();
+
+            String eleccion = leerOpcionConexionDesdeArchivo();
+            if (eleccion == null) {
+                // Si no se encuentra la opción, establecer la conexión por defecto a servidor y escribir en el archivo
+                eleccion = "servidor";
+                escribirOpcionConexion(eleccion);
+            }
+            establecerConexionSegunOpcion(eleccion);
             System.out.println("Conexión exitosa a la base de datos.");
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error al conectar con la base de datos", "Error de Conexión", JOptionPane.ERROR_MESSAGE);
         }
     }
 
+    private void verificarCrearDirectorio() {
+        Path path = FileSystems.getDefault().getPath(DIRECTORIO_MATRICULAS);
+        if (Files.notExists(path)) {
+            try {
+                Files.createDirectories(path);
+            } catch (IOException e) {
+                e.printStackTrace(); // Manejo adecuado de excepciones
+            }
+        }
+    }
+
+    private void establecerConexionSegunOpcion(String eleccion) {
+        try {
+            switch (eleccion) {
+                case "local":
+                    // Configurar para conexión local
+                    conexion = DriverManager.getConnection("jdbc:mysql://localhost:3306/matriculas", "root", "");
+                    break;
+                case "servidor":
+                    // Configurar para conexión al servidor
+                    conexion = DriverManager.getConnection("jdbc:mysql://bxzafa0u3qliscp3gxtn-mysql.services.clever-cloud.com:3306/bxzafa0u3qliscp3gxtn", "uxmrkfdlbcdtt2la", "kUNzLZadxm8gAy3ZRm5c");
+                    break;
+                // Otros casos según necesidad
+            }
+        } catch (SQLException e) {
+            e.printStackTrace(); // O manejo adecuado de excepciones
+            JOptionPane.showMessageDialog(null, "Error al establecer la conexión", "Error de Conexión", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    private String leerOpcionConexionDesdeArchivo() {
+        try (BufferedReader br = new BufferedReader(new FileReader(ARCHIVO_CONFIG))) {
+            return br.readLine();
+        } catch (IOException e) {
+            e.printStackTrace(); // Manejo adecuado de excepciones
+            return null; // Retorna null si no se puede leer el archivo
+        }
+    }
+
     public Connection getConnection() {
         return conexion;
+    }
+
+    // Método para cambiar a la conexión local
+    public void cambiarLocal() {
+        escribirOpcionConexion("local");
+        establecerConexionSegunOpcion("local");
+    }
+
+    // Método para cambiar a la conexión del servidor
+    public void cambiarServidor() {
+        escribirOpcionConexion("servidor");
+        establecerConexionSegunOpcion("servidor");
+    }
+
+    // Método privado para escribir la opción de conexión en el archivo
+    private void escribirOpcionConexion(String eleccion) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter(ARCHIVO_CONFIG))) {
+            bw.write(eleccion);
+        } catch (IOException e) {
+            e.printStackTrace(); // Manejo adecuado de excepciones
+        }
     }
 }

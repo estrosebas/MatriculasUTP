@@ -5,7 +5,8 @@
 package com.develop.matriculas;
 
 import Formulario.*;
-
+import Datos.*;
+import Entidad.*;
 /**
  *
  * @author estrosebas
@@ -14,9 +15,8 @@ import Formulario.*;
 public class Main {
 
     public static void main(String[] args) {
-        
         menuunitario menu = new menuunitario();
         menu.setVisible(true);
-         
+       
     }
 }
