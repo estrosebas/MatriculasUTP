@@ -217,8 +217,8 @@ public class buscarAlumno extends javax.swing.JFrame {
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
         
-        menuunitario back = new menuunitario();
-        back.setVisible(true);
+        //menuunitario back = new menuunitario();
+        //back.setVisible(true);
         this.setVisible(false); // Oculta el JFrame actual
     }//GEN-LAST:event_backActionPerformed
     // Método que maneja la búsqueda de un alumno

@@ -168,8 +168,8 @@ public class eliminarRepresentante extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        menuunitario back = new menuunitario();
-        back.setVisible(true);
+        //menuunitario back = new menuunitario();
+        //back.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
 

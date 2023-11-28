@@ -3,12 +3,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package Formulario;
+
 import java.awt.Color;
 import javax.swing.JOptionPane;
 import Entidad.*;
 import Datos.*;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author estrosebas
@@ -18,9 +20,15 @@ public class menuunitario extends javax.swing.JFrame {
     /**
      * Creates new form menuunitario
      */
+    int Xmouse, Ymouse;
+
     public menuunitario() {
         initComponents();
         setLocationRelativeTo(null);
+        //
+        
+
+        //
         consultaralumnos();
         consultarRepresentantes();
         consultarMatriculas();
@@ -38,6 +46,24 @@ public class menuunitario extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jSeparator1 = new javax.swing.JSeparator();
+        panelbotonMatriculas = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        panelbotonRepresentantes = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel19 = new javax.swing.JLabel();
+        panelbotonAlumnos = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        Distritosboton = new javax.swing.JPanel();
+        jPanel14 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jPanel17 = new javax.swing.JPanel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         salida = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
@@ -110,32 +136,182 @@ public class menuunitario extends javax.swing.JFrame {
         Buscar3 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
         jLabel25 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jSeparator1 = new javax.swing.JSeparator();
-        panelbotonMatriculas = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        panelbotonRepresentantes = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        panelbotonAlumnos = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        Distritosboton = new javax.swing.JPanel();
-        jPanel14 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
-        jPanel17 = new javax.swing.JPanel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocationByPlatform(true);
         setUndecorated(true);
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo.png"))); // NOI18N
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 120, 120));
+
+        jPanel3.setBackground(new java.awt.Color(0, 128, 128));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
+        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
+        jSeparator1.setToolTipText("");
+        jSeparator1.setAlignmentX(1.0F);
+        jSeparator1.setAlignmentY(1.0F);
+        jPanel3.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 173, 140, 10));
+
+        panelbotonMatriculas.setBackground(new java.awt.Color(0, 128, 128));
+        panelbotonMatriculas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        panelbotonMatriculas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        panelbotonMatriculas.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                panelbotonMatriculasMouseMoved(evt);
+            }
+        });
+        panelbotonMatriculas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelbotonMatriculasMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                panelbotonMatriculasMouseExited(evt);
+            }
+        });
+        panelbotonMatriculas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel12.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jLabel12.setText("Matriculas");
+        panelbotonMatriculas.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 32, 80, -1));
+
+        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/matricula.png"))); // NOI18N
+        panelbotonMatriculas.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 50, 60));
+
+        jPanel3.add(panelbotonMatriculas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, 140, 80));
+
+        panelbotonRepresentantes.setBackground(new java.awt.Color(0, 128, 128));
+        panelbotonRepresentantes.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        panelbotonRepresentantes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        panelbotonRepresentantes.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                panelbotonRepresentantesMouseMoved(evt);
+            }
+        });
+        panelbotonRepresentantes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelbotonRepresentantesMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                panelbotonRepresentantesMouseExited(evt);
+            }
+        });
+        panelbotonRepresentantes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel10.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jLabel10.setText("Representantes");
+        panelbotonRepresentantes.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 34, -1, -1));
+
+        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/repre.png"))); // NOI18N
+        panelbotonRepresentantes.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 50, 60));
+
+        jPanel3.add(panelbotonRepresentantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 140, 80));
+
+        panelbotonAlumnos.setBackground(new java.awt.Color(0, 128, 128));
+        panelbotonAlumnos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        panelbotonAlumnos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        panelbotonAlumnos.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                panelbotonAlumnosMouseMoved(evt);
+            }
+        });
+        panelbotonAlumnos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelbotonAlumnosMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                panelbotonAlumnosMouseExited(evt);
+            }
+        });
+        panelbotonAlumnos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel9.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jLabel9.setText("Alumnos");
+        panelbotonAlumnos.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 31, 80, -1));
+
+        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/graduado.png"))); // NOI18N
+        panelbotonAlumnos.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 50, 60));
+
+        jPanel3.add(panelbotonAlumnos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 140, 80));
+
+        Distritosboton.setBackground(new java.awt.Color(0, 128, 128));
+        Distritosboton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        Distritosboton.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jPanel14.setBackground(new java.awt.Color(0, 128, 128));
+        jPanel14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel14.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jPanel14MouseMoved(evt);
+            }
+        });
+        jPanel14.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel14MouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanel14MouseExited(evt);
+            }
+        });
+        jPanel14.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentMoved(java.awt.event.ComponentEvent evt) {
+                jPanel14ComponentMoved(evt);
+            }
+        });
+        jPanel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel11.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jLabel11.setText("Distrito Alumno");
+        jPanel14.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
+
+        Distritosboton.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 2, 87, 40));
+
+        jPanel17.setBackground(new java.awt.Color(0, 128, 128));
+        jPanel17.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel17.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseMoved(java.awt.event.MouseEvent evt) {
+                jPanel17MouseMoved(evt);
+            }
+        });
+        jPanel17.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel17MouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanel17MouseExited(evt);
+            }
+        });
+        jPanel17.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel15.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jLabel15.setText("Distrito Repre");
+        jPanel17.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
+
+        Distritosboton.add(jPanel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 48, 87, 30));
+
+        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/distrito-electoral.png"))); // NOI18N
+        jLabel21.setText("jLabel18");
+        Distritosboton.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 50, 60));
+
+        jPanel3.add(Distritosboton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 140, 80));
+
+        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 550));
+
         jPanel2.setBackground(new java.awt.Color(128, 0, 128));
+        jPanel2.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
+            public void mouseDragged(java.awt.event.MouseEvent evt) {
+                jPanel2MouseDragged(evt);
+            }
+        });
+        jPanel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jPanel2MousePressed(evt);
+            }
+        });
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         salida.setBackground(new java.awt.Color(255, 255, 255));
@@ -159,15 +335,15 @@ public class menuunitario extends javax.swing.JFrame {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/x.png"))); // NOI18N
         salida.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 18, 20));
 
-        jPanel2.add(salida, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 0, 30, 30));
+        jPanel2.add(salida, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 0, 30, 30));
 
         jLabel5.setBackground(new java.awt.Color(255, 255, 255));
         jLabel5.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/banner.jpg"))); // NOI18N
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 670, 100));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, 680, 100));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, 680, 100));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 100));
 
         multimenus.setBackground(new java.awt.Color(0, 0, 0,100));
 
@@ -1042,153 +1218,6 @@ public class menuunitario extends javax.swing.JFrame {
 
         jPanel1.add(multimenus, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 670, 470));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logo.png"))); // NOI18N
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 120, 120));
-
-        jPanel3.setBackground(new java.awt.Color(0, 128, 128));
-        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
-        jSeparator1.setForeground(new java.awt.Color(0, 0, 0));
-        jSeparator1.setToolTipText("");
-        jSeparator1.setAlignmentX(1.0F);
-        jSeparator1.setAlignmentY(1.0F);
-        jPanel3.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 173, 140, 10));
-
-        panelbotonMatriculas.setBackground(new java.awt.Color(0, 128, 128));
-        panelbotonMatriculas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        panelbotonMatriculas.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                panelbotonMatriculasMouseMoved(evt);
-            }
-        });
-        panelbotonMatriculas.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                panelbotonMatriculasMouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                panelbotonMatriculasMouseExited(evt);
-            }
-        });
-        panelbotonMatriculas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel12.setText("Matriculas");
-        panelbotonMatriculas.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 32, 80, -1));
-
-        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/matricula.png"))); // NOI18N
-        panelbotonMatriculas.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 50, 60));
-
-        jPanel3.add(panelbotonMatriculas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, 140, 80));
-
-        panelbotonRepresentantes.setBackground(new java.awt.Color(0, 128, 128));
-        panelbotonRepresentantes.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        panelbotonRepresentantes.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                panelbotonRepresentantesMouseMoved(evt);
-            }
-        });
-        panelbotonRepresentantes.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                panelbotonRepresentantesMouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                panelbotonRepresentantesMouseExited(evt);
-            }
-        });
-        panelbotonRepresentantes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel10.setText("Representantes");
-        panelbotonRepresentantes.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 34, -1, -1));
-
-        jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/repre.png"))); // NOI18N
-        panelbotonRepresentantes.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 50, 60));
-
-        jPanel3.add(panelbotonRepresentantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 140, 80));
-
-        panelbotonAlumnos.setBackground(new java.awt.Color(0, 128, 128));
-        panelbotonAlumnos.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        panelbotonAlumnos.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                panelbotonAlumnosMouseMoved(evt);
-            }
-        });
-        panelbotonAlumnos.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                panelbotonAlumnosMouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                panelbotonAlumnosMouseExited(evt);
-            }
-        });
-        panelbotonAlumnos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel9.setText("Alumnos");
-        panelbotonAlumnos.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 31, 80, -1));
-
-        jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/graduado.png"))); // NOI18N
-        panelbotonAlumnos.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 50, 60));
-
-        jPanel3.add(panelbotonAlumnos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 140, 80));
-
-        Distritosboton.setBackground(new java.awt.Color(0, 128, 128));
-        Distritosboton.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        Distritosboton.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel14.setBackground(new java.awt.Color(0, 128, 128));
-        jPanel14.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jPanel14MouseMoved(evt);
-            }
-        });
-        jPanel14.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel14MouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jPanel14MouseExited(evt);
-            }
-        });
-        jPanel14.addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentMoved(java.awt.event.ComponentEvent evt) {
-                jPanel14ComponentMoved(evt);
-            }
-        });
-        jPanel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel11.setText("Distrito Alumno");
-        jPanel14.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
-
-        Distritosboton.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 2, 87, 40));
-
-        jPanel17.setBackground(new java.awt.Color(0, 128, 128));
-        jPanel17.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                jPanel17MouseMoved(evt);
-            }
-        });
-        jPanel17.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel17MouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jPanel17MouseExited(evt);
-            }
-        });
-        jPanel17.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel15.setText("Distrito Repre");
-        jPanel17.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
-
-        Distritosboton.add(jPanel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 48, 87, 30));
-
-        jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/distrito-electoral.png"))); // NOI18N
-        jLabel21.setText("jLabel18");
-        Distritosboton.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 50, 60));
-
-        jPanel3.add(Distritosboton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 140, 80));
-
-        jPanel1.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 550));
-
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/meni.jpg"))); // NOI18N
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 550));
 
@@ -1222,27 +1251,27 @@ public class menuunitario extends javax.swing.JFrame {
     }//GEN-LAST:event_salidaMouseExited
 
     private void panelbotonAlumnosMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelbotonAlumnosMouseMoved
-        panelbotonAlumnos.setBackground(new Color(255,255,255));
+        panelbotonAlumnos.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_panelbotonAlumnosMouseMoved
 
     private void panelbotonRepresentantesMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelbotonRepresentantesMouseMoved
-        panelbotonRepresentantes.setBackground(new Color(255,255,255));
+        panelbotonRepresentantes.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_panelbotonRepresentantesMouseMoved
 
     private void panelbotonMatriculasMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelbotonMatriculasMouseMoved
-        panelbotonMatriculas.setBackground(new Color(255,255,255));
+        panelbotonMatriculas.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_panelbotonMatriculasMouseMoved
 
     private void panelbotonAlumnosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelbotonAlumnosMouseExited
-        panelbotonAlumnos.setBackground(new Color(0,128,128));
+        panelbotonAlumnos.setBackground(new Color(0, 128, 128));
     }//GEN-LAST:event_panelbotonAlumnosMouseExited
 
     private void panelbotonRepresentantesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelbotonRepresentantesMouseExited
-        panelbotonRepresentantes.setBackground(new Color(0,128,128));
+        panelbotonRepresentantes.setBackground(new Color(0, 128, 128));
     }//GEN-LAST:event_panelbotonRepresentantesMouseExited
 
     private void panelbotonMatriculasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelbotonMatriculasMouseExited
-        panelbotonMatriculas.setBackground(new Color(0,128,128));
+        panelbotonMatriculas.setBackground(new Color(0, 128, 128));
     }//GEN-LAST:event_panelbotonMatriculasMouseExited
 
     private void panelbotonAlumnosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelbotonAlumnosMouseClicked
@@ -1254,19 +1283,19 @@ public class menuunitario extends javax.swing.JFrame {
     }//GEN-LAST:event_panelbotonRepresentantesMouseClicked
 
     private void jPanel14MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel14MouseMoved
-        jPanel14.setBackground(new Color(255,255,255));
+        jPanel14.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_jPanel14MouseMoved
 
     private void jPanel17MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel17MouseMoved
-        jPanel17.setBackground(new Color(255,255,255));
+        jPanel17.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_jPanel17MouseMoved
 
     private void jPanel14MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel14MouseExited
-        jPanel14.setBackground(new Color(0,128,128));
+        jPanel14.setBackground(new Color(0, 128, 128));
     }//GEN-LAST:event_jPanel14MouseExited
 
     private void jPanel17MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel17MouseExited
-        jPanel17.setBackground(new Color(0,128,128));
+        jPanel17.setBackground(new Color(0, 128, 128));
     }//GEN-LAST:event_jPanel17MouseExited
 
     private void panelbotonMatriculasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelbotonMatriculasMouseClicked
@@ -1393,19 +1422,19 @@ public class menuunitario extends javax.swing.JFrame {
     private void Buscar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Buscar1ActionPerformed
         buscarMatricula frame = new buscarMatricula();
         frame.setVisible(true);
-        this.setVisible(false);
+        //this.setVisible(false);
     }//GEN-LAST:event_Buscar1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         eliminarMatricula frame = new eliminarMatricula();
         frame.setVisible(true);
-        this.setVisible(false);
+        //this.setVisible(false);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void modificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarActionPerformed
         modificarMatricula frame = new modificarMatricula();
         frame.setVisible(true);
-        this.setVisible(false);
+        //this.setVisible(false);
     }//GEN-LAST:event_modificarActionPerformed
 
     private void RegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarActionPerformed
@@ -1415,14 +1444,14 @@ public class menuunitario extends javax.swing.JFrame {
         // Opciones para los niveles de matrícula
         String[] opcionesNivel = {"Inicial", "Primaria", "Secundaria"};
         int nivelSeleccionado = JOptionPane.showOptionDialog(
-            this,
-            "Seleccione el nivel de matrícula:",
-            "Nivel de Matrícula",
-            JOptionPane.DEFAULT_OPTION,
-            JOptionPane.INFORMATION_MESSAGE,
-            null,
-            opcionesNivel,
-            opcionesNivel[0]
+                this,
+                "Seleccione el nivel de matrícula:",
+                "Nivel de Matrícula",
+                JOptionPane.DEFAULT_OPTION,
+                JOptionPane.INFORMATION_MESSAGE,
+                null,
+                opcionesNivel,
+                opcionesNivel[0]
         );
 
         // Si el usuario cierra el cuadro de diálogo, terminar el método
@@ -1438,14 +1467,14 @@ public class menuunitario extends javax.swing.JFrame {
         // Cuadro de diálogo para seleccionar el estado de la matrícula
         String[] opcionesEstado = {"Pagado", "Pendiente"};
         int estadoSeleccionado = JOptionPane.showOptionDialog(
-            this,
-            "Seleccione el estado de la matrícula:",
-            "Estado de Matrícula",
-            JOptionPane.DEFAULT_OPTION,
-            JOptionPane.INFORMATION_MESSAGE,
-            null,
-            opcionesEstado,
-            opcionesEstado[0]
+                this,
+                "Seleccione el estado de la matrícula:",
+                "Estado de Matrícula",
+                JOptionPane.DEFAULT_OPTION,
+                JOptionPane.INFORMATION_MESSAGE,
+                null,
+                opcionesEstado,
+                opcionesEstado[0]
         );
 
         if (estadoSeleccionado == JOptionPane.CLOSED_OPTION) {
@@ -1456,14 +1485,14 @@ public class menuunitario extends javax.swing.JFrame {
         // Cuadro de diálogo para seleccionar el método de pago
         String[] opcionesPago = {"Efectivo", "Tarjeta"};
         int pagoSeleccionado = JOptionPane.showOptionDialog(
-            this,
-            "Seleccione el método de pago:",
-            "Método de Pago",
-            JOptionPane.DEFAULT_OPTION,
-            JOptionPane.INFORMATION_MESSAGE,
-            null,
-            opcionesPago,
-            opcionesPago[0]
+                this,
+                "Seleccione el método de pago:",
+                "Método de Pago",
+                JOptionPane.DEFAULT_OPTION,
+                JOptionPane.INFORMATION_MESSAGE,
+                null,
+                opcionesPago,
+                opcionesPago[0]
         );
 
         if (pagoSeleccionado == JOptionPane.CLOSED_OPTION) {
@@ -1498,25 +1527,25 @@ public class menuunitario extends javax.swing.JFrame {
     private void TelefonosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TelefonosActionPerformed
         telefono frame = new telefono();
         frame.setVisible(true);
-        this.setVisible(false);
+        //this.setVisible(false);
     }//GEN-LAST:event_TelefonosActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         eliminarRepresentante frame = new eliminarRepresentante();
         frame.setVisible(true);
-        this.setVisible(false);
+        //this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void modificarRepresentanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarRepresentanteActionPerformed
         modificarRepresentante frame = new modificarRepresentante();
         frame.setVisible(true);
-        this.setVisible(false);
+        //this.setVisible(false);
     }//GEN-LAST:event_modificarRepresentanteActionPerformed
 
     private void BuscarRepresentanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarRepresentanteActionPerformed
         buscarRepresentante frame = new buscarRepresentante();
         frame.setVisible(true);
-        this.setVisible(false);
+        //this.setVisible(false);
     }//GEN-LAST:event_BuscarRepresentanteActionPerformed
 
     private void RegistrarRepresentanteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarRepresentanteActionPerformed
@@ -1559,67 +1588,67 @@ public class menuunitario extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
-        jButton1.setBackground(new Color(255,255,255));
+        jButton1.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_jButton1MouseExited
 
     private void jButton1MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseMoved
-        jButton1.setBackground(new Color(0,128,128));
+        jButton1.setBackground(new Color(0, 128, 128));
     }//GEN-LAST:event_jButton1MouseMoved
 
     private void HabilidadesAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HabilidadesAlumnoActionPerformed
         habilidad frame = new habilidad();
         frame.setVisible(true);
-        this.setVisible(false);
+        //this.setVisible(false);
     }//GEN-LAST:event_HabilidadesAlumnoActionPerformed
 
     private void HabilidadesAlumnoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HabilidadesAlumnoMouseExited
-        HabilidadesAlumno.setBackground(new Color(255,255,255));
+        HabilidadesAlumno.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_HabilidadesAlumnoMouseExited
 
     private void HabilidadesAlumnoMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HabilidadesAlumnoMouseMoved
-        HabilidadesAlumno.setBackground(new Color(0,128,128));
+        HabilidadesAlumno.setBackground(new Color(0, 128, 128));
     }//GEN-LAST:event_HabilidadesAlumnoMouseMoved
 
     private void BuscarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarAlumnoActionPerformed
         buscarAlumno frame = new buscarAlumno();
         frame.setVisible(true);
-        this.setVisible(false);
+        //this.setVisible(false);
     }//GEN-LAST:event_BuscarAlumnoActionPerformed
 
     private void BuscarAlumnoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BuscarAlumnoMouseExited
-        BuscarAlumno.setBackground(new Color(255,255,255));
+        BuscarAlumno.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_BuscarAlumnoMouseExited
 
     private void BuscarAlumnoMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BuscarAlumnoMouseMoved
-        BuscarAlumno.setBackground(new Color(0,128,128));
+        BuscarAlumno.setBackground(new Color(0, 128, 128));
     }//GEN-LAST:event_BuscarAlumnoMouseMoved
 
     private void EliminarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarAlumnoActionPerformed
         eliminarAlumno frame = new eliminarAlumno();
         frame.setVisible(true);
-        this.setVisible(false);
+        //this.setVisible(false);
     }//GEN-LAST:event_EliminarAlumnoActionPerformed
 
     private void EliminarAlumnoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EliminarAlumnoMouseExited
-        EliminarAlumno.setBackground(new Color(255,255,255));
+        EliminarAlumno.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_EliminarAlumnoMouseExited
 
     private void EliminarAlumnoMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EliminarAlumnoMouseMoved
-        EliminarAlumno.setBackground(new Color(0,128,128));
+        EliminarAlumno.setBackground(new Color(0, 128, 128));
     }//GEN-LAST:event_EliminarAlumnoMouseMoved
 
     private void modificarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificarAlumnoActionPerformed
         modificarAlumno frame = new modificarAlumno();
         frame.setVisible(true);
-        this.setVisible(false);
+        //this.setVisible(false);
     }//GEN-LAST:event_modificarAlumnoActionPerformed
 
     private void modificarAlumnoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarAlumnoMouseExited
-        modificarAlumno.setBackground(new Color(255,255,255));
+        modificarAlumno.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_modificarAlumnoMouseExited
 
     private void modificarAlumnoMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarAlumnoMouseMoved
-        modificarAlumno.setBackground(new Color(0,128,128));
+        modificarAlumno.setBackground(new Color(0, 128, 128));
     }//GEN-LAST:event_modificarAlumnoMouseMoved
 
     private void RegistrarAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarAlumnosActionPerformed
@@ -1638,14 +1667,14 @@ public class menuunitario extends javax.swing.JFrame {
         String Nivel_ing = JOptionPane.showInputDialog(this, "Ingrese el nivvel de ingreso(inicial,primaria,secudnaria)");
         String[] options = {"Inicial", "Primaria", "Secundaria"};
         int selection = JOptionPane.showOptionDialog(
-            null,
-            "Seleccione el nivel de ingreso",
-            "Nivel de Ingreso",
-            JOptionPane.DEFAULT_OPTION,
-            JOptionPane.INFORMATION_MESSAGE,
-            null,
-            options,
-            options[0]
+                null,
+                "Seleccione el nivel de ingreso",
+                "Nivel de Ingreso",
+                JOptionPane.DEFAULT_OPTION,
+                JOptionPane.INFORMATION_MESSAGE,
+                null,
+                options,
+                options[0]
         );
 
         if (selection == JOptionPane.CLOSED_OPTION) {
@@ -1673,181 +1702,193 @@ public class menuunitario extends javax.swing.JFrame {
     }//GEN-LAST:event_RegistrarAlumnosActionPerformed
 
     private void RegistrarAlumnosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegistrarAlumnosMouseExited
-        RegistrarAlumnos.setBackground(new Color(255,255,255));
+        RegistrarAlumnos.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_RegistrarAlumnosMouseExited
 
     private void RegistrarAlumnosMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegistrarAlumnosMouseMoved
 
-        RegistrarAlumnos.setBackground(new Color(0,128,128));
+        RegistrarAlumnos.setBackground(new Color(0, 128, 128));
     }//GEN-LAST:event_RegistrarAlumnosMouseMoved
 
     private void RegistrarRepresentanteMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegistrarRepresentanteMouseMoved
-        RegistrarRepresentante.setBackground(new Color(0,128,128));
+        RegistrarRepresentante.setBackground(new Color(0, 128, 128));
     }//GEN-LAST:event_RegistrarRepresentanteMouseMoved
 
     private void BuscarRepresentanteMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BuscarRepresentanteMouseMoved
-        BuscarRepresentante.setBackground(new Color(0,128,128));
+        BuscarRepresentante.setBackground(new Color(0, 128, 128));
     }//GEN-LAST:event_BuscarRepresentanteMouseMoved
 
     private void modificarRepresentanteMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarRepresentanteMouseMoved
-        modificarRepresentante.setBackground(new Color(0,128,128));
+        modificarRepresentante.setBackground(new Color(0, 128, 128));
     }//GEN-LAST:event_modificarRepresentanteMouseMoved
 
     private void jButton2MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseMoved
-        jButton2.setBackground(new Color(0,128,128));
+        jButton2.setBackground(new Color(0, 128, 128));
     }//GEN-LAST:event_jButton2MouseMoved
 
     private void TelefonosMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TelefonosMouseMoved
-        Telefonos.setBackground(new Color(0,128,128));
+        Telefonos.setBackground(new Color(0, 128, 128));
     }//GEN-LAST:event_TelefonosMouseMoved
 
     private void jButton6MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseMoved
-        jButton6.setBackground(new Color(0,128,128));
+        jButton6.setBackground(new Color(0, 128, 128));
     }//GEN-LAST:event_jButton6MouseMoved
 
     private void RegistrarMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegistrarMouseMoved
-        Registrar.setBackground(new Color(0,128,128));
+        Registrar.setBackground(new Color(0, 128, 128));
     }//GEN-LAST:event_RegistrarMouseMoved
 
     private void Buscar1MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Buscar1MouseMoved
-        Buscar1.setBackground(new Color(0,128,128));
+        Buscar1.setBackground(new Color(0, 128, 128));
     }//GEN-LAST:event_Buscar1MouseMoved
 
     private void modificarMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarMouseMoved
-        modificar.setBackground(new Color(0,128,128));
+        modificar.setBackground(new Color(0, 128, 128));
     }//GEN-LAST:event_modificarMouseMoved
 
     private void jButton3MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseMoved
-        jButton3.setBackground(new Color(0,128,128));
+        jButton3.setBackground(new Color(0, 128, 128));
     }//GEN-LAST:event_jButton3MouseMoved
 
     private void jButton7MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseMoved
-        jButton7.setBackground(new Color(0,128,128));
+        jButton7.setBackground(new Color(0, 128, 128));
     }//GEN-LAST:event_jButton7MouseMoved
 
     private void RegistrarDistritoAlumnoMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegistrarDistritoAlumnoMouseMoved
-       RegistrarDistritoAlumno.setBackground(new Color(0,128,128));
+        RegistrarDistritoAlumno.setBackground(new Color(0, 128, 128));
     }//GEN-LAST:event_RegistrarDistritoAlumnoMouseMoved
 
     private void Buscar2MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Buscar2MouseMoved
-        Buscar2.setBackground(new Color(0,128,128));
+        Buscar2.setBackground(new Color(0, 128, 128));
     }//GEN-LAST:event_Buscar2MouseMoved
 
     private void modificar1MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificar1MouseMoved
-        modificar1.setBackground(new Color(0,128,128));
+        modificar1.setBackground(new Color(0, 128, 128));
     }//GEN-LAST:event_modificar1MouseMoved
 
     private void jButton4MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseMoved
-        jButton4.setBackground(new Color(0,128,128));
+        jButton4.setBackground(new Color(0, 128, 128));
     }//GEN-LAST:event_jButton4MouseMoved
 
     private void jButton8MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseMoved
-        jButton8.setBackground(new Color(0,128,128));
+        jButton8.setBackground(new Color(0, 128, 128));
     }//GEN-LAST:event_jButton8MouseMoved
 
     private void Registrar2MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Registrar2MouseMoved
-        Registrar2.setBackground(new Color(0,128,128));
+        Registrar2.setBackground(new Color(0, 128, 128));
     }//GEN-LAST:event_Registrar2MouseMoved
 
     private void Buscar3MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Buscar3MouseMoved
-        Buscar3.setBackground(new Color(0,128,128));
+        Buscar3.setBackground(new Color(0, 128, 128));
     }//GEN-LAST:event_Buscar3MouseMoved
 
     private void modificar2MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificar2MouseMoved
-        modificar2.setBackground(new Color(0,128,128));
+        modificar2.setBackground(new Color(0, 128, 128));
     }//GEN-LAST:event_modificar2MouseMoved
 
     private void jButton5MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseMoved
-        jButton5.setBackground(new Color(0,128,128));
+        jButton5.setBackground(new Color(0, 128, 128));
     }//GEN-LAST:event_jButton5MouseMoved
 
     private void jButton9MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseMoved
-        jButton9.setBackground(new Color(0,128,128));
+        jButton9.setBackground(new Color(0, 128, 128));
     }//GEN-LAST:event_jButton9MouseMoved
 
     private void RegistrarRepresentanteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegistrarRepresentanteMouseExited
-        RegistrarRepresentante.setBackground(new Color(255,255,255));
+        RegistrarRepresentante.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_RegistrarRepresentanteMouseExited
 
     private void BuscarRepresentanteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BuscarRepresentanteMouseExited
-        BuscarRepresentante.setBackground(new Color(255,255,255));
+        BuscarRepresentante.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_BuscarRepresentanteMouseExited
 
     private void modificarRepresentanteMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarRepresentanteMouseExited
-        modificarRepresentante.setBackground(new Color(255,255,255));
+        modificarRepresentante.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_modificarRepresentanteMouseExited
 
     private void jButton2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseExited
-        jButton2.setBackground(new Color(255,255,255));
+        jButton2.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_jButton2MouseExited
 
     private void TelefonosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TelefonosMouseExited
-        Telefonos.setBackground(new Color(255,255,255));
+        Telefonos.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_TelefonosMouseExited
 
     private void jButton6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseExited
-        jButton6.setBackground(new Color(255,255,255));
+        jButton6.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_jButton6MouseExited
 
     private void RegistrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegistrarMouseExited
-        Registrar.setBackground(new Color(255,255,255));
+        Registrar.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_RegistrarMouseExited
 
     private void Buscar1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Buscar1MouseExited
-        Buscar1.setBackground(new Color(255,255,255));
+        Buscar1.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_Buscar1MouseExited
 
     private void modificarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificarMouseExited
-        modificar.setBackground(new Color(255,255,255));
+        modificar.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_modificarMouseExited
 
     private void jButton3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseExited
-        jButton3.setBackground(new Color(255,255,255));
+        jButton3.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_jButton3MouseExited
 
     private void jButton7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseExited
-        jButton7.setBackground(new Color(255,255,255));
+        jButton7.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_jButton7MouseExited
 
     private void RegistrarDistritoAlumnoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_RegistrarDistritoAlumnoMouseExited
-        RegistrarDistritoAlumno.setBackground(new Color(255,255,255));
+        RegistrarDistritoAlumno.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_RegistrarDistritoAlumnoMouseExited
 
     private void Buscar2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Buscar2MouseExited
-        Buscar2.setBackground(new Color(255,255,255));
+        Buscar2.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_Buscar2MouseExited
 
     private void modificar1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificar1MouseExited
-        modificar1.setBackground(new Color(255,255,255));
+        modificar1.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_modificar1MouseExited
 
     private void jButton4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseExited
-        jButton4.setBackground(new Color(255,255,255));
+        jButton4.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_jButton4MouseExited
 
     private void jButton8MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton8MouseExited
-        jButton8.setBackground(new Color(255,255,255));
+        jButton8.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_jButton8MouseExited
 
     private void Registrar2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Registrar2MouseExited
-        Registrar2.setBackground(new Color(255,255,255));
+        Registrar2.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_Registrar2MouseExited
 
     private void Buscar3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Buscar3MouseExited
-        Buscar3.setBackground(new Color(255,255,255));
+        Buscar3.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_Buscar3MouseExited
 
     private void modificar2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_modificar2MouseExited
-        modificar2.setBackground(new Color(255,255,255));
+        modificar2.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_modificar2MouseExited
 
     private void jButton5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseExited
-        jButton5.setBackground(new Color(255,255,255));
+        jButton5.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_jButton5MouseExited
 
     private void jButton9MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseExited
-        jButton9.setBackground(new Color(255,255,255));
+        jButton9.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_jButton9MouseExited
+
+    private void jPanel2MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MousePressed
+        Xmouse = evt.getX();
+        Ymouse = evt.getY();
+    }//GEN-LAST:event_jPanel2MousePressed
+
+    private void jPanel2MouseDragged(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel2MouseDragged
+        int x = evt.getXOnScreen();
+        int y = evt.getYOnScreen();
+        this.setLocation(x - Xmouse, y - Ymouse);
+
+    }//GEN-LAST:event_jPanel2MouseDragged
 
     /**
      * @param args the command line arguments
@@ -1883,6 +1924,7 @@ public class menuunitario extends javax.swing.JFrame {
             }
         });
     }
+
     void consultaralumnos() {
         // Crear una instancia de AlumnoDAO
         AlumnoDAO alumnoDAO = new AlumnoDAO();
@@ -1910,6 +1952,7 @@ public class menuunitario extends javax.swing.JFrame {
 
         Tabla.setModel(modeloAlumnos);
     }
+
     void consultarRepresentantes() {
         // Crear una instancia para obtener los representantes
         // Asumo que tienes una clase similar para representantes como la que tenías para alumnos
@@ -1939,6 +1982,7 @@ public class menuunitario extends javax.swing.JFrame {
 
         Tabla2.setModel(modeloRepresentantes);
     }
+
     void consultarMatriculas() {
 
         MatriculaDAO matriculaDAO = new MatriculaDAO();
@@ -1964,6 +2008,7 @@ public class menuunitario extends javax.swing.JFrame {
 
         TablaMatriculas.setModel(modeloMatriculaswa);
     }
+
     void consultarDistritosalum() {
         DistritoAlumDAO distritoDAO = new DistritoAlumDAO();
 
@@ -1987,6 +2032,7 @@ public class menuunitario extends javax.swing.JFrame {
 
         TablaDistritoAlum.setModel(modelotablaalumdistrict);
     }
+
     void consultarDistritosrepres() {
         DistritoRepreDAO distritoDAO = new DistritoRepreDAO();
 
@@ -2079,8 +2125,6 @@ public class menuunitario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel21;
     private javax.swing.JPanel jPanel22;
     private javax.swing.JPanel jPanel23;
-    private javax.swing.JPanel jPanel26;
-    private javax.swing.JPanel jPanel27;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
