@@ -161,8 +161,8 @@ public class eliminarHabilidad extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
-        habilidad frame = new habilidad();
-        frame.setVisible(true);
+        //habilidad frame = new habilidad();
+        //frame.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_backActionPerformed
     // Método que maneja la búsqueda de un alumno

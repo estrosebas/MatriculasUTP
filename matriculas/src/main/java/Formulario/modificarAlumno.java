@@ -190,9 +190,9 @@ public class modificarAlumno extends javax.swing.JFrame {
         });
         jPanel1.add(save, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 500, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backe.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backe vertical.jpg"))); // NOI18N
         jLabel1.setText("r");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 470));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 530));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -200,8 +200,8 @@ public class modificarAlumno extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
-        alumnos back = new alumnos();
-        back.setVisible(true);
+        //menuunitario back = new menuunitario();
+        //back.setVisible(true);
         this.setVisible(false); // Oculta el JFrame actual
     }//GEN-LAST:event_backActionPerformed
     // Método que maneja la búsqueda de un alumno
