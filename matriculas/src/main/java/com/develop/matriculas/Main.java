@@ -6,7 +6,6 @@ package com.develop.matriculas;
 
 import Formulario.*;
 import Datos.*;
-import Entidad.*;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 /**
