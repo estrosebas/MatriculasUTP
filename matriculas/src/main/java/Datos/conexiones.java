@@ -41,7 +41,7 @@ public class conexiones {
             JOptionPane.showMessageDialog(null, "Error al conectar con la base de datos", "Error de Conexión", JOptionPane.ERROR_MESSAGE);
         }
     }
-
+    
     private void verificarCrearDirectorio() {
         Path path = FileSystems.getDefault().getPath(DIRECTORIO_MATRICULAS);
         if (Files.notExists(path)) {
@@ -68,7 +68,7 @@ public class conexiones {
             }
         } catch (SQLException e) {
             e.printStackTrace(); // O manejo adecuado de excepciones
-            JOptionPane.showMessageDialog(null, "Error al establecer la conexión", "Error de Conexión", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Error al hacer la conexión", "Error de Conexión", JOptionPane.ERROR_MESSAGE);
         }
     }
 
