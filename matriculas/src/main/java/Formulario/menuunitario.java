@@ -10,6 +10,8 @@ import Entidad.*;
 import Datos.*;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
+import java.awt.Image;
+import java.awt.Toolkit;
 
 /**
  *
@@ -25,15 +27,17 @@ public class menuunitario extends javax.swing.JFrame {
     public menuunitario() {
         initComponents();
         setLocationRelativeTo(null);
-        //
-        
-
-        //
+        setTitle("Sistema matriculas");
         consultaralumnos();
         consultarRepresentantes();
         consultarMatriculas();
         consultarDistritosalum();
         consultarDistritosrepres();
+    }
+
+    public Image getIconImage() {
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("beca.png"));
+        return retValue;
     }
 
     /**
@@ -109,7 +113,7 @@ public class menuunitario extends javax.swing.JFrame {
         jPanel15 = new javax.swing.JPanel();
         jPanel20 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        TablaMatriculas = new javax.swing.JTable();
+        TablaMatriculass = new javax.swing.JTable();
         jLabel16 = new javax.swing.JLabel();
         jPanel21 = new javax.swing.JPanel();
         Registrar = new javax.swing.JButton();
@@ -145,6 +149,7 @@ public class menuunitario extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(getIconImage());
         setLocationByPlatform(true);
         setUndecorated(true);
 
@@ -310,6 +315,7 @@ public class menuunitario extends javax.swing.JFrame {
         Distritosboton2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel29.setBackground(new java.awt.Color(0, 128, 128));
+        jPanel29.setForeground(new java.awt.Color(0, 128, 128));
         jPanel29.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel29.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -322,11 +328,6 @@ public class menuunitario extends javax.swing.JFrame {
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
                 jPanel29MouseExited(evt);
-            }
-        });
-        jPanel29.addComponentListener(new java.awt.event.ComponentAdapter() {
-            public void componentMoved(java.awt.event.ComponentEvent evt) {
-                jPanel29ComponentMoved(evt);
             }
         });
         jPanel29.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -811,7 +812,7 @@ public class menuunitario extends javax.swing.JFrame {
         jPanel20.setBackground(new java.awt.Color(51, 255, 255));
         jPanel20.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        TablaMatriculas.setModel(new javax.swing.table.DefaultTableModel(
+        TablaMatriculass.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
                 {null, null, null, null, null, null, null},
@@ -830,7 +831,7 @@ public class menuunitario extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane3.setViewportView(TablaMatriculas);
+        jScrollPane3.setViewportView(TablaMatriculass);
 
         jPanel20.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 615, 265));
 
@@ -1957,10 +1958,6 @@ public class menuunitario extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jPanel2MouseDragged
 
-    private void jPanel29ComponentMoved(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_jPanel29ComponentMoved
-        jPanel29.setBackground(new Color(255, 255, 255));
-    }//GEN-LAST:event_jPanel29ComponentMoved
-
     private void jPanel29MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel29MouseMoved
         jPanel29.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_jPanel29MouseMoved
@@ -1970,7 +1967,7 @@ public class menuunitario extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel30MouseMoved
 
     private void jPanel29MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel29MouseExited
-        jPanel29.setBackground(new Color(0,128,128));
+        jPanel29.setBackground(new Color(0, 128, 128));
     }//GEN-LAST:event_jPanel29MouseExited
 
     private void jPanel30MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel30MouseExited
@@ -1980,23 +1977,32 @@ public class menuunitario extends javax.swing.JFrame {
     private void jPanel29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel29MouseClicked
         JOptionPane.showMessageDialog(null, "Cambiando a version local!");
         conexiones conec = new conexiones();
-        conec.cambiarLocal();
-        consultaralumnos();
-        consultarRepresentantes();
-        consultarMatriculas();
-        consultarDistritosalum();
-        consultarDistritosrepres();
+        try {
+            conec.cambiarLocal();
+            consultaralumnos();
+            consultarRepresentantes();
+            consultarMatriculas();
+            consultarDistritosalum();
+            consultarDistritosrepres();
+        } catch (Exception ex) {
+
+        }
     }//GEN-LAST:event_jPanel29MouseClicked
 
     private void jPanel30MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel30MouseClicked
         JOptionPane.showMessageDialog(null, "Cambiando a version servidor!");
         conexiones conec = new conexiones();
         conec.cambiarServidor();
-        consultaralumnos();
-        consultarRepresentantes();
-        consultarMatriculas();
-        consultarDistritosalum();
-        consultarDistritosrepres();
+        try {
+            conec.cambiarServidor();
+            consultaralumnos();
+            consultarRepresentantes();
+            consultarMatriculas();
+            consultarDistritosalum();
+            consultarDistritosrepres();
+        } catch (Exception ex) {
+
+        }
     }//GEN-LAST:event_jPanel30MouseClicked
 
     /**
@@ -2096,14 +2102,14 @@ public class menuunitario extends javax.swing.JFrame {
 
         MatriculaDAO matriculaDAO = new MatriculaDAO();
         List<Matricula> listaMatriculas = matriculaDAO.obtenerTodasLasMatriculas();
-        DefaultTableModel modeloMatriculaswa = (DefaultTableModel) TablaMatriculas.getModel();
-        while (modeloMatriculaswa.getRowCount() > 0) {
-            modeloMatriculaswa.removeRow(0);
+        DefaultTableModel modeloMatriculas = (DefaultTableModel) TablaMatriculass.getModel();
+        while (modeloMatriculas.getRowCount() > 0) {
+            modeloMatriculas.removeRow(0);
         }
 
         // Iterar sobre la lista de alumnos y agregarlos a la tabla
         for (Matricula matricula : listaMatriculas) {
-            Object[] estudiante = new Object[]{
+            Object[] datosmatricula = new Object[]{
                 matricula.getId_Matricula(),
                 matricula.getId_Alumno(),
                 matricula.getNivel_m(),
@@ -2112,10 +2118,10 @@ public class menuunitario extends javax.swing.JFrame {
                 matricula.getMetodo_Pago(),
                 matricula.getMonto_Pago()
             };
-            modeloMatriculaswa.addRow(estudiante);
+            modeloMatriculas.addRow(datosmatricula);
         }
 
-        TablaMatriculas.setModel(modeloMatriculaswa);
+        TablaMatriculass.setModel(modeloMatriculas);
     }
 
     void consultarDistritosalum() {
@@ -2183,7 +2189,7 @@ public class menuunitario extends javax.swing.JFrame {
     private javax.swing.JTable Tabla;
     private javax.swing.JTable Tabla2;
     private javax.swing.JTable TablaDistritoAlum;
-    private javax.swing.JTable TablaMatriculas;
+    private javax.swing.JTable TablaMatriculass;
     private javax.swing.JButton Telefonos;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
