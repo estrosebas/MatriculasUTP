@@ -32,6 +32,7 @@ public class conexiones {
             if (eleccion == null) {
                 // Si no se encuentra la opción, establecer la conexión por defecto a servidor y escribir en el archivo
                 eleccion = "servidor";
+                System.out.println("usando version servidor");
                 escribirOpcionConexion(eleccion);
             }
             establecerConexionSegunOpcion(eleccion);
@@ -71,7 +72,7 @@ public class conexiones {
         }
     }
 
-    private String leerOpcionConexionDesdeArchivo() {
+    public String leerOpcionConexionDesdeArchivo() {
         try (BufferedReader br = new BufferedReader(new FileReader(ARCHIVO_CONFIG))) {
             return br.readLine();
         } catch (IOException e) {
@@ -102,6 +103,15 @@ public class conexiones {
             bw.write(eleccion);
         } catch (IOException e) {
             e.printStackTrace(); // Manejo adecuado de excepciones
+        }
+    }
+    public boolean verificarConexionLocal() {
+        try {
+            // Intentar establecer conexión local sin realmente conectarse
+            DriverManager.getConnection("jdbc:mysql://localhost:3306/matriculas", "root", "").close();
+            return true;
+        } catch (SQLException e) {
+            return false;
         }
     }
 }
