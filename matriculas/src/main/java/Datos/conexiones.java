@@ -19,7 +19,7 @@ import java.sql.SQLException;
 
 public class conexiones {
    private static final String DIRECTORIO_MATRICULAS = "C:\\matriculas";
-    private static final String ARCHIVO_CONFIG = DIRECTORIO_MATRICULAS + "\\config.txt"; // Ruta al archivo de configuración
+   private static final String ARCHIVO_CONFIG = DIRECTORIO_MATRICULAS + "\\config.txt"; // Ruta al archivo de configuración
 
     Connection conexion;
 

@@ -12,6 +12,8 @@ import javax.swing.SwingUtilities;
  *
  * @author estrosebas
  */
+import Entidad.*;
+import Datos.*;
 
 public class Main {
 
@@ -33,10 +35,12 @@ public class Main {
                 iniciarInterfazGrafica();
             }
         });
-       
+            
+        
     }
     private static void iniciarInterfazGrafica() {
-        menuunitario menu = new menuunitario();
-        menu.setVisible(true);
+        //menuunitario menu = new menuunitario();
+        login loger = new login();
+        loger.setVisible(true);
     }
 }
