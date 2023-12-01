@@ -15,6 +15,7 @@ import java.awt.Toolkit;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -28,7 +29,7 @@ public class menuunitario extends javax.swing.JFrame {
     private static final String DIRECTORIO_MATRICULAS = "C:\\matriculas";
     private static final String ARCHIVO_SESION = DIRECTORIO_MATRICULAS + "\\sesion.txt"; // Ruta al archivo de configuración
     private static final String ARCHIVO_CONFIG = DIRECTORIO_MATRICULAS + "\\config.txt"; // Ruta al archivo de configuración
-
+    ImageIcon registrar = new ImageIcon(login.class.getResource("/registrar.png"));
     int Xmouse, Ymouse;
 
     public menuunitario() {
@@ -67,6 +68,7 @@ public class menuunitario extends javax.swing.JFrame {
             
             Login logI = dao.devolverNombre(codeadmini);
             usertesxt.setText("User : " + logI.getNombre());
+            jLabel14.setText("Bienvenido: " + logI.getNombre());
         } catch (IOException e) {
             e.printStackTrace(); // Manejo adecuado de excepciones
             return; //Retorna null si no se puede leer el archivo
@@ -118,6 +120,7 @@ public class menuunitario extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         jPanel19 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
@@ -191,7 +194,7 @@ public class menuunitario extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel3.setBackground(new java.awt.Color(0, 128, 128));
+        jPanel3.setBackground(new java.awt.Color(1, 167, 91));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
@@ -201,7 +204,7 @@ public class menuunitario extends javax.swing.JFrame {
         jSeparator1.setAlignmentY(1.0F);
         jPanel3.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 140, 10));
 
-        panelbotonMatriculas.setBackground(new java.awt.Color(0, 128, 128));
+        panelbotonMatriculas.setBackground(new java.awt.Color(1, 167, 91));
         panelbotonMatriculas.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         panelbotonMatriculas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelbotonMatriculas.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -219,16 +222,18 @@ public class menuunitario extends javax.swing.JFrame {
         });
         panelbotonMatriculas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel12.setBackground(new java.awt.Color(255, 255, 255));
         jLabel12.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Matriculas");
         panelbotonMatriculas.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 32, 80, -1));
 
         jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/matricula.png"))); // NOI18N
-        panelbotonMatriculas.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 50, 60));
+        panelbotonMatriculas.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 30, 40));
 
         jPanel3.add(panelbotonMatriculas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, 140, 80));
 
-        panelbotonRepresentantes.setBackground(new java.awt.Color(0, 128, 128));
+        panelbotonRepresentantes.setBackground(new java.awt.Color(1, 167, 91));
         panelbotonRepresentantes.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         panelbotonRepresentantes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelbotonRepresentantes.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -246,16 +251,18 @@ public class menuunitario extends javax.swing.JFrame {
         });
         panelbotonRepresentantes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel10.setBackground(new java.awt.Color(255, 255, 255));
         jLabel10.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Representantes");
         panelbotonRepresentantes.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 34, -1, -1));
 
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/repre.png"))); // NOI18N
-        panelbotonRepresentantes.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 50, 60));
+        panelbotonRepresentantes.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 30, 40));
 
         jPanel3.add(panelbotonRepresentantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 140, 80));
 
-        panelbotonAlumnos.setBackground(new java.awt.Color(0, 128, 128));
+        panelbotonAlumnos.setBackground(new java.awt.Color(1, 167, 91));
         panelbotonAlumnos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         panelbotonAlumnos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelbotonAlumnos.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -273,20 +280,22 @@ public class menuunitario extends javax.swing.JFrame {
         });
         panelbotonAlumnos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Alumnos");
         panelbotonAlumnos.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(54, 31, 80, -1));
 
         jLabel18.setIcon(new javax.swing.ImageIcon(getClass().getResource("/graduado.png"))); // NOI18N
-        panelbotonAlumnos.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 50, 60));
+        panelbotonAlumnos.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 30, 40));
 
         jPanel3.add(panelbotonAlumnos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 140, 80));
 
-        Distritosboton.setBackground(new java.awt.Color(0, 128, 128));
+        Distritosboton.setBackground(new java.awt.Color(1, 167, 91));
         Distritosboton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         Distritosboton.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel14.setBackground(new java.awt.Color(0, 128, 128));
+        jPanel14.setBackground(new java.awt.Color(1, 167, 91));
         jPanel14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel14.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -308,13 +317,15 @@ public class menuunitario extends javax.swing.JFrame {
         });
         jPanel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel11.setBackground(new java.awt.Color(255, 255, 255));
         jLabel11.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Distrito Alumno");
         jPanel14.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
 
-        Distritosboton.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 2, 87, 40));
+        Distritosboton.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 2, 90, 40));
 
-        jPanel17.setBackground(new java.awt.Color(0, 128, 128));
+        jPanel17.setBackground(new java.awt.Color(1, 167, 91));
         jPanel17.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel17.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -331,7 +342,9 @@ public class menuunitario extends javax.swing.JFrame {
         });
         jPanel17.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel15.setBackground(new java.awt.Color(255, 255, 255));
         jLabel15.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Distrito Repre");
         jPanel17.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
 
@@ -339,15 +352,15 @@ public class menuunitario extends javax.swing.JFrame {
 
         jLabel21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/distrito-electoral.png"))); // NOI18N
         jLabel21.setText("jLabel18");
-        Distritosboton.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 50, 60));
+        Distritosboton.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 30, 40));
 
         jPanel3.add(Distritosboton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 140, 80));
 
-        Distritosboton2.setBackground(new java.awt.Color(0, 128, 128));
+        Distritosboton2.setBackground(new java.awt.Color(1, 167, 91));
         Distritosboton2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         Distritosboton2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel29.setBackground(new java.awt.Color(0, 128, 128));
+        jPanel29.setBackground(new java.awt.Color(1, 167, 91));
         jPanel29.setForeground(new java.awt.Color(0, 128, 128));
         jPanel29.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel29.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -365,13 +378,15 @@ public class menuunitario extends javax.swing.JFrame {
         });
         jPanel29.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel32.setBackground(new java.awt.Color(255, 255, 255));
         jLabel32.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jLabel32.setForeground(new java.awt.Color(255, 255, 255));
         jLabel32.setText("BD Local");
         jPanel29.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
 
         Distritosboton2.add(jPanel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 2, 87, 40));
 
-        jPanel30.setBackground(new java.awt.Color(0, 128, 128));
+        jPanel30.setBackground(new java.awt.Color(1, 167, 91));
         jPanel30.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel30.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -388,7 +403,9 @@ public class menuunitario extends javax.swing.JFrame {
         });
         jPanel30.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel33.setBackground(new java.awt.Color(255, 255, 255));
         jLabel33.setFont(new java.awt.Font("Roboto", 0, 12)); // NOI18N
+        jLabel33.setForeground(new java.awt.Color(255, 255, 255));
         jLabel33.setText("BD Servidor");
         jPanel30.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
 
@@ -396,16 +413,19 @@ public class menuunitario extends javax.swing.JFrame {
 
         jLabel34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/database.png"))); // NOI18N
         jLabel34.setText("jLabel18");
-        Distritosboton2.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 50, 60));
+        Distritosboton2.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 30, 40));
 
         jPanel3.add(Distritosboton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 140, 140, 80));
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/logoMenu.png"))); // NOI18N
         jPanel3.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 80, 80));
 
+        usertesxt.setBackground(new java.awt.Color(255, 255, 255));
+        usertesxt.setForeground(new java.awt.Color(255, 255, 255));
         usertesxt.setText("User :");
         jPanel3.add(usertesxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 90, -1, -1));
 
+        databasetag.setForeground(new java.awt.Color(255, 255, 255));
         databasetag.setText("DB :");
         jPanel3.add(databasetag, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 110, -1, -1));
 
@@ -462,24 +482,35 @@ public class menuunitario extends javax.swing.JFrame {
 
         jPanel19.setBackground(new java.awt.Color(0, 0, 0,100));
 
+        jLabel14.setBackground(new java.awt.Color(255, 255, 255));
         jLabel14.setFont(new java.awt.Font("MingLiU_HKSCS-ExtB", 3, 36)); // NOI18N
-        jLabel14.setText("<html>Bienvenido al <br/>Sistema de matriculas</html>");
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setText("Bienvenido: ");
+
+        jLabel26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cuenta-de-usuario.png"))); // NOI18N
+        jLabel26.setText("jLabel26");
 
         javax.swing.GroupLayout jPanel19Layout = new javax.swing.GroupLayout(jPanel19);
         jPanel19.setLayout(jPanel19Layout);
         jPanel19Layout.setHorizontalGroup(
             jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel19Layout.createSequentialGroup()
-                .addGap(31, 31, 31)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel19Layout.createSequentialGroup()
+                .addContainerGap(30, Short.MAX_VALUE)
                 .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 553, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addGap(17, 17, 17))
+            .addGroup(jPanel19Layout.createSequentialGroup()
+                .addGap(228, 228, 228)
+                .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel19Layout.setVerticalGroup(
             jPanel19Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel19Layout.createSequentialGroup()
-                .addGap(93, 93, 93)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel19Layout.createSequentialGroup()
+                .addContainerGap(71, Short.MAX_VALUE)
+                .addComponent(jLabel26, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52)
                 .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(207, Short.MAX_VALUE))
+                .addGap(65, 65, 65))
         );
 
         jPanel4.add(jPanel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 600, 390));
@@ -520,6 +551,7 @@ public class menuunitario extends javax.swing.JFrame {
 
         jLabel4.setBackground(new java.awt.Color(0, 0, 0));
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Alumnos");
         jPanel6.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
@@ -701,6 +733,7 @@ public class menuunitario extends javax.swing.JFrame {
 
         jLabel7.setBackground(new java.awt.Color(0, 0, 0));
         jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Representantes");
         jPanel8.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
@@ -856,6 +889,7 @@ public class menuunitario extends javax.swing.JFrame {
 
         jLabel16.setBackground(new java.awt.Color(0, 0, 0));
         jLabel16.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("Matriculas");
         jPanel20.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
@@ -1038,6 +1072,7 @@ public class menuunitario extends javax.swing.JFrame {
 
         jLabel22.setBackground(new java.awt.Color(0, 0, 0));
         jLabel22.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
         jLabel22.setText("Distrito - Alumnos");
         jPanel11.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
@@ -1169,7 +1204,7 @@ public class menuunitario extends javax.swing.JFrame {
 
         jPanel18.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel22.setBackground(new java.awt.Color(51, 255, 255));
+        jPanel22.setBackground(new java.awt.Color(255, 255, 255));
         jPanel22.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tabladistritorepre.setModel(new javax.swing.table.DefaultTableModel(
@@ -1197,6 +1232,7 @@ public class menuunitario extends javax.swing.JFrame {
 
         jLabel24.setBackground(new java.awt.Color(0, 0, 0));
         jLabel24.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
         jLabel24.setText("Distrito - Representantes");
         jPanel22.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
@@ -1320,7 +1356,8 @@ public class menuunitario extends javax.swing.JFrame {
         jPanel22.add(jPanel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 610, 40));
 
         jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backe.jpg"))); // NOI18N
-        jPanel22.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -4, 700, 450));
+        jLabel25.setText("jLabel25");
+        jPanel22.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -4, 680, 450));
 
         jPanel18.add(jPanel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 670, 440));
 
@@ -1361,27 +1398,27 @@ public class menuunitario extends javax.swing.JFrame {
     }//GEN-LAST:event_salidaMouseExited
 
     private void panelbotonAlumnosMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelbotonAlumnosMouseMoved
-        panelbotonAlumnos.setBackground(new Color(255, 255, 255));
+        panelbotonAlumnos.setBackground(new Color(166, 49, 57));
     }//GEN-LAST:event_panelbotonAlumnosMouseMoved
 
     private void panelbotonRepresentantesMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelbotonRepresentantesMouseMoved
-        panelbotonRepresentantes.setBackground(new Color(255, 255, 255));
+        panelbotonRepresentantes.setBackground(new Color(166, 49, 57));
     }//GEN-LAST:event_panelbotonRepresentantesMouseMoved
 
     private void panelbotonMatriculasMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelbotonMatriculasMouseMoved
-        panelbotonMatriculas.setBackground(new Color(255, 255, 255));
+        panelbotonMatriculas.setBackground(new Color(166, 49, 57));
     }//GEN-LAST:event_panelbotonMatriculasMouseMoved
 
     private void panelbotonAlumnosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelbotonAlumnosMouseExited
-        panelbotonAlumnos.setBackground(new Color(0, 128, 128));
+        panelbotonAlumnos.setBackground(new Color(1,167,91));
     }//GEN-LAST:event_panelbotonAlumnosMouseExited
 
     private void panelbotonRepresentantesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelbotonRepresentantesMouseExited
-        panelbotonRepresentantes.setBackground(new Color(0, 128, 128));
+        panelbotonRepresentantes.setBackground(new Color(1,167,91));
     }//GEN-LAST:event_panelbotonRepresentantesMouseExited
 
     private void panelbotonMatriculasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelbotonMatriculasMouseExited
-        panelbotonMatriculas.setBackground(new Color(0, 128, 128));
+        panelbotonMatriculas.setBackground(new Color(1,167,91));
     }//GEN-LAST:event_panelbotonMatriculasMouseExited
 
     private void panelbotonAlumnosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelbotonAlumnosMouseClicked
@@ -1393,19 +1430,19 @@ public class menuunitario extends javax.swing.JFrame {
     }//GEN-LAST:event_panelbotonRepresentantesMouseClicked
 
     private void jPanel14MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel14MouseMoved
-        jPanel14.setBackground(new Color(255, 255, 255));
+        jPanel14.setBackground(new Color(166, 49, 57));
     }//GEN-LAST:event_jPanel14MouseMoved
 
     private void jPanel17MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel17MouseMoved
-        jPanel17.setBackground(new Color(255, 255, 255));
+        jPanel17.setBackground(new Color(166, 49, 57));
     }//GEN-LAST:event_jPanel17MouseMoved
 
     private void jPanel14MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel14MouseExited
-        jPanel14.setBackground(new Color(0, 128, 128));
+        jPanel14.setBackground(new Color(1,167,91));
     }//GEN-LAST:event_jPanel14MouseExited
 
     private void jPanel17MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel17MouseExited
-        jPanel17.setBackground(new Color(0, 128, 128));
+        jPanel17.setBackground(new Color(1,167,91));
     }//GEN-LAST:event_jPanel17MouseExited
 
     private void panelbotonMatriculasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelbotonMatriculasMouseClicked
@@ -1771,7 +1808,7 @@ public class menuunitario extends javax.swing.JFrame {
     }//GEN-LAST:event_modificarAlumnoMouseMoved
 
     private void RegistrarAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistrarAlumnosActionPerformed
-
+      //
         String dniStr = JOptionPane.showInputDialog(this, "Ingrese DNI del Alumno:");
         int dni = Integer.parseInt(dniStr);  // Convertir la entrada a int. Podría lanzar NumberFormatException.
         String nombre = JOptionPane.showInputDialog(this, "Ingrese Nombre del Alumno:");
@@ -2010,19 +2047,20 @@ public class menuunitario extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel2MouseDragged
 
     private void jPanel29MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel29MouseMoved
-        jPanel29.setBackground(new Color(255, 255, 255));
+        jPanel29.setBackground(new Color(166, 49, 57));
+        
     }//GEN-LAST:event_jPanel29MouseMoved
 
     private void jPanel30MouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel30MouseMoved
-        jPanel30.setBackground(new Color(255, 255, 255));
+        jPanel30.setBackground(new Color(166, 49, 57));
     }//GEN-LAST:event_jPanel30MouseMoved
 
     private void jPanel29MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel29MouseExited
-        jPanel29.setBackground(new Color(0, 128, 128));
+        jPanel29.setBackground(new Color(1,167,91));
     }//GEN-LAST:event_jPanel29MouseExited
 
     private void jPanel30MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel30MouseExited
-        jPanel30.setBackground(new Color(0, 128, 128));
+        jPanel30.setBackground(new Color(1,167,91));
     }//GEN-LAST:event_jPanel30MouseExited
 
     private void jPanel29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel29MouseClicked
@@ -2271,6 +2309,7 @@ public class menuunitario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;

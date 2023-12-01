@@ -8,12 +8,14 @@ import Entidad.Login;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-
+import javax.swing.*;
 public class login extends javax.swing.JFrame {
 
     private static final String DIRECTORIO_MATRICULAS = "C:\\matriculas";
     private static final String ARCHIVO_SESION = DIRECTORIO_MATRICULAS + "\\sesion.txt"; // Ruta al archivo de configuración
-
+    ImageIcon iconoPersonalizado = new ImageIcon(login.class.getResource("/cheque.png"));
+    ImageIcon iconoPersonalizadoAlerta = new ImageIcon(login.class.getResource("/alerta.png"));
+//ImageIcon iconoPersonalizado = new ImageIcon(getImage(getClass().getResource("/beca.png"));
     int xMouse, yMouse;
 
     public login() {
@@ -29,7 +31,6 @@ public class login extends javax.swing.JFrame {
         return retValue;
     }
 
-    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -289,7 +290,7 @@ public class login extends javax.swing.JFrame {
 
             if (contrasenaIngresada.equals(passAlmacenada)) {
                 // Contraseña correcta, sesión exitosa
-                javax.swing.JOptionPane.showMessageDialog(this, "Sesión exitosa", "LOGIN", javax.swing.JOptionPane.INFORMATION_MESSAGE);
+                javax.swing.JOptionPane.showMessageDialog(this, "Sesión exitosa", "LOGIN", javax.swing.JOptionPane.INFORMATION_MESSAGE, iconoPersonalizado);
                 int archivoid = sesion.getId_admini();
                 escribirNumSesion(archivoid);
                 menuunitario frame = new menuunitario();
@@ -297,11 +298,11 @@ public class login extends javax.swing.JFrame {
                 this.setVisible(false);
             } else {
                 // Contraseña incorrecta
-                javax.swing.JOptionPane.showMessageDialog(this, "Contraseña incorrecta", "LOGIN", javax.swing.JOptionPane.ERROR_MESSAGE);
+                javax.swing.JOptionPane.showMessageDialog(this, "Contraseña incorrecta", "LOGIN", javax.swing.JOptionPane.ERROR_MESSAGE,iconoPersonalizadoAlerta);
             }
         } else {
             // Usuario no encontrado
-            javax.swing.JOptionPane.showMessageDialog(this, "Usuario no encontrado", "LOGIN", javax.swing.JOptionPane.ERROR_MESSAGE);
+            javax.swing.JOptionPane.showMessageDialog(this, "Usuario no encontrado", "LOGIN", javax.swing.JOptionPane.ERROR_MESSAGE,iconoPersonalizadoAlerta);
         }
     }//GEN-LAST:event_loginBtnTxtMouseClicked
 

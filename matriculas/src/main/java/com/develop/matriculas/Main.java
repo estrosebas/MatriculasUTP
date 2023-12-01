@@ -12,8 +12,7 @@ import javax.swing.SwingUtilities;
  *
  * @author estrosebas
  */
-import Entidad.*;
-import Datos.*;
+
 
 public class Main {
 
