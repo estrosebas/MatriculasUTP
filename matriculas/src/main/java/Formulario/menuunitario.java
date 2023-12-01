@@ -121,7 +121,6 @@ public class menuunitario extends javax.swing.JFrame {
         jPanel19 = new javax.swing.JPanel();
         jLabel14 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -134,7 +133,6 @@ public class menuunitario extends javax.swing.JFrame {
         BuscarAlumno = new javax.swing.JButton();
         HabilidadesAlumno = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
         jPanel13 = new javax.swing.JPanel();
         jPanel16 = new javax.swing.JPanel();
         jPanel8 = new javax.swing.JPanel();
@@ -148,7 +146,6 @@ public class menuunitario extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         Telefonos = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
-        jLabel8 = new javax.swing.JLabel();
         jPanel15 = new javax.swing.JPanel();
         jPanel20 = new javax.swing.JPanel();
         jLabel16 = new javax.swing.JLabel();
@@ -160,7 +157,6 @@ public class menuunitario extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         matriculitas = new javax.swing.JTable();
-        jLabel17 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
         jScrollPane4 = new javax.swing.JScrollPane();
@@ -172,7 +168,6 @@ public class menuunitario extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         Buscar2 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
-        jLabel23 = new javax.swing.JLabel();
         jPanel18 = new javax.swing.JPanel();
         jPanel22 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
@@ -184,8 +179,6 @@ public class menuunitario extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         Buscar3 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setIconImage(getIconImage());
@@ -194,7 +187,7 @@ public class menuunitario extends javax.swing.JFrame {
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel3.setBackground(new java.awt.Color(1, 167, 91));
+        jPanel3.setBackground(new java.awt.Color(164, 112, 86));
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jSeparator1.setBackground(new java.awt.Color(0, 0, 0));
@@ -204,7 +197,7 @@ public class menuunitario extends javax.swing.JFrame {
         jSeparator1.setAlignmentY(1.0F);
         jPanel3.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 130, 140, 10));
 
-        panelbotonMatriculas.setBackground(new java.awt.Color(1, 167, 91));
+        panelbotonMatriculas.setBackground(new java.awt.Color(164, 112, 86));
         panelbotonMatriculas.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         panelbotonMatriculas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelbotonMatriculas.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -233,7 +226,7 @@ public class menuunitario extends javax.swing.JFrame {
 
         jPanel3.add(panelbotonMatriculas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, 140, 80));
 
-        panelbotonRepresentantes.setBackground(new java.awt.Color(1, 167, 91));
+        panelbotonRepresentantes.setBackground(new java.awt.Color(164, 112, 86));
         panelbotonRepresentantes.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         panelbotonRepresentantes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelbotonRepresentantes.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -262,7 +255,7 @@ public class menuunitario extends javax.swing.JFrame {
 
         jPanel3.add(panelbotonRepresentantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 300, 140, 80));
 
-        panelbotonAlumnos.setBackground(new java.awt.Color(1, 167, 91));
+        panelbotonAlumnos.setBackground(new java.awt.Color(164, 112, 86));
         panelbotonAlumnos.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         panelbotonAlumnos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         panelbotonAlumnos.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -291,11 +284,11 @@ public class menuunitario extends javax.swing.JFrame {
 
         jPanel3.add(panelbotonAlumnos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 140, 80));
 
-        Distritosboton.setBackground(new java.awt.Color(1, 167, 91));
+        Distritosboton.setBackground(new java.awt.Color(164, 112, 86));
         Distritosboton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         Distritosboton.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel14.setBackground(new java.awt.Color(1, 167, 91));
+        jPanel14.setBackground(new java.awt.Color(164, 112, 86));
         jPanel14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel14.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -325,7 +318,7 @@ public class menuunitario extends javax.swing.JFrame {
 
         Distritosboton.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(48, 2, 90, 40));
 
-        jPanel17.setBackground(new java.awt.Color(1, 167, 91));
+        jPanel17.setBackground(new java.awt.Color(164, 112, 86));
         jPanel17.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel17.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -356,11 +349,11 @@ public class menuunitario extends javax.swing.JFrame {
 
         jPanel3.add(Distritosboton, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, 140, 80));
 
-        Distritosboton2.setBackground(new java.awt.Color(1, 167, 91));
+        Distritosboton2.setBackground(new java.awt.Color(164, 112, 86));
         Distritosboton2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         Distritosboton2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel29.setBackground(new java.awt.Color(1, 167, 91));
+        jPanel29.setBackground(new java.awt.Color(164, 112, 86));
         jPanel29.setForeground(new java.awt.Color(0, 128, 128));
         jPanel29.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel29.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
@@ -386,7 +379,7 @@ public class menuunitario extends javax.swing.JFrame {
 
         Distritosboton2.add(jPanel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(51, 2, 87, 40));
 
-        jPanel30.setBackground(new java.awt.Color(1, 167, 91));
+        jPanel30.setBackground(new java.awt.Color(164, 112, 86));
         jPanel30.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jPanel30.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
             public void mouseMoved(java.awt.event.MouseEvent evt) {
@@ -471,13 +464,13 @@ public class menuunitario extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Arial", 3, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/banner.jpg"))); // NOI18N
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, 680, 100));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, -1, 100));
 
-        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 100));
+        jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 810, 100));
 
         multimenus.setBackground(new java.awt.Color(0, 0, 0,100));
 
-        jPanel4.setBackground(new java.awt.Color(0, 0, 0,100));
+        jPanel4.setBackground(new java.awt.Color(252, 241, 225));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel19.setBackground(new java.awt.Color(0, 0, 0,100));
@@ -515,15 +508,12 @@ public class menuunitario extends javax.swing.JFrame {
 
         jPanel4.add(jPanel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, 600, 390));
 
-        jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backe.jpg"))); // NOI18N
-        jPanel4.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 670, 440));
-
         multimenus.addTab("0", jPanel4);
 
         jPanel5.setBackground(new java.awt.Color(0, 0, 0,100));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel6.setBackground(new java.awt.Color(255, 255, 255,100));
+        jPanel6.setBackground(new java.awt.Color(252, 241, 225));
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Tabla.setModel(new javax.swing.table.DefaultTableModel(
@@ -551,7 +541,7 @@ public class menuunitario extends javax.swing.JFrame {
 
         jLabel4.setBackground(new java.awt.Color(0, 0, 0));
         jLabel4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Alumnos");
         jPanel6.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
@@ -693,9 +683,6 @@ public class menuunitario extends javax.swing.JFrame {
 
         jPanel6.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 610, 40));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backe.jpg"))); // NOI18N
-        jPanel6.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 450));
-
         jPanel5.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 450));
 
         multimenus.addTab("1", jPanel5);
@@ -705,7 +692,7 @@ public class menuunitario extends javax.swing.JFrame {
         jPanel16.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
         jPanel13.add(jPanel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        jPanel8.setBackground(new java.awt.Color(51, 255, 255));
+        jPanel8.setBackground(new java.awt.Color(252, 241, 225));
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Tabla2.setModel(new javax.swing.table.DefaultTableModel(
@@ -733,7 +720,7 @@ public class menuunitario extends javax.swing.JFrame {
 
         jLabel7.setBackground(new java.awt.Color(0, 0, 0));
         jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Representantes");
         jPanel8.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
@@ -875,21 +862,18 @@ public class menuunitario extends javax.swing.JFrame {
 
         jPanel8.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 610, 40));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backe.jpg"))); // NOI18N
-        jPanel8.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -4, 680, 460));
-
-        jPanel13.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 670, 440));
+        jPanel13.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 440));
 
         multimenus.addTab("2", jPanel13);
 
         jPanel15.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel20.setBackground(new java.awt.Color(51, 255, 255));
+        jPanel20.setBackground(new java.awt.Color(252, 241, 225));
         jPanel20.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel16.setBackground(new java.awt.Color(0, 0, 0));
         jLabel16.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
         jLabel16.setText("Matriculas");
         jPanel20.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
@@ -1035,16 +1019,13 @@ public class menuunitario extends javax.swing.JFrame {
 
         jPanel20.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, 610, 260));
 
-        jLabel17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backe.jpg"))); // NOI18N
-        jPanel20.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -4, 700, 450));
-
         jPanel15.add(jPanel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 670, 440));
 
         multimenus.addTab("3", jPanel15);
 
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel11.setBackground(new java.awt.Color(51, 255, 255));
+        jPanel11.setBackground(new java.awt.Color(252, 241, 225));
         jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         TablaDistritoAlum.setModel(new javax.swing.table.DefaultTableModel(
@@ -1072,7 +1053,7 @@ public class menuunitario extends javax.swing.JFrame {
 
         jLabel22.setBackground(new java.awt.Color(0, 0, 0));
         jLabel22.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel22.setForeground(new java.awt.Color(0, 0, 0));
         jLabel22.setText("Distrito - Alumnos");
         jPanel11.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
@@ -1195,16 +1176,13 @@ public class menuunitario extends javax.swing.JFrame {
 
         jPanel11.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 610, 40));
 
-        jLabel23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backe.jpg"))); // NOI18N
-        jPanel11.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, -4, 700, 450));
-
         jPanel10.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 670, 440));
 
         multimenus.addTab("4", jPanel10);
 
         jPanel18.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel22.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel22.setBackground(new java.awt.Color(252, 241, 225));
         jPanel22.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tabladistritorepre.setModel(new javax.swing.table.DefaultTableModel(
@@ -1232,7 +1210,7 @@ public class menuunitario extends javax.swing.JFrame {
 
         jLabel24.setBackground(new java.awt.Color(0, 0, 0));
         jLabel24.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel24.setForeground(new java.awt.Color(0, 0, 0));
         jLabel24.setText("Distrito - Representantes");
         jPanel22.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
@@ -1355,24 +1333,17 @@ public class menuunitario extends javax.swing.JFrame {
 
         jPanel22.add(jPanel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 340, 610, 40));
 
-        jLabel25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/backe.jpg"))); // NOI18N
-        jLabel25.setText("jLabel25");
-        jPanel22.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, -4, 680, 450));
-
         jPanel18.add(jPanel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 670, 440));
 
         multimenus.addTab("5", jPanel18);
 
         jPanel1.add(multimenus, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 670, 470));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/meni.jpg"))); // NOI18N
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 550));
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 814, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1410,15 +1381,15 @@ public class menuunitario extends javax.swing.JFrame {
     }//GEN-LAST:event_panelbotonMatriculasMouseMoved
 
     private void panelbotonAlumnosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelbotonAlumnosMouseExited
-        panelbotonAlumnos.setBackground(new Color(1,167,91));
+        panelbotonAlumnos.setBackground(new Color(164,112,86));
     }//GEN-LAST:event_panelbotonAlumnosMouseExited
 
     private void panelbotonRepresentantesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelbotonRepresentantesMouseExited
-        panelbotonRepresentantes.setBackground(new Color(1,167,91));
+        panelbotonRepresentantes.setBackground(new Color(164,112,86));
     }//GEN-LAST:event_panelbotonRepresentantesMouseExited
 
     private void panelbotonMatriculasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelbotonMatriculasMouseExited
-        panelbotonMatriculas.setBackground(new Color(1,167,91));
+        panelbotonMatriculas.setBackground(new Color(164,112,86));
     }//GEN-LAST:event_panelbotonMatriculasMouseExited
 
     private void panelbotonAlumnosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelbotonAlumnosMouseClicked
@@ -1438,11 +1409,11 @@ public class menuunitario extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel17MouseMoved
 
     private void jPanel14MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel14MouseExited
-        jPanel14.setBackground(new Color(1,167,91));
+        jPanel14.setBackground(new Color(164,112,86));
     }//GEN-LAST:event_jPanel14MouseExited
 
     private void jPanel17MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel17MouseExited
-        jPanel17.setBackground(new Color(1,167,91));
+        jPanel17.setBackground(new Color(164,112,86));
     }//GEN-LAST:event_jPanel17MouseExited
 
     private void panelbotonMatriculasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelbotonMatriculasMouseClicked
@@ -2056,11 +2027,11 @@ public class menuunitario extends javax.swing.JFrame {
     }//GEN-LAST:event_jPanel30MouseMoved
 
     private void jPanel29MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel29MouseExited
-        jPanel29.setBackground(new Color(1,167,91));
+        jPanel29.setBackground(new Color(164,112,86));
     }//GEN-LAST:event_jPanel29MouseExited
 
     private void jPanel30MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel30MouseExited
-        jPanel30.setBackground(new Color(1,167,91));
+        jPanel30.setBackground(new Color(164,112,86));
     }//GEN-LAST:event_jPanel30MouseExited
 
     private void jPanel29MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel29MouseClicked
@@ -2291,24 +2262,19 @@ public class menuunitario extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel32;
@@ -2316,9 +2282,7 @@ public class menuunitario extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel10;
