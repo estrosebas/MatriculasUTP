@@ -9,6 +9,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import javax.swing.*;
+
 public class login extends javax.swing.JFrame {
 
     private static final String DIRECTORIO_MATRICULAS = "C:\\matriculas";
@@ -293,16 +294,28 @@ public class login extends javax.swing.JFrame {
                 javax.swing.JOptionPane.showMessageDialog(this, "Sesión exitosa", "LOGIN", javax.swing.JOptionPane.INFORMATION_MESSAGE, iconoPersonalizado);
                 int archivoid = sesion.getId_admini();
                 escribirNumSesion(archivoid);
-                menuunitario frame = new menuunitario();
-                frame.setVisible(true);
-                this.setVisible(false);
+
+                Object[] options = {"Asistencia", "Matrículas"};
+                int choice = JOptionPane.showOptionDialog(null, "Seleccione una opción", "Elegir", JOptionPane.DEFAULT_OPTION,
+                        JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
+
+                if (choice == 0) {
+                    AsistenciaMenu frame = new AsistenciaMenu();
+                    frame.setVisible(true);
+                    this.setVisible(false);
+                } else if (choice == 1) {
+                    menuunitario frame = new menuunitario();
+                    frame.setVisible(true);
+                    this.setVisible(false);
+                    
+                }
             } else {
                 // Contraseña incorrecta
-                javax.swing.JOptionPane.showMessageDialog(this, "Contraseña incorrecta", "LOGIN", javax.swing.JOptionPane.ERROR_MESSAGE,iconoPersonalizadoAlerta);
+                javax.swing.JOptionPane.showMessageDialog(this, "Contraseña incorrecta", "LOGIN", javax.swing.JOptionPane.ERROR_MESSAGE, iconoPersonalizadoAlerta);
             }
         } else {
             // Usuario no encontrado
-            javax.swing.JOptionPane.showMessageDialog(this, "Usuario no encontrado", "LOGIN", javax.swing.JOptionPane.ERROR_MESSAGE,iconoPersonalizadoAlerta);
+            javax.swing.JOptionPane.showMessageDialog(this, "Usuario no encontrado", "LOGIN", javax.swing.JOptionPane.ERROR_MESSAGE, iconoPersonalizadoAlerta);
         }
     }//GEN-LAST:event_loginBtnTxtMouseClicked
 

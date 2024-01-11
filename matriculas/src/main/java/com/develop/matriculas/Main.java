@@ -5,15 +5,17 @@
 package com.develop.matriculas;
 
 import Formulario.*;
+
 import Datos.*;
+import Entidad.*;
+import java.sql.Date;
 import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
+
 /**
  *
  * @author estrosebas
  */
-
-
 public class Main {
 
     public static void main(String[] args) {
@@ -34,9 +36,19 @@ public class Main {
                 iniciarInterfazGrafica();
             }
         });
-            
-        
+         
+/*
+ int idAlumno = 1; // Reemplaza con el valor adecuado
+        Date fechaHora = new Date(System.currentTimeMillis()); // Puedes ajustar esto según la fecha que desees
+        Boolean llegadaTemprano = true; // Reemplaza con el valor adecuado
+
+// Crear una instancia de Asistencia utilizando el constructor
+        Asistencia nuevaAsistencia = new Asistencia(idAlumno, fechaHora, llegadaTemprano);
+        AsistenciaDAO control = new AsistenciaDAO();
+        control.obtenerAsistenciaPorDNI(72084190);
+         *//*consulta asitencia*/
     }
+
     private static void iniciarInterfazGrafica() {
         //menuunitario menu = new menuunitario();
         login loger = new login();
